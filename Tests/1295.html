@@ -1,0 +1,34 @@
+<!doctype html>
+<html class="no-js" lang="" xmlns="http://www.w3.org/1999/html">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>Test</title>
+    </head>
+    <body>
+        <script type="text/javascript">
+
+            var GoogleConversionID = 123;
+            var PageCategory = "PageCategory";
+            var ProductID = 234;
+            var ProductValue = 89;
+
+
+            window.google_tag_params = {
+              ecomm_prodid: ProductID,
+              ecomm_pagetype: PageCategory,
+              ecomm_pvalue: ProductValue
+            };
+
+            window.google_conversion_id = GoogleConversionID;
+            window.google_custom_params = window.google_tag_params;
+            window.google_remarketing_only = true;
+
+            var script = document.createElement('script');
+            script.type = "text/javascript";
+            script.src = "http://www.googleadservices.com/pagead/conversion.js";
+            document.head.appendChild(script);
+        </script>
+
+    </body>
+</html>
