@@ -1,0 +1,42 @@
+<!doctype html>
+<html class="no-js" lang="" xmlns="http://www.w3.org/1999/html">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>Test</title>
+    </head>
+    <body>
+        <script type="text/javascript">
+
+            var AdRollAdvertiserID = 123;
+            var AdRollPixelID = 15;
+            var TransactionOrderTotal = 23435;
+            var TransactionOrderID = 2341;
+            var TransactionUserID = 436;
+
+
+            window.adroll_adv_id = "" + AdRollAdvertiserID;
+            window.adroll_pix_id = "" + AdRollPixelID;
+            window.adroll_conversion_value_in_dollars = TransactionOrderTotal;
+            window.adroll_custom_data = {
+              "ORDER_ID": "" + TransactionOrderID,
+              "USER_ID": "" + TransactionUserID
+            };
+
+            var oldonload = window.onload;
+            window.onload = function() {
+              window.__adroll_loaded = true;
+              var scr = document.createElement("script");
+              var host = (("https:" === document.location.protocol) ?
+                "https://s.adroll.com" : "http://a.adroll.com");
+              scr.setAttribute('async', 'true');
+              scr.type = "text/javascript";
+              scr.src = host + "/j/roundtrip.js";
+              ((document.getElementsByTagName('head') || [null])[0] || document.getElementsByTagName(
+                'script')[0].parentNode).appendChild(scr);
+              if (oldonload) oldonload();
+            };
+        </script>
+
+    </body>
+</html>

@@ -1,0 +1,84 @@
+<!doctype html>
+<html class="no-js" lang="" xmlns="http://www.w3.org/1999/html">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>Test</title>
+    </head>
+    <body>
+        <script type="text/javascript">
+
+            var Web1b1FunctionScriptURL = "http://www.your-website.com/w1x1.jpg";
+            var Web1by1ConfigScriptURL = "";
+
+            var BasketSKUList = [4, 6, 23];
+            var BasketTotalsListNoVAT = [4, 6, 23];
+            var BasketTotalsListWithVAT = [43, 65, 223];
+            var BasketQuantitiesList = [1, 2, 3];
+            var BasketPricesList = [34, 2, 45];
+            var BasketVoucher = 35;
+
+
+            var _this = this;
+            var safeLoad = function(url, variable, cb) {
+              var isLoading = function() {
+                window._sfloadSrcs = window._sfloadSrcs || [];
+                for (var i = 0; i < window._sfloadSrcs; i++) {
+                  if (i.toLowerCase() == url.toLowerCase()) {
+                    return true;
+                  }
+                }
+                return false;
+              };
+
+              var waitForVariable = function() {
+                if (window[variable]) {
+                  cb();
+                } else {
+                  setTimeout(waitForVariable, 200);
+                }
+              };
+
+              var loadScript = function() {
+                var script = document.createElement("script");
+                script.type = "text/javascript";
+                script.src = url;
+                document.getElementsByTagName("head")[0].appendChild(script);
+                window._sfloadSrcs.push(url);
+                waitForVariable();
+              };
+
+              if (window[variable]) {
+                cb();
+              } else if (isLoading()) {
+                waitForVariable();
+              } else {
+                loadScript();
+              }
+
+            };
+
+            var run = function() {
+              for (var i = 0, ii = BasketSKUList.length; i < ii; i++) {
+                window.w1x1.scAdd(
+                  BasketSKUList[i],
+                  BasketQuantitiesList[i],
+                  BasketTotalsListNoVAT[i],
+                  BasketTotalsListWithVAT[i],
+                  BasketPricesList[i],
+                  BasketVoucher);
+              }
+              window.w1x1.scSend();
+            };
+
+            safeLoad("" + Web1b1FunctionScriptURL, "_w1x1",
+              function() {
+                safeLoad("" + Web1by1ConfigScriptURL, "w1x1",
+                  function() {
+                    run();
+                  });
+              });
+        </script>
+
+    </body>
+</html>

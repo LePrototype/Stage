@@ -1,0 +1,30 @@
+<!doctype html>
+<html class="no-js" lang="" xmlns="http://www.w3.org/1999/html">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>Test</title>
+    </head>
+    <body>
+        <script type="text/javascript">
+
+            var DrawbridgePartnerID = 123;
+            var DrawbridgePartnerSign = 21;
+            var DrawbridgeAppID = 87;
+            var DrawbridgeLabel = "DrawbridgeLabel";
+
+            window.drawbridge_partner_id  =  "" + DrawbridgePartnerID;
+            window.drawbridge_partner_sign  =  "" + DrawbridgePartnerSign;
+            window.drawbridge_app_id  =  "" + DrawbridgeAppID;
+            window.drawbridge_label  =  "" + DrawbridgeLabel;
+
+            (function() {
+                var DSLScript  = document.createElement("script");
+                DSLScript.src  = "http://api.adsymptotic.com/js/trackconversion.js";
+                DSLScript.type = "text/javascript";
+                document.body.appendChild(DSLScript);
+            })();
+        </script>
+
+    </body>
+</html>

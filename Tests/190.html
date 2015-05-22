@@ -1,0 +1,50 @@
+<!doctype html>
+<html class="no-js" lang="" xmlns="http://www.w3.org/1999/html">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>Test</title>
+    </head>
+    <body>
+        <script type="text/javascript">
+
+            var AccountID = 123;
+            var ChipKey = 15;
+
+
+            var _this = this;
+            if (typeof ADGEAR == "undefined") {
+              var proto = "http:";
+              var host = "cdna.runadtag.com";
+              var bucket = "";
+              if (window.location.protocol == "https:") {
+                proto = "https:";
+                host = "a.runadtag.com";
+                bucket = "";
+              }
+              ADGEAR_DONT_SAY_HELLO = true;
+
+              var __scS = document.createElement("script");
+              __scS.type = "text/javascript";
+              __scS.src = proto + '//' + host + '/adgear.js/current/adgear.js';
+              document.getElementsByTagName("body")[0].appendChild(__scS);
+
+              //waiting for script to load
+              var waitForAdgear = function() {
+                if (typeof ADGEAR != "undefined" && document.readyState == "complete") {
+                  ADGEAR.tags.conversion.init();
+                  ADGEAR.tags.conversion.embed({
+                    "id": "" + AccountID,
+                    "chip_key": "" + ChipKey,
+                    "revenue": null
+                  });
+                } else {
+                  setTimeout(waitForAdgear, 100);
+                }
+              };
+              waitForAdgear();
+            }
+        </script>
+
+    </body>
+</html>

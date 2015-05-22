@@ -1,0 +1,29 @@
+<!doctype html>
+<html class="no-js" lang="" xmlns="http://www.w3.org/1999/html">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>Test</title>
+    </head>
+    <body>
+        <script type="text/javascript">
+
+            var MontetateID = 123;
+            var MontetateDomain = "qubitproducts.com";
+
+
+            window.monetateT = new Date().getTime();
+            var p = document.location.protocol;
+            if (p == "http:" || p == "https:") {
+              var m = document.createElement('script');
+              m.type = 'text/javascript';
+              m.async = true;
+              m.src = (p == "https:" ? "https://s" : "http://") +
+                "b.monetate.net/js/1/" + MontetateID + "/p/" + MontetateDomain + "/" + Math.floor((monetateT + 2961942) / 3600000) + "/g";
+              var s = document.getElementsByTagName('script')[0];
+              s.parentNode.insertBefore(m, s);
+            }
+        </script>
+
+    </body>
+</html>

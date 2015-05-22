@@ -1,0 +1,49 @@
+<!doctype html>
+<html class="no-js" lang="" xmlns="http://www.w3.org/1999/html">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>Test</title>
+    </head>
+    <body>
+        <script type="text/javascript">
+
+            var Criteocallparametervalue = 15;
+            var Criteowiparameter = "CriteoWIParameter";
+            var OrderID = [342, 323, 65];
+            var ProductIDs = [4, 6, 23];
+            var ProductUnitSalePrices = [34, 2, 45];
+            var Quantities = [1, 2, 3];
+
+
+            var src = [
+              "https://", "sslwidget.criteo.com", "/",
+              "" + Criteocallparametervalue,
+              "/", "display.js?", "p1="
+            ];
+            var params = [
+              "v=2",
+              "&s=1",
+              "&wi=", "" + Criteowiparameter,
+              "&t=", "" + OrderID
+            ];
+
+            for (var i = 0; i < ProductIDs.length; i++) {
+              var index = i + 1;
+              params.push("&i" + index + "=" + ProductIDs[i]);
+              params.push("&p" + index + "=" + ProductUnitSalePrices[
+                i]);
+              params.push("&q" + index + "=" + Quantities[i]);
+            }
+            src.push(escape(params.join("")));
+            src.push("&t1=transaction&resptype=gif");
+
+            var img = document.createElement("img");
+            img.setAttribute("src", src.join(""));
+            img.setAttribute("height", "1");
+            img.setAttribute("width", "1");
+            document.body.appendChild(img);
+        </script>
+
+    </body>
+</html>

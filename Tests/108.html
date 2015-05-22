@@ -1,0 +1,34 @@
+<!doctype html>
+<html class="no-js" lang="" xmlns="http://www.w3.org/1999/html">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>Test</title>
+    </head>
+    <body>
+        <script type="text/javascript">
+
+            var CriteoSubdomainParameter = "mydomain.widget.critoe.com";
+            var CriteowiParameter = "CriteoWIParameter";
+            var CriteoCallParameter = 15;
+
+
+            var img = document.createElement("img");
+            var src = [
+              "//",
+              "" + CriteoSubdomainParameter,
+              "/",
+              "" + CriteoCallParameter,
+              "/display?",
+              "p1=",
+              escape("v=2&wi=" + CriteowiParameter + "&pt1=4"),
+              "&t1=sendevent&resptype=gif"
+            ];
+            img.setAttribute("src", src.join(""));
+            img.setAttribute("height", "1");
+            img.setAttribute("width", "1");
+            document.body.appendChild(img);
+        </script>
+
+    </body>
+</html>

@@ -1,0 +1,52 @@
+<!doctype html>
+<html class="no-js" lang="" xmlns="http://www.w3.org/1999/html">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>Test</title>
+    </head>
+    <body>
+        <script type="text/javascript">
+
+            var ArrayofproductSKUcodes = [4, 6, 23];
+            var ConversionID = 436;
+            var Quantity = 234;
+            var OrderID = [342, 323, 65];
+            var OrderValue = null;
+            var CustomerID = 436;
+            var PageType = "PageType";
+            var PaymentType = "PaymentType";
+            var ConversionType = "ConversionType";
+
+
+            var skus = [];
+            if (ArrayofproductSKUcodes.length) {
+              for (var i = 0; i < ArrayofproductSKUcodes.length; i++) {
+                "" + skus.push(ArrayofproductSKUcodes[i]);
+              }
+            } else {
+              skus = "";
+            }
+
+            var __chconv__ = {
+              "conversion_id": "" + ConversionID,
+              "quantity": Quantity,
+              "order_id": "" + OrderID,
+              "cost": OrderValue,
+              "u1": "" + CustomerID,
+              "u2": skus,
+              "u3": "" + PageType,
+              "u4": "" + PaymentType,
+              "u5": "" + ConversionType
+            };
+
+            var p = [];
+            for (var i in __chconv__) {
+              p.push(encodeURIComponent(i) + "=" + encodeURIComponent(__chconv__[i]))
+            }
+            (new Image()).src = document.location.protocol + '//as.chango.com/conv/i;' +
+              (new Date()).getTime() + '?' + p.join("&");
+        </script>
+
+    </body>
+</html>
