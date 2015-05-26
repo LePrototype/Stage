@@ -1,0 +1,38 @@
+<!doctype html>
+<html class="no-js" lang="" xmlns="http://www.w3.org/1999/html">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>Test</title>
+    </head>
+    <body>
+        <script type="text/javascript">
+
+            var MediaplexClientID = 436;
+            var PageName = "PageName";
+            var EventName = "EventName";
+            var PageCategory = "PageCategory";
+            var ProductSKU = 3;
+            var PageSubategory = "PageSubategory";
+
+
+
+            var frame = document.createElement("iframe");
+            var src = (document.location.protocol === "https:") ? "https://secure." :
+              "http://";
+            src = src + "img-cdn.mediaplex.com/0/" +
+              MediaplexClientID + "/universal.html?page_name=" +
+              PageName + "&" +
+              EventName + "=1&Primary_Category=" +
+              PageCategory + "&Sub_Category=" +
+              PageSubategory + "&SKU=" +
+              ProductSKU + "&mpuid=";
+            frame.src = src;
+            frame.height = 1;
+            frame.width = 1;
+            frame.frameborder = 0;
+            document.body.appendChild(frame);
+        </script>
+
+    </body>
+</html>

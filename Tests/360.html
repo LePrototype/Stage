@@ -1,0 +1,46 @@
+<!doctype html>
+<html class="no-js" lang="" xmlns="http://www.w3.org/1999/html">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>Test</title>
+    </head>
+    <body>
+        <script type="text/javascript">
+
+            var MediaplexClientID = 436;
+            var PageName = "PageName";
+            var EventName = "EventName";
+            var PageSubcategory = "PageSubcategory";
+            var OrderID = [342, 323, 65];
+            
+            var PageCategory = "PageCategory";
+
+            var ItemQuantityList = [123, 234, 345];
+            var Currency = "Currency";
+            var OrderTotal = 23435;
+
+
+
+            var item_count = 0;
+            for (var i = 0; i < ItemQuantityList.length; i++) {
+              item_count += ItemQuantityList[i];
+            }
+
+            var frame = document.createElement("iframe");
+            var src = "https://secure.img-cdn.mediaplex.com/0/" +
+              MediaplexClientID + "/universal.html?page_name=" +
+              PageName + "&" +
+              EventName + "=1&Currency=" +
+              Currency + "&Quantity=" + item_count + "&Amount=" +
+              OrderTotal + "&mpuid=" +
+              OrderID;
+            frame.src = src;
+            frame.height = 1;
+            frame.width = 1;
+            frame.frameborder = 0;
+            document.body.appendChild(frame);
+        </script>
+
+    </body>
+</html>

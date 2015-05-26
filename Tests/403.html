@@ -8,14 +8,17 @@
     <body>
         <script type="text/javascript">
 
-            var Account = 123;
-            var OrderID = 456;
-            var OrderTotal = 789;
+            var PixelID = 15;
+            var PartnerID = 123;
+            var ClientID = 436;
+
+
 
             (function() {
-                var DSLScript  = document.createElement("script");
-                DSLScript.src  = "http://nxtck.com/act.php?zid=" + Account + "&id=" + OrderID + "&mt=" + OrderTotal;
-                DSLScript.type = "text/javascript";
+                var DSLScript  = document.createElement("img");
+                DSLScript.src  = "http://conversion-pixel.invitemedia.com/pixel?pixelID=" + PixelID + "&partnerID=" + PartnerID + "&clientID=" + ClientID + "&key=conv&returnType=js";
+                DSLScript.width = "1";
+                DSLScript.height = "1";
                 document.body.appendChild(DSLScript);
             })();
         </script>

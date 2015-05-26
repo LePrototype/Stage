@@ -1,0 +1,27 @@
+<!doctype html>
+<html class="no-js" lang="" xmlns="http://www.w3.org/1999/html">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>Test</title>
+    </head>
+    <body>
+        <script type="text/javascript">
+
+            var BasketProductIDs = [4, 6, 23];
+            var mediaFORGEMerchantID = 123;
+            var BasketTotal = [4, 6, 23];
+
+
+            var script = document.createElement("script");
+            var productArr = [];
+            for (var i = 0; i < BasketProductIDs.length; i++) {
+              productArr.push(BasketProductIDs[i]);
+            }
+            var productIDs = productArr.join(",");
+            script.src = "//tags.mediaforge.com/js/" + mediaFORGEMerchantID +
+              "/?cart=" + BasketTotal + "&prodID=" + productIDs;
+            document.body.appendChild(script);
+        </script>
+    </body>
+</html>

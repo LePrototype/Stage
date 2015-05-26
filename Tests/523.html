@@ -8,14 +8,14 @@
     <body>
         <script type="text/javascript">
 
-            var Account = 123;
-            var OrderID = 456;
-            var OrderTotal = 789;
+            var VEInteractiveID = "12345678-1234-1234-1234-123456789012";
+
 
             (function() {
-                var DSLScript  = document.createElement("script");
-                DSLScript.src  = "http://nxtck.com/act.php?zid=" + Account + "&id=" + OrderID + "&mt=" + OrderTotal;
-                DSLScript.type = "text/javascript";
+                var DSLScript  = document.createElement("img");
+                DSLScript.src  = "http://drs2.veinteractive.com/DataReceiverService.asmx/Pixel?journeycode=" + VEInteractiveID;
+                DSLScript.width = "1";
+                DSLScript.height = "1";
                 document.body.appendChild(DSLScript);
             })();
         </script>

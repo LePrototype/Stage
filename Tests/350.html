@@ -1,0 +1,44 @@
+<!doctype html>
+<html class="no-js" lang="" xmlns="http://www.w3.org/1999/html">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>Test</title>
+    </head>
+    <body>
+        <script type="text/javascript">
+
+            var PixelId = 15;
+            var DoubleclickType = "DoubleclickType";
+            
+
+
+
+            var x = document.createElement("script");
+            x.src = (document.location.protocol === "https:") ?
+              "https:" + "//pix.impdesk.com/pixel/px.js?id=" + PixelId :
+              "http:" + "//pix.impdesk.com/pixel/px.js?id=" + PixelId;
+
+            x.type = "text/javascript";
+            x.async = true;
+            x.defer = true;
+            document.getElementsByTagName("head")[0].appendChild(x);
+
+            var y = document.createElement("script");
+            y.src = (document.location.protocol === "https:") ?
+              "https:" + "//secure-id.impressiondesk.com/seg?add=" + PixelId :
+              "http:" + "//secure-id.impressiondesk.com/seg?add=" + PixelId;
+
+            y.type = "text/javascript";
+            y.async = true;
+            y.defer = true;
+            document.getElementsByTagName("head")[0].appendChild(y);
+
+            var src = "https://ad.doubleclick.net/activity;src=l5daka65;type=" + DoubleclickType + ";cat=4277116;ord=1?"; //width="1" height="1" alt=""/>
+            var img = document.createElement("img");
+            img.setAttribute("src", src);
+            document.body.appendChild(img);
+        </script>
+
+    </body>
+</html>

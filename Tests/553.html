@@ -8,17 +8,16 @@
     <body>
         <script type="text/javascript">
 
-            var Account = 123;
-            var OrderID = 456;
-            var OrderTotal = 789;
+            var mediaFORGEMerchantID = 123;
+            var CategoryID = 234;
+
 
             (function() {
                 var DSLScript  = document.createElement("script");
-                DSLScript.src  = "http://nxtck.com/act.php?zid=" + Account + "&id=" + OrderID + "&mt=" + OrderTotal;
+                DSLScript.src  = "//tags.mediaforge.com/js/" + mediaFORGEMerchantID + "/?catID=" + CategoryID;
                 DSLScript.type = "text/javascript";
                 document.body.appendChild(DSLScript);
             })();
         </script>
-
     </body>
 </html>

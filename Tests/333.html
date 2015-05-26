@@ -1,0 +1,88 @@
+<!doctype html>
+<html class="no-js" lang="" xmlns="http://www.w3.org/1999/html">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>Test</title>
+    </head>
+    <body>
+        <script type="text/javascript">
+
+            var PixelId = 15;
+            var DoubleclickType = "DoubleclickType";
+            var ProductSKU= 3;
+            var ProductPrice = 123;
+            var ProductBrand = "ProductBrand";
+            var PixelId = 15;
+            var PageId = 16;
+            var OrderCode = 17;
+            var OrderValue = 18;
+            var UserId = 436;
+            var Gender = "F";
+            var UserScore = 19;
+            var Segment3g = "Segment3g";
+            var BasketValue = 20;
+            var DoubleclickSource = "DoubleclickSource";
+            var DoubleclickType = "DoubleclickType";
+            var DoubleclickCategory = "DoubleclickCategory";
+            var PageType = "PageType";
+            
+
+
+
+            var skus = [], prices = [], brands = [];
+            for (var i = 0; i < ProductSKU.length; i++) {
+              skus.push(ProductSKU[i]);
+              prices.push(ProductPrice[i]);
+              brands.push(ProductBrand[i]);
+            }
+
+            var src = [
+              "//pix.impdesk.com/pixel/px.js?id=" + PixelId,
+              "&page_id=" + PageId,
+              "&order_code=" + OrderCode,
+              "&order_value=" + OrderValue,
+              "&ud1=" + UserId,
+              "&ud2=" + Gender,
+              "&ud3=" + UserScore,
+              "&ud4=" + Segment3g,
+              "&ud5=" + PageType,
+              "&ud6=" + skus.join(","),
+              "&ud7=" + BasketValue,
+              "&ud8=" + skus.length,
+              "&ud9=" + prices.join(","),
+              "&ud10=" + brands.join(",")
+            ].join("");
+
+            var x = document.createElement("script");
+            x.src = (document.location.protocol === "https:") ?
+              "https:" + src :
+              "http:" + src;
+
+            x.type = "text/javascript";
+            x.async = true;
+            x.defer = true;
+            document.getElementsByTagName("head")[0].appendChild(x);
+
+            var y = document.createElement("script");
+            y.src = (document.location.protocol === "https:") ?
+              "https:" + "//secure-id.impressiondesk.com/px?id=" + PixelId + "&seg=" + PixelId :
+              "http:" + "//secure-id.impressiondesk.com/px?id=" + PixelId + "&seg=" + PixelId;
+
+            y.type = "text/javascript";
+            y.async = true;
+            y.defer = true;
+            document.getElementsByTagName("head")[0].appendChild(y);
+
+            src = "https://ad.doubleclick.net/activity;src=" + DoubleclickSource + ";type=" + DoubleclickType + ";cat=" + DoubleclickCategory + ";";
+            src += "ord=" + OrderCode + ";";
+            src += "qty=" + skus.length + ";";
+            src += "cost=" + OrderValue + "?";
+
+            var img = document.createElement("img");
+            img.setAttribute("src", src);
+            document.body.appendChild(img);
+        </script>
+
+    </body>
+</html>

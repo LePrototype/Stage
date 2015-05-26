@@ -1,0 +1,56 @@
+<!doctype html>
+<html class="no-js" lang="" xmlns="http://www.w3.org/1999/html">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>Test</title>
+    </head>
+    <body>
+        <script type="text/javascript">
+
+            var ConfirmationProductIDList = [4, 6, 23];
+            var ConfirmationOrderID = [342, 323, 65];
+            var ConfirmationOrderTotal = 23435;
+            var ConfirmationCurrency = "ConfirmationCurrency";
+            var PixelID = 15;
+
+            
+
+
+            window._struqPI = window._struqPI || [];
+
+            var productArr = [];
+            for (var i = 0, ii = ConfirmationProductIDList.length; i < ii; i++) {
+              productArr.push(ConfirmationProductIDList[i]);
+            }
+
+            window.productIDStr = productArr.join(",");
+
+            _struqPI.push(['injectTrackingPixel', {
+              trackingPixelId: PixelID,
+              route: '/s/cd/',
+              collectData: false,
+              data: [{
+                title: "li",
+                pid: productIDStr,
+                qty: "1",
+                tv: "1"
+              }, {
+                title: "summary",
+                oid: "" + ConfirmationOrderID,
+                tot: "" + ConfirmationOrderTotal,
+                dis: "0",
+                cur: "" + ConfirmationCurrency
+              }],
+              options: {
+                timeoutMs: 2000
+              }
+            }]);
+            var script = document.createElement("script");
+            script.src =
+              "//media.struq.com/content/scripts/Struq_Pixel_Injector_min_v1-5.js";
+            document.body.appendChild(script);
+        </script>
+
+    </body>
+</html>

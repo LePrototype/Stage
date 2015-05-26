@@ -8,13 +8,13 @@
     <body>
         <script type="text/javascript">
 
-            var Account = 123;
-            var OrderID = 456;
-            var OrderTotal = 789;
+            var ClientName = "ClientName";
+
+
 
             (function() {
                 var DSLScript  = document.createElement("script");
-                DSLScript.src  = "http://nxtck.com/act.php?zid=" + Account + "&id=" + OrderID + "&mt=" + OrderTotal;
+                DSLScript.src  = "http://d16fk4ms6rqz1v.cloudfront.net/capture/mobile/" + ClientName + ".js";
                 DSLScript.type = "text/javascript";
                 document.body.appendChild(DSLScript);
             })();

@@ -1,0 +1,78 @@
+<!doctype html>
+<html class="no-js" lang="" xmlns="http://www.w3.org/1999/html">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>Test</title>
+    </head>
+    <body>
+        <script type="text/javascript">
+
+            var AccountID = 123;
+            var CustomerID = 436;
+            var ConfirmationID = 2341;
+
+            var TrackPageView = false;
+            var PageViewID = 098;
+            var CategoryPageID = 987;
+            var ProductViewedID = 876;
+            var ProductAddedID = 765;
+            var ProductRemovedID = [09, 98, 87];
+            var BasketID = 654;
+            var TrackCheckoutStart = false;
+            var CheckoutID = 543;
+
+
+
+            var _this = this;
+            var _riTrack;
+
+            function _riInit() {
+              _riTrack = riTrack.init("" + AccountID);
+              var customerID = "" + CustomerID;
+              if (customerID.length)
+                _riTrack.setCustomer(customerID);
+              if (TrackPageView) {
+                var pageID = "" + PageViewID;
+                if (pageID.length)
+                  _riTrack.trackPageView(pageID);
+                else
+                  _riTrack.trackPageView();
+              }
+
+              var productCategory = "" + CategoryPageID;
+              if (productCategory.length)
+                _riTrack.trackViewProductCategory(productCategory);
+              var productViewedID = "" + ProductViewedID;
+              if (productViewedID.length)
+                _riTrack.trackViewProduct(productViewedID);
+              var productAddedID = "" + ProductAddedID;
+              if (productAddedID.length)
+                _riTrack.trackAddProductToCart(productAddedID);
+              for (var i = 0; i < ProductRemovedID.length; i++) {
+                _riTrack.trackRemoveProductFromCart(ProductRemovedID[i] + "");
+              }
+
+              var cartID = "" + BasketID;
+              if (cartID.length)
+                _riTrack.setCartID(cartID);
+              if (TrackCheckoutStart) {
+                var cartID = "" + CheckoutID;
+                if (cartID.length)
+                  _riTrack.trackCartCheckout(cartID);
+                else
+                  _riTrack.trackCartCheckout();
+              }
+
+              var confirmationID = "" + ConfirmationID;
+              if (confirmationID.length)
+                _riTrack.trackCartPurchased(confirmationID);
+            };
+            window._riTrack = _riTrack;
+            this.loadURL(window.location.protocol +
+              "//custom-wrs.api.responsys.net/ts-wrs/js/ri.min.js");
+            //</scr ipt><script type="text/javascript" src=""></sc ript>
+        </script>
+
+    </body>
+</html>

@@ -1,0 +1,147 @@
+<!doctype html>
+<html class="no-js" lang="" xmlns="http://www.w3.org/1999/html">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>Test</title>
+    </head>
+    <body>
+        <script type="text/javascript">
+
+            var BasketItemQuantities = [1, 2, 3];
+            var BasketSKUList = [4, 6, 23];
+            var SteelHouseAdvertiserID = 123;
+            var AdditionalInfo = "AdditionalInformation";
+
+            var BasketSubtotal = 098;
+
+
+
+            var _this = this;
+
+            function shaddslashes(e) {
+              "use strict";
+              if (e != undefined) {
+                e = e.replace(/%/g, "%25%32%35");
+                e = e.replace(/\\/g, "%5C");
+                e = e.replace(/\'/g, "%27");
+                e = e.replace(/\"/g, "%22");
+                e = e.replace(/\?/g, "%25%33%46");
+                e = e.replace(/&/g, "%25%32%36");
+                e = e.replace(/\+/g, "%25%32%42")
+              }
+              return e
+            }
+            (function() {
+              "use strict";
+              var e = null,
+                t = "3.4.0",
+
+                //Define the basket item count given a UV list of basket item quantities.
+                basket_item_count = (function() {
+                  var temp = 0;
+                  for (var index = 0; index < BasketItemQuantities.length; index++) {
+                    temp += Number(BasketItemQuantities[index]);
+                  }
+                  return temp;
+                }()),
+
+                //Create CSVs from UV lists. Will work for arrays supplied by clients
+                basket_skus = (function() {
+                  var temp_skus = "";
+                  for (var sku_index = 0; sku_index < BasketSKUList.length; sku_index++) {
+                    temp_skus += BasketSKUList[sku_index];
+                    if (sku_index != BasketSKUList.length - 1)
+                      temp_skus += ",";
+                  }
+                  return temp_skus;
+                })(),
+                basket_quantities = (function() {
+                  var temp_quants = "";
+                  for (var quant_index = 0; quant_index < BasketItemQuantities.length; quant_index++) {
+                    temp_quants += BasketItemQuantities[
+                      quant_index];
+                    if (quant_index != BasketItemQuantities.length -
+                      1)
+                      temp_quants += ",";
+                  }
+                  return temp_quants;
+                })(),
+
+                n = "" + SteelHouseAdvertiserID,
+                r = shaddslashes(""),
+                i = shaddslashes(""),
+                s = shaddslashes(""),
+                o = "",
+                u = "",
+                a = "",
+                f = "",
+                l = "",
+                c = "",
+                h = "" + BasketSubtotal,
+                p = basket_item_count,
+                d = basket_skus,
+                v = basket_quantities,
+                shadditional = "" + AdditionalInfo,
+                m, g, y;
+              try {
+                m = top.document.referer !== "" ? encodeURIComponent(top.document.referrer
+                  .substring(0, 256)) : ""
+              } catch (w) {
+                m = document.referrer !== null ? encodeURIComponent(document.referrer.toString()
+                  .substring(0, 256)) : ""
+              }
+              try {
+                g = window && window.top && document.location && window.top.location ===
+                  document.location ? document.location : window && window.top && window.top
+                  .location && "" !== window.top.location ? window.top.location : document
+                  .location
+              } catch (E) {
+                g = document.location
+              }
+              try {
+                y = parent.location.href !== "" ? encodeURIComponent(parent.location.href
+                  .toString().substring(0, 256)) : ""
+              } catch (S) {
+                try {
+                  y = g !== null ? encodeURIComponent(g.toString().substring(0, 256)) : ""
+                } catch (x) {
+                  y = ""
+                }
+              }
+              a = encodeURIComponent(a);
+              e = {
+                add: function(e, t, n, r) {
+                  r = r || false;
+                  if (e.addEventListener) {
+                    e.addEventListener(t, n, r)
+                  } else if (e.attachEvent) {
+                    e.attachEvent("on" + t, n)
+                  }
+                },
+                load: function() {
+                  var e, g = document.createElement("script"),
+                    w = null,
+                    E = document.getElementsByTagName("script"),
+                    S = Number(E.length) - 1,
+                    x = document.getElementsByTagName("script")[S];
+                  if (typeof e === "undefined") {
+                    e = Math.floor(Math.random() * 1e17)
+                  }
+                  w = "px.steelhousemedia.com/st?" + "shver=" + t + "&shaid=" + n +
+                    "&shpn=" + r + "&shpc=" + i + "&shpb=" + s + "&shpp=" + o + "&shpcur=" +
+                    u + "&shpi=" + a + "&shps=" + f + "&shpic=" + l + "&shpau=" + c +
+                    "&shcv=" + h + "&shcq=" + p + "&shcp=" + d + "&shcpq=" + v + "&tdr=" +
+                    m + "&plh=" + y + "&cb=" + e + shadditional;
+                  g.type = "text/javascript";
+                  g.src = ("https:" === document.location.protocol ? "https://" :
+                    "http://") + w;
+                  x.parentNode.insertBefore(g, x)
+                }
+              };
+              e.load()
+            })()
+        </script>
+
+    </body>
+</html>

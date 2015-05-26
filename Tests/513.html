@@ -1,0 +1,42 @@
+<!doctype html>
+<html class="no-js" lang="" xmlns="http://www.w3.org/1999/html">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>Test</title>
+    </head>
+    <body>
+        <script type="text/javascript">
+
+            var ProductID = 234;
+            var ProductPagePixelID = 15;
+
+
+            window._struqPI = window._struqPI || [];
+            window._struqPI.push(['injectTrackingPixel', {
+              trackingPixelId: ProductPagePixelID,
+              route: '/s/sa/',
+              collectData: false,
+              data: [{
+                title: "detail",
+                pid: "" + ProductID
+              }],
+              options: {
+                timeoutMs: 2000,
+                firstPartyDomain: '',
+                firstPartyCookie: '',
+                firstPartyUid: ''
+              }
+            }]);
+
+            window.struq = document.createElement('script');
+            struq.type = 'text/javascript';
+            struq.async = true;
+            struq.src = ('https:' == document.location.protocol ? 'https://' :
+              'http://') +
+              'media.struq.com/content/scripts/Struq_Pixel_Injector_min_v1-14.js';
+            document.getElementsByTagName('head')[0].appendChild(struq);
+        </script>
+
+    </body>
+</html>

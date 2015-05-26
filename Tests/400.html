@@ -1,0 +1,51 @@
+<!doctype html>
+<html class="no-js" lang="" xmlns="http://www.w3.org/1999/html">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>Test</title>
+    </head>
+    <body>
+        <script type="text/javascript">
+
+            var MerchentaRetailerCode = "MerchentaRetailerCode";
+
+
+
+            (function() {
+                var DSLDiv  = document.createElement("div");
+                DSLDiv.id = "mc_data";
+                DSLDiv.setAttribute("style", "display:none;");
+
+                var DivChild1 = document.createElement("div");
+                DivChild1.setAttribute("class", "mc_event");
+
+                var Child1 = document.createTextNode("VIEW");
+                DivChild1.appendChild(Child1);
+
+                var DivChild2 = document.createElement("div");
+                DivChild2.setAttribute("class", "mc_retailer");
+
+                var Child2 = document.createTextNode(MerchentaRetailerCode);
+                DivChild2.appendChild(Child2);
+
+                DSLDiv.appendChild(DivChild1);
+                DSLDiv.appendChild(DivChild2);
+                document.body.appendChild(DSLDiv);
+            })();
+
+            window.mc_api_url = "api.merchenta.com/merchenta/t";
+            var script = document.createElement('script');
+            script.type = 'text/javascript';
+            script.async = true;
+            var secure = (window.parent.document.location.protocol == "https:");
+            if (secure) {
+              script.src = "https://api.merchenta.com/track/t.js";
+            } else {
+              script.src = "http://cdn.merchenta.com/track/t.js";
+            }
+            document.getElementsByTagName('head')[0].appendChild(script);
+        </script>
+
+    </body>
+</html>
