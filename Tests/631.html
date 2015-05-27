@@ -1,0 +1,46 @@
+<!doctype html>
+<html class="no-js" lang="" xmlns="http://www.w3.org/1999/html">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>Test</title>
+    </head>
+    <body>
+        <script type="text/javascript">
+
+            var IntelliAdClientID = 123;
+
+            var IntelliAdCampaignID = 234;
+            var IntelliAdAdGroupID = 345;
+            var IntelliAdBuyMarketID = 456;
+            var IntelliAdClientMarketID = 567;
+            var IntelliAdKeywordID = 678;
+            var IntelliAdCostPerImpression = 789;
+
+
+            var t = (new Date()).getTime();
+            var paramObj = {
+              cl: "" + IntelliAdClientID,
+              cp: "" + IntelliAdCampaignID,
+              ag: "" + IntelliAdAdGroupID,
+              bm: "" + IntelliAdBuyMarketID,
+              bmcl: "" + IntelliAdClientMarketID,
+              crid: "" + IntelliAdKeywordID,
+              timestamp: t
+            };
+            if (("" + IntelliAdCostPerImpression).length) {
+              paramObj.co = "" + IntelliAdCostPerImpression;
+            }
+            var src = "//t23.intelliad.de/impression.php?";
+            for (var key in paramObj) {
+              if (paramObj.hasOwnProperty(key)) {
+                var val = paramObj[key];
+                src += key + "=" + val + "&";
+              }
+            }
+
+            var img = new Image();
+            img.src = src.slice(0, -1);
+        </script>
+    </body>
+</html>

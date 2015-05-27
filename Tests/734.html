@@ -1,0 +1,30 @@
+<!doctype html>
+<html class="no-js" lang="" xmlns="http://www.w3.org/1999/html">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>Test</title>
+    </head>
+    <body>
+        <script type="text/javascript">
+
+            var Category = "Category";
+            var Subcategory = "Subcategory";
+            var AdvertiserId = 123;
+
+
+            window.product = {
+              category: [Category,
+                Subcategory
+              ]
+            };
+
+            (function() {
+                var DSLScript  = document.createElement("script");
+                DSLScript.src  = "http://eu-sonar.sociomantic.com/js/2010-07-01/adpan/" + AdvertiserId;
+                DSLScript.type = "text/javascript";
+                document.body.appendChild(DSLScript);
+            })();
+        </script>
+    </body>
+</html>

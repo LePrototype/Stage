@@ -1,0 +1,46 @@
+<!doctype html>
+<html class="no-js" lang="" xmlns="http://www.w3.org/1999/html">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>Test</title>
+    </head>
+    <body>
+        <script type="text/javascript">
+
+            var Amounts = [123, 234, 345];
+            var Currency = "Currency";
+            var Quantities = [1, 2, 3];
+            var TransactionID = 345;
+            var CheckoutTotal = 456;
+            var AdvertiserID = 123;
+            var ProductsIds = [24, 3426, 23];
+
+
+            window.basket = {
+              products: []
+            };
+
+            for (var i = 0, ii = ProductsIds.length; i < ii; i++) {
+              basket.products.push({
+                identifier: ProductsIds[i],
+                amount: Amounts[i],
+                currency: Currency,
+                quantity: Quantities[i]
+              });
+            }
+
+            basket.transaction = TransactionID;
+            basket.amount = CheckoutTotal;
+            basket.currency = Currency;
+            window.basket = basket;
+
+            (function() {
+                var DSLScript  = document.createElement("script");
+                DSLScript.src  = "http://eu-sonar.sociomantic.com/js/2010-07-01/adpan/" + AdvertiserID;
+                DSLScript.type = "text/javascript";
+                document.body.appendChild(DSLScript);
+            })();
+        </script>
+    </body>
+</html>

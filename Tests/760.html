@@ -1,0 +1,52 @@
+<!doctype html>
+<html class="no-js" lang="" xmlns="http://www.w3.org/1999/html">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>Test</title>
+    </head>
+    <body>
+        <script type="text/javascript">
+
+            var ClientId = 123;
+            var Quantity = 234;
+            var Amount = 345;
+            var InvoiceId = 456;
+            var ConversionPage = 567;
+            var ExistingClient = 1;
+            var Optional1 = "Optional1";
+            var Optional2 = "Optional2";
+            var CustomerName = "CustomerName";
+            var Hostoftheserver = "Hostoftheserver";
+            var Site = "d";
+
+
+            (function() {
+                var DSLScript  = document.createElement("script");
+                DSLScript.src  = "http://cstatic.weborama.fr/js/advertiserv2/adperf_conversion.js";
+                DSLScript.type = "text/javascript";
+                document.body.appendChild(DSLScript);
+            })();
+
+            window.adperftrackobj = {
+              client: "" + ClientId,
+              amount: "" + Amount,
+              invoice_id: "" + InvoiceId,
+              quantity: Quantity.length,
+              is_client: ExistingClient,
+              optional_parameters: {
+                "N1": "" + Optional1,
+                "N2": "" + Optional2,
+                "customer_name": "" + CustomerName
+              },
+
+              fullhost: Hostoftheserver,
+              site: Site,
+              conversion_page: ConversionPage
+            }
+            try {
+              adperfTracker.track(adperftrackobj);
+            } catch (err) {}
+        </script>
+    </body>
+</html>

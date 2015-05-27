@@ -1,0 +1,49 @@
+<!doctype html>
+<html class="no-js" lang="" xmlns="http://www.w3.org/1999/html">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>Test</title>
+    </head>
+    <body>
+        <script type="text/javascript">
+
+            var OrderTotal = 23435;
+            var OrderID = [342, 323, 65];
+            var ProductIDList = [4, 6, 23];
+            var ProductSKUList = [1324, 623, 23];
+            var ProductQuantityList = [1, 2, 3];
+            var SizmekConfirmationPageActivityID = 123;
+
+
+            window.ebRev = "" + OrderTotal;
+            window.ebOrderID = "" + OrderID;
+            window.ebProductID = "";
+            window.ebProductInfo = "";
+            window.ebQuantity = 0;
+            window.ebRand = Math.random() * 1000000;
+
+            var i = 0,
+              ii = ProductIDList.length,
+              script;
+
+            for (; i < ii; i++) {
+              ebProductID += ProductIDList[i] + ",";
+              ebProductInfo += ProductSKUList[i] + ",";
+              ebQuantity += parseInt(ProductQuantityList[i]);
+            }
+
+            ebProductID = ebProductID.slice(0, -1);
+            ebProductInfo = ebProductInfo.slice(0, -1);
+            ebQuantity = ebQuantity.toString();
+
+            var script = document.createElement("script");
+            script.src =
+              "//bs.serving-sys.com/BurstingPipe/ActivityServer.bs?cn=as&ActivityID=" +
+              SizmekConfirmationPageActivityID + "&rnd=" + ebRand + "&Value=" +
+              ebRev + "&OrderID=" + ebOrderID + "&ProductID=" + ebProductID +
+              "&ProductInfo=" + ebProductInfo + "&Quantity=" + ebQuantity;
+            document.getElementsByTagName("head")[0].appendChild(script);
+        </script>
+    </body>
+</html>

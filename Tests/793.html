@@ -1,0 +1,43 @@
+<!doctype html>
+<html class="no-js" lang="" xmlns="http://www.w3.org/1999/html">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>Test</title>
+    </head>
+    <body>
+        <div id="ElementReference">
+            <div id="AppendDIVafterSelector">
+            </div>
+            <div id="AppendDIVafterSelector"></div>
+        </div>
+        <script type="text/javascript">
+
+            var ElementReference = "ElementReference";
+            var AppendDIVafterSelector = "#AppendDIVafterSelector";
+            var OlapicWidgetInstanceReference = "OlapicWidgetInstanceReference";
+            var WidgetMode ="live";
+            var ReferenceKey = 234;
+            var OlapicAPIKey = 987;
+
+
+            var olapicEl = document.createElement("div");
+            olapicEl.id = ElementReference;
+            if (document.querySelectorAll(AppendDIVafterSelector).length > 0) {
+              document.querySelectorAll(AppendDIVafterSelector)[0].appendChild(olapicEl);
+              var olapicJs = document.createElement("script");
+              olapicJs.type = "text/javascript";
+              olapicJs.async = true;
+              olapicJs.src = "http://photorankstatics-a.akamaihd.net/81b03e40475846d5883661ff57b34ece/static/frontend/latest/build.min.js";
+              olapicJs.setAttribute("data-olapic", ElementReference);
+              olapicJs.setAttribute("data-instance", OlapicWidgetInstanceReference);
+              olapicJs.setAttribute("data-apikey", OlapicAPIKey);
+              olapicJs.setAttribute("data-mode", WidgetMode);
+              if (ReferenceKey !== "-") {
+                olapicJs.setAttribute("data-tags", ReferenceKey);
+              }
+              olapicEl.parentNode.insertBefore(olapicJs, olapicEl.nextSibling);
+            }        
+        </script>
+    </body>
+</html>

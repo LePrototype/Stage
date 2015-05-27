@@ -1,0 +1,38 @@
+<!doctype html>
+<html class="no-js" lang="" xmlns="http://www.w3.org/1999/html">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>Test</title>
+    </head>
+    <body>
+        <script type="text/javascript">
+
+            var WRP_ID = 123;
+            var WRP_SECTION = "WRP_SECTION";
+            var WRP_SUBSECTION = "WRP_SUBSECTION";
+            var SourceURL = "SourceURL";
+
+
+            window.WRP_ID = WRP_ID;
+            window.WRP_SECTION = WRP_SECTION;
+            window.WRP_SUBSECTION = WRP_SUBSECTION;
+            window.wreport_ok = 0;
+            /* Profondeur Frame */
+            window.WRP_ACC;
+
+            (function() {
+                var DSLScript  = document.createElement("script");
+                DSLScript.src  = "http://" + SourceURL;
+                DSLScript.type = "text/javascript";
+                document.body.appendChild(DSLScript);
+            })();
+
+            if (wreport_ok == 1) {
+              window.w_counter = new wreport_counter(WRP_SECTION, WRP_SUBSECTION, WRP_ID,
+                WRP_ACC);
+              w_counter.count();
+            }
+        </script>
+    </body>
+</html>

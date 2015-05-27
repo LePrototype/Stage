@@ -1,0 +1,55 @@
+<!doctype html>
+<html class="no-js" lang="" xmlns="http://www.w3.org/1999/html">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>Test</title>
+    </head>
+    <body>
+        <script type="text/javascript">
+
+            var ProductIDList = [4, 6, 23];
+            var ProductUnitPriceList = [123, 3, 234];
+            var QuantityList = [1, 2, 3];
+            var OrderID = [342, 323, 65];
+            var OrderSubTotal = 23435;
+            var MyThingsAdvertiserToken = "myThingsAdvertiserToken";
+            var MyThingsSubdomain = "rainbow-uk";
+
+
+
+            var _this = this;
+            var products = [];
+            for (var i = 0; i < ProductIDList.length; i++) {
+              products.push({
+                id: ProductIDList[i],
+                price: ProductUnitPriceList[i],
+                qty: QuantityList[i]
+              });
+            }
+            window._mt_ready = function() {
+              if (typeof(MyThings) != "undefined") {
+                MyThings.Track({
+                  EventType: MyThings.Event.Conversion,
+                  Action: "9902",
+                  Products: products,
+                  TransactionReference: "" + OrderID,
+                  TransactionAmount: "" + OrderSubTotal
+                });
+              }
+            };
+
+            window.mtHost = (("https:" == document.location.protocol) ? "https://" +
+              MyThingsSubdomain : "http://" +
+              MyThingsSubdomain) + ".mythings.com";
+            window.mtAdvertiserToken = "" + MyThingsAdvertiserToken;
+
+            (function() {
+                var DSLScript  = document.createElement("script");
+                DSLScript.src  = "http://" + MyThingsSubdomain + ".mythings.com/c.aspx?atok=" + MyThingsAdvertiserToken;
+                DSLScript.type = "text/javascript";
+                document.body.appendChild(DSLScript);
+            })();
+        </script>
+    </body>
+</html>

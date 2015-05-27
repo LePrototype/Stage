@@ -1,0 +1,92 @@
+<!doctype html>
+<html class="no-js" lang="" xmlns="http://www.w3.org/1999/html">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>Test</title>
+    </head>
+    <body>
+        <script type="text/javascript">
+
+            var ProductIDlist = [4, 6, 23];
+            var OrderID = [342, 323, 65];
+            var Currency = "Currency";
+            var UserEmail = "alessandro.bonnafous@gmail.com";
+
+            var AdFormCampaignID = 234;
+            var AdFormPointID = 123;
+            var Userfullname = "Userfullname";
+            var Orderquantitylist = [1, 2, 3];
+            var CategoryNameList = ["Category", "Name", "List"];
+            var ProductNameList = ["Product", "Name", "List"];
+            var ProductCountList = ["Product", "Count", "List"];
+            var ProductSalesList = ["Product", "Sales", "List"];
+            var Subtotal = 23435;
+            var Billingcountry = "Billingcountry";
+            var Agegroup = "Agegroup";
+            var Gender = "F";
+            var AddressLine1 = "AddressLine1";
+            var AddressLine2 = "AddressLine2";
+            var Phone = "Phone";
+            var ZipCode = 345;
+
+
+
+            // The basic tracker
+            window._adftrack = {
+              pm: AdFormCampaignID,
+              id: AdFormPointID
+            };
+
+            // Split the user name into first and last name
+            var full_name = Userfullname;
+            var name_arr = full_name.split(' ');
+            var first_name = name_arr[0];
+            name_arr.splice(0, 1);
+            var last_name = name_arr.join(' ');
+
+            // Get items and total order quantity
+            var i = 0,
+              ii = ProductIDlist.length,
+              total_quantity = 0,
+              items = [];
+            for (; i < ii; i++) {
+              total_quantity += Orderquantitylist[i];
+              var item = {
+                categoryname: CategoryNameList[i],
+                productid: ProductIDlist[i],
+                productname: ProductNameList[i],
+                productcount: ProductCountList[i],
+                productsales: ProductSalesList[i]
+              }
+              items[i] = item;
+            }
+
+            // Add the order details
+            window._adftrack.order = {
+              sales: Subtotal,
+              currency: Currency,
+              basketsize: total_quantity,
+              country: Billingcountry,
+              agegroup: Agegroup,
+              gender: Gender,
+              orderid: OrderID,
+              email: UserEmail,
+              firstname: first_name,
+              lastname: last_name,
+              address1: AddressLine1,
+              address2: AddressLine2,
+              phone: Phone,
+              zip: ZipCode,
+              itms: items
+            };
+
+            (function() {
+                var DSLScript  = document.createElement("script");
+                DSLScript.src  = "http://track.adform.net/serving/scripts/trackpoint/async/";
+                DSLScript.type = "text/javascript";
+                document.body.appendChild(DSLScript);
+            })();
+        </script>
+    </body>
+</html>

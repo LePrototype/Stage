@@ -1,0 +1,33 @@
+<!doctype html>
+<html class="no-js" lang="" xmlns="http://www.w3.org/1999/html">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>Test</title>
+    </head>
+    <body>
+        <script type="text/javascript">
+
+            var ProductID = 234;
+            var AdvertiserToken = "myThingsAdvertiserToken";
+            var Subdomain = "rainbow-uk";
+
+
+
+            window._mt_ready = function() {
+              if (typeof(MyThings) != "undefined") {
+                MyThings.Track({
+                  EventType: MyThings.Event.Visit,
+                  Action: "1010",
+                  ProductID: "" + ProductID
+                });
+              }
+            }
+            window.mtHost = (("https:" == document.location.protocol) ? "https" : "http") +
+              "://" + Subdomain + ".mythings.com";
+            window.mtAdvertiserToken = "" + AdvertiserToken;
+            document.write(unescape("%3Cscript src='" + mtHost + "/c.aspx?atok=" +
+              mtAdvertiserToken + "' type='text/javascript'%3E%3C/script%3E"));
+        </script>
+    </body>
+</html>

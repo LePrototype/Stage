@@ -1,0 +1,60 @@
+<!doctype html>
+<html class="no-js" lang="" xmlns="http://www.w3.org/1999/html">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>Test</title>
+    </head>
+    <body>
+        <script type="text/javascript">
+
+            var TransactionOrderID = 2341;
+
+            var TransactionOrderTotal = 23435;
+            var intelliAdConversionType = "intelliAdConversionType";
+            var TransactionOrderCurrency = "TransactionOrderCurrency";
+            var IntelliAdCustomParameter1 = "IntelliAdCustomParameter1";
+            var IntelliAdCustomParameter2 = "IntelliAdCustomParameter2";
+            var IntelliAdCustomParameter3 = "IntelliAdCustomParameter3";
+            var IntelliAdCustomParameter4 = "IntelliAdCustomParameter4";
+            var TransactionProductIDs = [4, 6, 23];
+            var IntelliAdClientID = 123;
+
+
+            window.ia_v = "" + TransactionOrderTotal;
+            window.ia_vz = "" + intelliAdConversionType; // sale -> "sa", lead -> "le", signup -> "si", pageview -> "pa", download -> "do"
+            window.ia_vv = (("" + TransactionOrderCurrency).length) ?
+              "" + TransactionOrderCurrency : "EUR";
+            window.ia_po = "" + TransactionOrderID;
+            window.ia_c1 = "" + IntelliAdCustomParameter1;
+            window.ia_c2 = "" + IntelliAdCustomParameter2;
+            window.ia_c3 = "" + IntelliAdCustomParameter3;
+            window.ia_c4 = "" + IntelliAdCustomParameter4;
+
+            var productIDs = [];
+            for (var i = 0; i < TransactionProductIDs.length; i++) {
+              productIDs.push(TransactionProductIDs[i]);
+            }
+            window.ia_pi = productIDs.join("|");
+            window.ia_tp = "//t23.intelliad.de/tc2.js";
+            window.ia_cl = "" + IntelliAdClientID;
+            window.ia_rand = Math.floor(Math.random() * 11111139435231);
+            window.ia_link = ia_tp +
+              '?cl=' + ia_cl +
+              '&v=' + ia_v +
+              '&vz=' + ia_vz +
+              '&vv=' + ia_vv +
+              '&po=' + ia_po +
+              '&c1=' + ia_c1 +
+              '&c2=' + ia_c2 +
+              '&c3=' + ia_c3 +
+              '&c4=' + ia_c4 +
+              '&pi=' + ia_pi +
+              '&rand=' + ia_rand;
+
+            var script = document.createElement("script");
+            script.src = ia_link;
+            document.getElementsByTagName("head")[0].appendChild(script);
+        </script>
+    </body>
+</html>

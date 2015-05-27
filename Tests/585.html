@@ -1,0 +1,29 @@
+<!doctype html>
+<html class="no-js" lang="" xmlns="http://www.w3.org/1999/html">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>Test</title>
+    </head>
+    <body>
+        <script type="text/javascript">
+
+            var AdformCampaignID = 234;
+            var AdFormPointID = 123;
+
+
+
+            window._adftrack = {
+                pm: AdformCampaignID,
+                id: AdFormPointID
+            };
+
+            (function() {
+                var DSLScript  = document.createElement("script");
+                DSLScript.src  = "http://track.adform.net/serving/scripts/trackpoint/async/";
+                DSLScript.type = "text/javascript";
+                document.body.appendChild(DSLScript);
+            })();
+        </script>
+    </body>
+</html>

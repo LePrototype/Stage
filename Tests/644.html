@@ -1,0 +1,23 @@
+<!doctype html>
+<html class="no-js" lang="" xmlns="http://www.w3.org/1999/html">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>Test</title>
+    </head>
+    <body>
+        <script type="text/javascript">
+
+            var MatiroPixelIdentifier = 123;
+            var MatiroOrderIdentifier = 234;
+            var MatiroOrderAmount = 345;
+
+            (function() {
+                var DSLScript  = document.createElement("script");
+                DSLScript.src  = "http://asset.matiro.com/" + MatiroPixelIdentifier + "?m1=" + MatiroOrderIdentifier + "&m2=" + MatiroOrderAmount;
+                DSLScript.type = "text/javascript";
+                document.body.appendChild(DSLScript);
+            })();
+        </script>
+    </body>
+</html>

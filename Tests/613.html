@@ -1,0 +1,44 @@
+<!doctype html>
+<html class="no-js" lang="" xmlns="http://www.w3.org/1999/html">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>Test</title>
+    </head>
+    <body>
+        <script type="text/javascript">
+
+            var Adwidth = 436;
+            var AdHeight = 634;
+            var AdsenseClientID = 123;
+            var AdsenseAdslotid = 8154696675;
+            var ContainerelementID = "ContainerelementID";
+
+
+
+            (function() {
+                var DSLScript  = document.createElement("script");
+                DSLScript.src  = "http://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js";
+                DSLScript.type = "text/javascript";
+                document.body.appendChild(DSLScript);
+            })();
+
+            window.adsbygoogle = window.adsbygoogle || [];
+
+            var ins = document.createElement("ins");
+            ins.setAttribute("class", "adsbygoogle");
+            ins.style.display = "inline-block";
+            ins.style.width = Adwidth + "px";
+            ins.style.height = AdHeight + "px";
+
+            ins.setAttribute("data-ad-client", "ca-pub-" +
+              AdsenseClientID);
+            ins.setAttribute("data-ad-slot", "" + AdsenseAdslotid);
+
+            document.getElementById("" + ContainerelementID)
+              .appendChild(ins);
+
+            window.adsbygoogle.push({});
+        </script>
+    </body>
+</html>
