@@ -1,0 +1,94 @@
+<!doctype html>
+<html class="no-js" lang="" xmlns="http://www.w3.org/1999/html">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>Test</title>
+    </head>
+    <body>
+        <script type="text/javascript">
+
+            var ProductCategories = "ProductCategories";
+            var ProductSKUs = [4, 6, 23];
+            var ProductIds = [123, 456, 789];
+            var ProductUnitPrice = [123, 3, 234];
+            var ProductQuantities = [1, 2, 3];
+            var OrderSubTotal = 23435;
+            var Voucher = 35;
+            var AffiliateWindowTestMode = "AffiliateWindowTestMode";
+            var ProductName = "ProductName";
+            var OrderCurrency = "OrderCurrency";
+            var AffiliateWindowCommissionGroup = "AffiliateWindowCommissionGroup";
+            var OrderID = [342, 323, 65];
+            var OrderTotal = 23835;
+            var AffiliateWindowMerchantID = 123;
+            var TrafficChannel = "TrafficChannel";
+
+
+            var awinImgSrc = [
+              "https://www.awin1.com/sread.img?tt=ns&tv=2",
+              "&merchant=" + AffiliateWindowMerchantID,
+              "&amount=" + OrderTotal,
+              "&ref=" + OrderID,
+              "&parts=" + AffiliateWindowCommissionGroup + ":" +
+              OrderTotal,
+              "&vc=" + Voucher,
+              "&testmode=" + AffiliateWindowTestMode,
+              "&cr=" + OrderCurrency,
+              "&ch=" + TrafficChannel
+            ].join("");
+            var el = document.createElement("img");
+            el.setAttribute("src", awinImgSrc);
+            document.body.appendChild(el);
+
+            var form = document.createElement("form");
+            form.setAttribute("style", "display:none;");
+            form.setAttribute("name", "aw_basket_form");
+
+            var textarea = document.createElement("textarea");
+            textarea.setAttribute("wrap", "physical");
+            textarea.setAttribute("id", "aw_basket");
+
+            var textareaText = [];
+            for (var i = 0; i < ProductIds.length; i++) {
+              textareaText.push([
+                "AW:P|" + AffiliateWindowMerchantID + "|",
+                "" + OrderID, "|",
+                ProductIds[i], "|",
+                ProductName[i], "|",
+                ProductUnitPrice[i], "|",
+                ProductQuantities[i], "|",
+                ProductSKUs[i], "|",
+                AffiliateWindowCommissionGroup + "|",
+                ProductCategories[i], "|"
+              ].join(""));
+            }
+            textarea.innerHTML = textareaText.join("\n");
+
+            form.appendChild(textarea);
+            document.body.appendChild(form);
+
+            window.AWIN = {
+              Tracking: {
+                Sale: {
+                  amount: OrderTotal,
+                  currency: "" + OrderCurrency,
+                  orderRef: "" + OrderID,
+                  parts: "" + AffiliateWindowCommissionGroup + ":" +
+                    OrderTotal,
+                  voucher: "" + Voucher,
+                  test: "" + AffiliateWindowTestMode,
+                  channel: "" + TrafficChannel
+                }
+              }
+            };
+
+            (function() {
+                var DSLScript  = document.createElement("script");
+                DSLScript.src  = "http://www.dwin1.com/" + AffiliateWindowMerchantID + ".js";
+                DSLScript.type = "text/javascript";
+                document.body.appendChild(DSLScript);
+            })();
+        </script>
+    </body>
+</html>

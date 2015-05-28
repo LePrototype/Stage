@@ -1,0 +1,106 @@
+<!doctype html>
+<html class="no-js" lang="" xmlns="http://www.w3.org/1999/html">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>Test</title>
+    </head>
+    <body>
+        <script type="text/javascript">
+
+            var OrderCurrency = "OrderCurrency";
+            var ProductCategories = "ProductCategories";
+            var ProductSKUs = [4, 6, 23];
+            var ProductIds = [123, 456, 789];
+            var ProductCommissionGroups = "ProductCommissionGroups";
+            var ProductUnitPrice = [123, 3, 234];
+            var ProductQuantities = [1, 2, 3];
+            var OrderSubTotal = 23435;
+            var OrderId = [342, 323, 65];
+            var Voucher = 35;
+            var AffiliateWindowTestMode = "AffiliateWindowTestMode";
+            var AffiliateWindowMerchantID = 123;
+            var ProductName = "ProductName";
+
+
+            var i, cg, cg_groups = {}, parts;
+            for (i = 0; i < ProductIds.length; i++) {
+              cg = ProductCommissionGroups[i];
+              if (cg !== "IGNORE_ITEM") {
+                if (!cg_groups[cg]) {
+                  cg_groups[cg] = 0;
+                }
+                cg_groups[cg] += parseFloat(ProductUnitPrice[i]) *
+                  parseInt(ProductQuantities[i]);
+              }
+            }
+            parts = [];
+            for (i in cg_groups) {
+              if (cg_groups.hasOwnProperty(i)) {
+                parts.push(i + ":" + cg_groups[i].toFixed(2));
+              }
+            }
+            parts = parts.join("|");
+            var awinImgSrc = [
+              "https://www.awin1.com/sread.img?tt=ns&tv=2&merchant=" + AffiliateWindowMerchantID + "&amount=",
+              "" + OrderSubTotal,
+              "&ref=", "" + OrderId,
+              "&parts=", parts,
+              "&vc=", "" + Voucher,
+              "&testmode=" + AffiliateWindowTestMode + "&cr=", "" + OrderCurrency
+            ].join("");
+            var el = document.createElement("img");
+            el.setAttribute("src", awinImgSrc);
+            document.body.appendChild(el);
+
+            var form = document.createElement("form");
+            form.setAttribute("style", "display:none;");
+            form.setAttribute("name", "aw_basket_form");
+
+            var textarea = document.createElement("textarea");
+            textarea.setAttribute("wrap", "physical");
+            textarea.setAttribute("id", "aw_basket");
+
+            var textareaText = [];
+            for (i = 0; i < ProductIds.length; i++) {
+              if (ProductCommissionGroups[i] !== "IGNORE_ITEM") {
+                textareaText.push([
+                  "AW:P|" + AffiliateWindowMerchantID + "|",
+                  "" + OrderId, "|",
+                  ProductIds[i], "|",
+                  ProductName[i], "|",
+                  ProductUnitPrice[i], "|",
+                  ProductQuantities[i], "|",
+                  ProductSKUs[i], "|",
+                  ProductCommissionGroups[i], "|",
+                  ProductCategories[i]
+                ].join(""));
+              }
+            }
+            textarea.innerHTML = textareaText.join("\n");
+
+            form.appendChild(textarea);
+            document.body.appendChild(form);
+
+            window.AWIN = {
+              Tracking: {
+                Sale: {
+                  amount: OrderSubTotal,
+                  currency: "" + OrderCurrency,
+                  orderRef: "" + OrderId,
+                  parts: parts,
+                  voucher: "" + Voucher,
+                  test: "" + AffiliateWindowTestMode
+                }
+              }
+            };
+
+            (function() {
+                var DSLScript  = document.createElement("script");
+                DSLScript.src  = "www.dwin1.com/" + AffiliateWindowMerchantID + ".js";
+                DSLScript.type = "text/javascript";
+                document.body.appendChild(DSLScript);
+            })();
+        </script>
+    </body>
+</html>

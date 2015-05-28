@@ -1,0 +1,82 @@
+<!doctype html>
+<html class="no-js" lang="" xmlns="http://www.w3.org/1999/html">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>Test</title>
+    </head>
+    <body>
+        <script type="text/javascript">
+
+            var AffilinetTrackingDomain = "AffilinetTrackingDomain";
+            var Site = 123;
+            var OrderID = [342, 323, 65];
+            var BasketItemsSKUs = [4, 6, 23];
+            var BasketItemsNames = ["Array", "ofBasket", "Itemsnames"];
+            var BasketItemsCategories = ["Basket", "Items", "Categories"];
+            var BasketItemsQuantities = [1, 2, 3];
+            var BasketItemsPrices = [34, 2, 45];
+
+
+            var iFrame = document.createElement('iframe');
+            iFrame.style.display = 'none';
+            iFrame.style.width = "1px";
+            iFrame.style.height = "1px";
+            iFrame.id = "affilinet-tracking-form-iframe";
+            document.body.appendChild(iFrame);
+
+            var iFrameDom = iFrame.contentDocument || iFrame.contentWindow.document;
+
+            var form = iFrameDom.createElement('form');
+            form.name = "affilinetTrackingForm";
+            form.method = "post";
+            form.action = document.location.protocol + "//" +
+              AffilinetTrackingDomain + "/registersale.asp";
+            form.id = "affilinetTrackingForm";
+            iFrameDom.body.appendChild(form);
+
+            var input = iFrameDom.createElement('input');
+            input.type = "hidden";
+            input.id = "site";
+            input.name = "site";
+            input.value = "" + Site;
+            iFrameDom.getElementById("affilinetTrackingForm").appendChild(input);
+
+            var input = iFrameDom.createElement('input');
+            input.type = "hidden";
+            input.id = "order";
+            input.name = "order";
+            input.value = "" + OrderID;
+            iFrameDom.getElementById("affilinetTrackingForm").appendChild(input);
+
+            var textarea = iFrameDom.createElement('textarea');
+            textarea.type = "text";
+            textarea.id = "basket";
+            textarea.name = "basket";
+            iFrameDom.getElementById("affilinetTrackingForm").appendChild(textarea);
+
+            var basketItemsData = "";
+
+            for (var i = 0; i < BasketItemsSKUs.length; i++) {
+              if (i > 0) {
+                basketItemsData += "&";
+              }
+
+              basketItemsData += "articlenb=" +
+                escape(BasketItemsSKUs[i]) +
+                "&productname=" +
+                escape(BasketItemsNames[i]) +
+                "&category=" +
+                escape(BasketItemsCategories[i]) +
+                "&quantity=" +
+                escape(BasketItemsQuantities[i]) +
+                "&singleprice=" +
+                escape(BasketItemsPrices[i]) +
+                "&brand=";
+            }
+
+            iFrameDom.getElementById("basket").innerHTML = basketItemsData;
+            iFrameDom.getElementById('affilinetTrackingForm').submit();
+        </script>
+    </body>
+</html>

@@ -1,0 +1,72 @@
+<!doctype html>
+<html class="no-js" lang="" xmlns="http://www.w3.org/1999/html">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>Test</title>
+    </head>
+    <body>
+        <script type="text/javascript">
+
+            var ProductSKU = 3;
+            var ProductImageURL = "http://www.bestcarsin.com/manufacturers/ford/ford-fiesta/ford-fiesta-gt/ford-fiesta-gt-8.jpg";
+            var Product_Title = "Product_Title";
+            var ProductCategory = "ProductCategory";
+            var ProductSubcategory = "ProductSubcategory";
+            var SizeIDArray = [234, 24, 65];
+            var SizeTitleArray = ["Size", "Title", "Array"];
+            var SizePriceArray = [234, 65, 12];
+
+
+            var _this = this;
+            var fm_categories = (function() {
+              var temp = [];
+              if ("" + ProductCategory)
+                temp.push("" + ProductCategory);
+              if ("" + ProductSubcategory)
+                temp.push("" + ProductSubcategory);
+              return temp;
+            })();
+            window.fm_categories = fm_categories;
+            var fm_sizes = (function() {
+              var temp = [];
+              for (var i = 0; i < SizeIDArray.length; i++) {
+                temp.push({
+                  "ID": String(SizeIDArray[i]),
+                  "Title": String(SizeTitleArray[i]),
+                  "Price": String(SizePriceArray[i])
+                });
+              }
+              return temp;
+            })();
+            window.fm_sizes = fm_sizes;
+
+            var fmd = window.FitsMeData || {};
+            fmd.SKU = fmd.SKU || "" + ProductSKU;
+            fmd.ProductTitle = fmd.ProductTitle || "" + Product_Title;
+            fmd.ProductImageUrl = fmd.ProductImageUrl ||
+              "" + ProductImageURL;
+            if (!fmd.ProductCategories || fmd.ProductCategories.length === 0) {
+              fmd.ProductCategories = fm_categories;
+            }
+            if (!fmd.Sizes || fmd.Sizes.length === 0) {
+              fmd.Sizes = fm_sizes;
+            }
+
+            window.FitsMeData = fmd;
+
+            var _gaq = window._gaq || [];
+            _gaq.push(['_setAllowLinker', true]);
+            _gaq.push(['_setAllowHash', false]);
+
+            window._gaq = _gaq;
+
+            (function() {
+                var DSLScript  = document.createElement("script");
+                DSLScript.src  = "http://www.fits.me/vfr.js";
+                DSLScript.type = "text/javascript";
+                document.body.appendChild(DSLScript);
+            })();
+        </script>
+    </body>
+</html>

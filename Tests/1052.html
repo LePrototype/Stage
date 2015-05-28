@@ -1,0 +1,29 @@
+<!doctype html>
+<html class="no-js" lang="" xmlns="http://www.w3.org/1999/html">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>Test</title>
+    </head>
+    <body>
+        <script type="text/javascript">
+
+            var AdvertiserId = 123;
+            var OrderId = [342, 323, 65];
+            var OrderSubtotal = 23435;
+            var CurrencyCode = 234;
+            var ClickId = 345;
+            var EventType = "EventType";
+
+
+            (function() {
+                var DSLImg  = document.createElement("img");
+                DSLImg.src  = "https://gan.doubleclick.net/gan_conversion?advid=" + AdvertiserId + "&oid=" + OrderId + "&amt=" + OrderSubtotal + "&fxsrc=" + CurrencyCode + "&clickid=" + ClickId + "&event_type=" + EventType;
+                DSLImg.width = "1";
+                DSLImg.height = "1";
+                DSLImg.setAttribute("style", "display:none;");
+                document.body.appendChild(DSLImg);
+            })();
+        </script>
+    </body>
+</html>

@@ -1,0 +1,57 @@
+<!doctype html>
+<html class="no-js" lang="" xmlns="http://www.w3.org/1999/html">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>Test</title>
+    </head>
+    <body>
+        <script type="text/javascript">
+
+            var ArrayofproductSKUs = [4, 6, 23];
+            var Arrayorproductunitsaleprices = [34, 2, 45];
+            var ArrayorProductQuantities = [1, 2, 3];
+            var ArrayofIndividualProductDiscounts = [35, 24, 6];
+            var EnterpriseID = 123;
+            var OrderID = [342, 323, 65];
+            var ActionID = 345;
+            var Currency = "Currency";
+            var Discount = 257;
+            var ContainerTagID = 234;
+
+
+            var url = document.location.protocol +
+              "//www.emjcd.com/tags/c?containerTagId=" + ContainerTagID + "&";
+
+            for (var i = 0; i < ArrayofproductSKUs.length; i++) {
+              url += "ITEM" + (i + 1) + "=" +
+                ArrayofproductSKUs[i] + "&AMT" + (i + 1) + "=" +
+                Arrayorproductunitsaleprices[i] + "&QTY" + (i + 1) + "=" +
+                ArrayorProductQuantities[i] + "&";
+
+              if (ArrayofIndividualProductDiscounts.length ===
+                ArrayofproductSKUs.length) {
+                url += "DCNT" + (i + 1) + "=" +
+                  ArrayofIndividualProductDiscounts[i] + "&";
+              }
+            }
+
+            url += "CID=" + EnterpriseID +
+              "&OID=" + OrderID +
+              "&TYPE=" + ActionID +
+              "&CURRENCY=" + Currency;
+
+            if (ArrayofIndividualProductDiscounts.length !== ArrayofproductSKUs.length) {
+              url += "&DISCOUNT=" + Discount;
+            }
+
+            var iframe = document.createElement("iframe");
+            iframe.height = 1;
+            iframe.width = 1;
+            iframe.frameBorder = 0;
+            iframe.scrolling = 0;
+            iframe.src = url;
+            document.body.appendChild(iframe);
+        </script>
+    </body>
+</html>

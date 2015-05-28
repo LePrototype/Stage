@@ -1,0 +1,36 @@
+<!doctype html>
+<html class="no-js" lang="" xmlns="http://www.w3.org/1999/html">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>Test</title>
+    </head>
+    <body>
+        <script type="text/javascript">
+
+            var TransactionSKUList = [1324, 623, 23];
+            var TransactionPriceList = [34, 2, 45];
+            var TransactionQuantityList = [1, 2, 3];
+            var TransactionOrderTotal = 23435;
+            var ClientID = 123;
+            var TransactionOrderID = 2341;
+
+
+            window.img = new Image();
+            window.productsArr = [];
+            window.howManyProducts = TransactionSKUList.length;
+            for (var i = 0; i < howManyProducts; i++) {
+              productsArr.push(escape("products[" + i + "][sku]") + "=" +
+                TransactionSKUList[i]);
+              productsArr.push(escape("products[" + i + "][price]") + "=" +
+                TransactionPriceList[i]);
+              productsArr.push(escape("products[" + i + "][quantity]") + "=" +
+                TransactionQuantityList[i]);
+            }
+            img.src = "https://www.ktrkng.com/image.gif?amount=" +
+              TransactionOrderTotal + "&rid=" +
+              ClientID + "&oid=" +
+              TransactionOrderID + "&" + productsArr.join("&");
+        </script>
+    </body>
+</html>

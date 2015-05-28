@@ -1,0 +1,27 @@
+<!doctype html>
+<html class="no-js" lang="" xmlns="http://www.w3.org/1999/html">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>Test</title>
+    </head>
+    <body>
+        <script type="text/javascript">
+
+            var ClothesHorseClientToken = "ClothesHorseClientToken";
+
+
+            window.ch212 = window.ch212 || [];
+            ch212['token'] = ClothesHorseClientToken;
+            ch212['ts'] = new Date().getTime();
+
+            var ch = document.createElement('script');
+            ch.type = 'text/javascript';
+            ch.async = true;
+            ch.src = '//script.clotheshor.se/widget/conversion?token=' +
+              ch212['token'] + '&ts=' + ch212['ts'];
+            var s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(ch, s);
+        </script>
+    </body>
+</html>

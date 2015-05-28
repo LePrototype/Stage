@@ -1,0 +1,28 @@
+<!doctype html>
+<html class="no-js" lang="" xmlns="http://www.w3.org/1999/html">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>Test</title>
+    </head>
+    <body>
+        <div id="gutscheinconnection-container"></div>
+        <script type="text/javascript">
+
+            var TradeDoublerTrackingType = "TradeDoublerTrackingType";
+            var TradeDoublerOrganizationID = 123;
+            var TradeDoublerEventID = 234;
+            var OrderID = [342, 323, 65];
+            var OrderValue = null;
+            var Currency = "Currency";
+
+
+            (function() {
+                var DSLScript  = document.createElement("script");
+                DSLScript.src  = "http://tb" + TradeDoublerTrackingType + ".tradedoubler.com/report?organization=" + TradeDoublerOrganizationID + "&event=" + TradeDoublerEventID + "&orderNumber=" + OrderID + "&orderValue=" + OrderValue + "&currency=" + Currency;
+                DSLScript.type = "text/javascript";
+                document.body.appendChild(DSLScript);
+            })();
+        </script>
+    </body>
+</html>

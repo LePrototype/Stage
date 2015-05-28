@@ -1,0 +1,71 @@
+<!doctype html>
+<html class="no-js" lang="" xmlns="http://www.w3.org/1999/html">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>Test</title>
+    </head>
+    <body>
+        <div id="gutscheinconnection-container"></div>
+        <script type="text/javascript">
+
+            var Organization = "Organization";
+            var Event = "Event";
+            var Currency = "Currency";
+            var OrderNumber = [3641, 135, 31];
+            var TDUniqueIdentifier = 123;
+            var ProductNames = "Product^Name^s";
+            var ProductGroupID = 345;
+            var ProductIDs = [4, 6, 23];
+            var ProductPrices = [34, 2, 45];
+            var ProductQuantities = [1, 2, 3];
+            var Trackingtype = "TrackingType";
+            var Encoding = 3;
+            var ProductCategories = ["Product", "Cate", "gories"];
+
+
+            function readCookie(name) {
+              var nameEQ = name + "=";
+              var ca = document.cookie.split(';');
+              for (var i = 0; i < ca.length; i++) {
+                var c = ca[i];
+                while (c.charAt(0) === ' ') {
+                  c = c.substring(1, c.length);
+                }
+                if (c.indexOf(nameEQ) === 0) {
+                  return c.substring(nameEQ.length, c.length);
+                }
+              }
+              return null;
+            }
+
+            var tduidCookie = readCookie("" + TDUniqueIdentifier);
+            tduidCookie = tduidCookie ? tduidCookie : "";
+
+            var basket = "";
+
+            for (var i = 0; i < ProductNames.length; i++) {
+              basket = basket + "pr(gr(" +
+                ProductCategories[i] + ")i(" +
+                ProductIDs[i] + ")n(" +
+                ProductNames[i] + ")v(" +
+                ProductPrices[i] + ")q(" +
+                ProductQuantities[i] + "))";
+            }
+
+            var src = "https://tb" + Trackingtype +
+              ".tradedoubler.com/report?";
+            src += "o=(" + Organization + ")";
+            src += "event=(" + Event + ")";
+            src += "ordnum=(" + OrderNumber + ")";
+            src += "curr=(" + Currency + ")";
+            src += "tduid=(" + tduidCookie + ")";
+            src += "enc(" + Encoding + ")";
+            src += "basket(" + basket + ")";
+
+            var img = document.createElement("img");
+            img.src = src;
+            document.body.appendChild(img);
+        </script>
+    </body>
+</html>

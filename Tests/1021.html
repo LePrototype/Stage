@@ -1,0 +1,44 @@
+<!doctype html>
+<html class="no-js" lang="" xmlns="http://www.w3.org/1999/html">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>Test</title>
+    </head>
+    <body>
+        <script type="text/javascript">
+
+            var ItemSKUs = [4, 6, 23];
+            var ItemPrices = [987, 654, 321];
+            var ItemQuantites = [643, 143, 214];
+            var EnterpriseID = 123;
+            var OrderID = [342, 323, 65];
+            var ActionID = 345;
+            var Currency = "Currency";
+            var ItemIDs = [4, 6, 23];
+            var ContainerTagID = 234;
+
+
+            var url = "https://www.emjcd.com/tags/c?containerTagId=" + ContainerTagID + "&";
+            for (var i = 0, ii = ItemIDs.length; i < ii; i++) {
+              url = url + "ITEM" + (i + 1) + "=" +
+                ItemSKUs[i] + "&AMT" + (i + 1) + "=" +
+                ItemPrices[i] + "&QTY" + (i + 1) + "=" +
+                ItemQuantites[i] + "&";
+            }
+            url = url + "CID=" +
+              EnterpriseID + "&OID=" +
+              OrderID + "&TYPE=" +
+              ActionID + "&CURRENCY=" +
+              Currency;
+
+            var iframe = document.createElement("iframe");
+            iframe.height = 1;
+            iframe.width = 1;
+            iframe.frameBorder = 0;
+            iframe.scrolling = 0;
+            iframe.src = url;
+            document.body.appendChild(iframe);
+        </script>
+    </body>
+</html>

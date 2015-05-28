@@ -1,0 +1,78 @@
+<!doctype html>
+<html class="no-js" lang="" xmlns="http://www.w3.org/1999/html">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>Test</title>
+    </head>
+    <body>
+        <div id="gutscheinconnection-container"></div>
+        <script type="text/javascript">
+
+            var SovendusShopID = 123;
+            var SovendusBannerID = 234;
+            var SovendusCustomerSalutation = "SovendusCustomerSalutation";
+            var SovendusOrderID = [342, 323, 65];
+            var SovendusOrderValue = null;
+            var SovendusOrderCurrency = "SovendusOrderCurrency";
+            var SovendusUsedCouponCode = 345;
+            var SovendusCustomerFirstName = "SovendusCustomerFirstName";
+            var SovendusCustomerLastName = "SovendusCustomerLastName";
+            var SovendusCustomerEmail = "alessandro.bonnafous@gmail.com";
+
+
+            var _this = this;
+            var waitForSovendusDiv = function() {
+              if (document.getElementById('gutscheinconnection-container')) {
+                var sovendusNewDate = new Date();
+                var sovendusTimestamp = sovendusNewDate.getTime();
+
+                var getCookie = function(c_name) {
+                  var i, x, y, ARRcookies = document.cookie.split(";");
+                  for (i = 0; i < ARRcookies.length; i++) {
+                    x = ARRcookies[i].substr(0, ARRcookies[i].indexOf("="));
+                    y = ARRcookies[i].substr(ARRcookies[i].indexOf("=") + 1);
+                    x = x.replace(/^\s+|\s+$/g, "");
+                    if (x == c_name) {
+                      return unescape(y);
+                    }
+                  }
+                };
+
+                var sovendusSessionId = getCookie("__utma");
+
+                window._gconData = window._gconData || [];
+
+                _gconData.length = 0;
+
+                _gconData.push(['_shopId', SovendusShopID]);
+                _gconData.push(['_bannerId', SovendusBannerID]);
+                _gconData.push(['_sessionId', sovendusSessionId]);
+                _gconData.push(['_timestamp', sovendusTimestamp]);
+                _gconData.push(['_customerSalutation', '' + SovendusCustomerSalutation]);
+                _gconData.push(['_customerFirstName', SovendusCustomerFirstName]);
+                _gconData.push(['_customerLastName', SovendusCustomerLastName]);
+                _gconData.push(['_customerEmail', SovendusCustomerEmail]);
+                _gconData.push(['_orderId', SovendusOrderID]);
+                _gconData.push(['_orderValue', SovendusOrderValue]);
+                _gconData.push(['_orderCurrency', SovendusOrderCurrency]);
+                _gconData.push(['_usedCouponCode', SovendusUsedCouponCode +
+                  ''
+                ]);
+                _gconData.push(['_htmlElementId', 'gutscheinconnection-container']);
+
+                var sovendusScript = document.createElement('script');
+                document.body.appendChild(sovendusScript);
+                sovendusScript.type = "text/javascript";
+                sovendusScript.src = ('https:' == document.location.protocol ?
+                  'https://' : 'http://') + "api.gutscheinconnection.de/js/client.js";
+                sovendusScript.async = "true";
+              } else {
+                setTimeout(waitForSovendusDiv, 200);
+              }
+            };
+
+            waitForSovendusDiv();
+        </script>
+    </body>
+</html>

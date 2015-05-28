@@ -1,0 +1,42 @@
+<!doctype html>
+<html class="no-js" lang="" xmlns="http://www.w3.org/1999/html">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>Test</title>
+    </head>
+    <body>
+        <script type="text/javascript">
+
+            var AffiliateWindowMerchantID = 123;
+            var OrderId = [342, 323, 65];
+            var AffiliateWindowCommissionGroup = "AffiliateWindowCommissionGroup";
+            var AffiliateWindowTestMode = "AffiliateWindowTestMode";
+            var OrderCurrency = "OrderCurrency";
+            var OrderTotal = 23835;
+            var Voucher = 35;
+
+
+            window.AWIN = {
+              Tracking: {
+                Sale: {
+                  amount: OrderTotal,
+                  currency: "" + OrderCurrency,
+                  orderRef: "" + OrderId,
+                  parts: "" + AffiliateWindowCommissionGroup + ":" +
+                    OrderTotal,
+                  voucher: "" + Voucher,
+                  test: "" + AffiliateWindowTestMode
+                }
+              }
+            };
+
+            (function() {
+                var DSLScript  = document.createElement("script");
+                DSLScript.src  = "http://www.dwin1.com/" + AffiliateWindowMerchantID + ".js";
+                DSLScript.type = "text/javascript";
+                document.body.appendChild(DSLScript);
+            })();
+        </script>
+    </body>
+</html>

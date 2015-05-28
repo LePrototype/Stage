@@ -1,0 +1,60 @@
+<!doctype html>
+<html class="no-js" lang="" xmlns="http://www.w3.org/1999/html">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>Test</title>
+    </head>
+    <body>
+        <script type="text/javascript">
+
+            var TransactionOrderLanguage = "TransactionOrderLanguage";
+            var TransactionOrderID = 2341;
+            var TransactionOrderCurrency = "TransactionOrderCurrency";
+            var TransactionOrderShipping = 56;
+            var TransactionSubtotal = 23435;
+            var TransactionTotal = 23835;
+            var TransactionProductIDList = [4, 6, 23];
+            var TransactionProductQuantityList = [1, 2, 3];
+            var TransactionUnitSalePriceList = [34, 2, 45];
+            var PeeriusClientID = 123;
+            var AJAXUrlStart = "hhtp://AJAXUrlStart";
+
+
+            window.PeeriusCallbacks = {
+              track: {
+                type: "order",
+                lang: "" + TransactionOrderLanguage,
+                order: {
+                  orderNo: "" + TransactionOrderID,
+                  items: [],
+                  currency: "" + TransactionOrderCurrency,
+                  subtotal: "" + TransactionSubtotal,
+                  shipping: "" + TransactionOrderShipping,
+                  total: "" + TransactionTotal
+                }
+              }
+            };
+            var ii = TransactionProductIDList.length;
+            for (var i = 0; i < ii; i++) {
+              PeeriusCallbacks.track.order.items.push({
+                refCode: TransactionProductIDList[i],
+                qty: TransactionProductQuantityList[i],
+                price: TransactionUnitSalePriceList[i]
+              });
+            }
+
+            (function() {
+                var DSLScript  = document.createElement("script");
+                DSLScript.src  = "http://" + PeeriusClientID + ".peerius.com/tracker/peerius.page";
+                DSLScript.type = "text/javascript";
+                document.body.appendChild(DSLScript);
+            })();
+
+            var orderString = JSON.stringify(PeeriusCallbacks.track.order);
+            var order = encodeURIComponent(orderString);
+            Peerius.sendAjax("" + AJAXUrlStart +
+              "/order/add.pagex?order=" + order);
+        </script>
+    </body>
+</html>

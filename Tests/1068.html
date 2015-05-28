@@ -1,0 +1,57 @@
+<!doctype html>
+<html class="no-js" lang="" xmlns="http://www.w3.org/1999/html">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>Test</title>
+    </head>
+    <body>
+        <script type="text/javascript">
+
+            var QuantityList = [1, 2, 3];
+            var SKUList = [4, 6, 23];
+            var ProductNameList = ["Product", "Name", "List"];
+            var AmountList = [345, 234, 312];
+            var VoucherDiscount = 234;
+            var LinkShareMerchantID = 123;
+            var OrderID = [342, 323, 65];
+            var Currency = "Currency";
+
+
+            var formatPrice = function(value) {
+              return Math.round(value * 100);
+            };
+
+            var x = document.createElement("img");
+
+            var skuList = [],
+              qList = [],
+              amtList = [],
+              nameList = [],
+              i, ii;
+
+            for (i = 0, ii = QuantityList.length; i < ii; i++) {
+              skuList.push(SKUList[i]);
+              qList.push(QuantityList[i]);
+              nameList.push(ProductNameList[i]);
+              var amt = AmountList[i] * QuantityList[
+                i];
+              amtList.push(formatPrice(amt));
+            }
+
+            if (VoucherDiscount > 0) {
+              skuList.push("Discount");
+              qList.push("0");
+              amtList.push(formatPrice(-VoucherDiscount));
+              nameList.push("Discount");
+            }
+
+            x.src = "//track.linksynergy.com/ep?mid=" +
+              LinkShareMerchantID + "&ord=" +
+              OrderID + "&skulist=" + skuList.join("|") +
+              "&qlist=" + qList.join("|") + "&amtlist=" + amtList.join("|") + "&cur=" +
+              Currency + "&namelist=" + nameList.join("|");
+            document.body.appendChild(x);
+        </script>
+    </body>
+</html>

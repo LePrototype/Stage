@@ -1,0 +1,42 @@
+<!doctype html>
+<html class="no-js" lang="" xmlns="http://www.w3.org/1999/html">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>Test</title>
+    </head>
+    <body>
+        <script type="text/javascript">
+
+            var PeeriusLanguage = "PeeriusLanguage";
+            var PeeriusSearchQuery = "PeeriusSearchQuery";
+            var PeeriusSearchListingIDs = [234, 43, 56];
+            var PeeriusClientName = "PeeriusClientName";
+
+
+            window.PeeriusCallbacks = {
+              track: {
+                type: "searchresults",
+                lang: "" + PeeriusLanguage,
+                searchResults: {
+                  term: "" + PeeriusSearchQuery,
+                  results: []
+                }
+              }
+            };
+            var ii = PeeriusSearchListingIDs.length;
+            for (var i = 0; i < ii; i++) {
+              PeeriusCallbacks.track.searchResults.results.push({
+                refCode: PeeriusSearchListingIDs[i]
+              });
+            }
+
+            (function() {
+                var DSLScript  = document.createElement("script");
+                DSLScript.src  = "http://" + PeeriusClientName + ".peerius.com/tracker/peerius.page";
+                DSLScript.type = "text/javascript";
+                document.body.appendChild(DSLScript);
+            })();
+        </script>
+    </body>
+</html>
