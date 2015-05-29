@@ -1,0 +1,43 @@
+<!doctype html>
+<html class="no-js" lang="" xmlns="http://www.w3.org/1999/html">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>Test</title>
+    </head>
+    <body>
+        <div id="gutscheinconnection-container"></div>
+        <script type="text/javascript">
+
+            var ClientID = 436;
+            var OrderTotal = 23435;
+            var OrderID = [342, 323, 65];
+            var ProductIDs = [4, 6, 23];
+
+
+
+            var src = "https://tracking.searchmarketing.com/thankyou.asp?SMCID=" +
+              ClientID;
+            src += "&oVal=" + OrderTotal;
+            src += "&OrderID=" + OrderID;
+            src += "&ProductID=";
+
+            // Add the product ids
+            var i = 0,
+              ii = ProductIDs.length,
+              arr = [];
+            for (; i < ii; i++) {
+              arr.push(ProductIDs[i]);
+            }
+            src += arr.join(',');
+
+            // Append to body
+            var img = document.createElement('img');
+            img.src = src;
+            img.width = 1;
+            img.height = 1;
+            img.style.display = 'none';
+            document.body.appendChild(img);
+        </script>
+    </body>
+</html>

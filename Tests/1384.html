@@ -1,0 +1,38 @@
+<!doctype html>
+<html class="no-js" lang="" xmlns="http://www.w3.org/1999/html">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>Test</title>
+    </head>
+    <body>
+        <div id="gutscheinconnection-container"></div>
+        <script type="text/javascript">
+
+            var OrderQuantityList = [1, 2, 3];
+            var UserReturning = "UserReturning";
+            var ShopzillaMerchantID = 123;
+            var OrderTotal = 23435;
+            var OrderID = [342, 323, 65];
+
+
+            var i = 0,
+              ii = OrderQuantityList.length,
+              totalQuantity = 0,
+              customerType = (UserReturning) ? 0 : 1;
+            for (; i < ii; i++) {
+              totalQuantity += parseInt(OrderQuantityList[i]);
+            }
+
+            window.mid = ShopzillaMerchantID;
+            window.cust_type = customerType;
+            window.order_value = OrderTotal;
+            window.order_id = OrderID;
+            window.units_ordered = totalQuantity;
+
+            var script = document.createElement("script");
+            script.src = "https://www.shopzilla.com/css/roi_tracker.js";
+            document.getElementsByTagName('head')[0].appendChild(script);
+        </script>
+    </body>
+</html>

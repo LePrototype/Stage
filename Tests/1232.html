@@ -1,0 +1,63 @@
+<!doctype html>
+<html class="no-js" lang="" xmlns="http://www.w3.org/1999/html">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>Test</title>
+    </head>
+    <body>
+        <div id="gutscheinconnection-container"></div>
+        <script type="text/javascript">
+
+            var PangoraMerchantID = 123;
+            var OrderID = [342, 323, 65];
+            var OrderTotal = 23435;
+            var Currency = "Currency";
+            var ReturningCustomer = true;
+            var ProductIDs = [4, 6, 23];
+            var ProductNames = "Product^Name^s";
+            var ProductPrices =  [934, 721, 567];
+            var ProductCounts = [489, 123, 845];
+
+
+
+            window.pg_pangora_merchant_id = PangoraMerchantID;
+            window.pg_order_id = OrderID;
+            window.pg_cart_value = OrderTotal;
+            window.pg_currency = Currency;
+            window.pg_customer_flag = ReturningCustomer ? 'old' :
+              'new';
+            window.pg_product_id = '';
+            window.pg_product_name = '';
+            window.pg_product_price = '';
+            window.pg_product_units = '';
+            window.pg_cart_size = 0;
+
+            //Build CSVs and get cart size.
+            for (var i = 0; i < ProductIDs.length; i++) {
+              var tempid = ProductIDs[i];
+              var tempnm = ProductNames[i];
+              var temppr = ProductPrices[i];
+              var tempqt = ProductCounts[i];
+
+              //Build the cart size sum
+              pg_cart_size += Number(tempqt);
+
+              //Start each string with a comma, so long as it's not the first.
+              var startString = (i === 0) ? '' : ',';
+              pg_product_id += startString + String(tempid);
+              pg_product_name += startString + String(tempnm);
+              pg_product_price += startString + String(temppr);
+              pg_product_units += startString + String(tempqt);
+            }
+            pg_cart_size = String(pg_cart_size);
+
+            (function() {
+            var DSLScript  = document.createElement("script");
+            DSLScript.src  = "https://clicks.pangora.com/sales-tracking/salesTracker.js";
+            DSLScript.type = "text/javascript";
+            document.body.appendChild(DSLScript);
+            })();
+        </script>
+    </body>
+</html>

@@ -1,0 +1,44 @@
+<!doctype html>
+<html class="no-js" lang="" xmlns="http://www.w3.org/1999/html">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>Test</title>
+    </head>
+    <body>
+        <div id="gutscheinconnection-container"></div>
+        <script type="text/javascript">
+
+            var LengowCustomerID = 436;
+            var LengowGroupID = 345;
+            var LengowOrderValue = null;
+            var LengowOrderID = [342, 323, 65];
+            var ProductNameList = ["Product", "Name", "List"];
+            var LengowPaymentMethod = "LengowPaymentMethod";
+
+
+
+            var lengowProductNamesString = "";
+
+            for (var i = 0; i < ProductNameList.length; i++) {
+              lengowProductNamesString = lengowProductNamesString +
+                ProductNameList[i];
+
+              if (ProductNameList.length !== 1 && i <
+                ProductNameList.length - 1) {
+                lengowProductNamesString = lengowProductNamesString + "|";
+              }
+            }
+
+            var lengowTrackPixel = new Image();
+
+            lengowTrackPixel.src = "https://tracking.lengow.com/lead.php?idClient=" +
+              LengowCustomerID + "&idGroup=" +
+              LengowGroupID + "&price=" +
+              LengowOrderValue + "&idCommande=" +
+              LengowOrderID + "&modePaiement=" +
+              LengowPaymentMethod + "&listingProduit=" +
+              lengowProductNamesString;
+        </script>
+    </body>
+</html>

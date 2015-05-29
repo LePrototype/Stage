@@ -1,0 +1,71 @@
+<!doctype html>
+<html class="no-js" lang="" xmlns="http://www.w3.org/1999/html">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>Test</title>
+    </head>
+    <body>
+        <div id="gutscheinconnection-container"></div>
+        <script type="text/javascript">
+
+            var ZanoxConverisonPageID = 345;
+            var ZanoxProgramID = 234;
+            var OrderSubtotal = 23835;
+            var Currency = "Currency";
+            var OrderID = [342, 323, 65];
+            var CustomerID = 436;
+            var ZanoxCID = 567;
+            var ZanoxTestMode = "ZanoxTestMode";
+
+
+            (function() {
+                var DSLDiv  = document.createElement("div");
+                DSLDiv.setAttribute("class", "zx_" + ZanoxConverisonPageID + " zx_mediaslot");
+                document.body.appendChild(DSLDiv);
+            })();
+
+            // Fire the confirmation tag
+            var url = "//ad.zanox.com/pps/?" + ZanoxProgramID;
+            url += "&mode=[[" + ZanoxTestMode + "]]";
+            url += "&CID=[[" + ZanoxCID + "]]";
+            url += "&CustomerID=[[" + CustomerID + "]]";
+            url += "&OrderID=[[" + OrderID + "]]";
+            url += "&CurrencySymbol=[[" + Currency + "]]";
+            url += "&TotalPrice=[[" + OrderSubtotal + "]]";
+            var script = document.createElement('script');
+            script.src = url;
+            script.type = "text/javascript";
+            document.body.appendChild(script);
+
+            // Set globals for usage by the master tag
+            window.zx_products = [];
+            window.zx_transaction = "" + OrderID;
+            window.zx_total_amount = "" + OrderSubtotal;
+            window.zx_total_currency = "" + Currency;
+
+            // The standard mastertag
+            window._zx = window._zx || [];
+            window._zx.push({
+              "id": "" + ZanoxConverisonPageID
+            });
+            var _this = this;
+            window.waitForZanoxDiv = function() {
+              if (document.querySelector(".zx_" + ZanoxConverisonPageID +
+                ".zx_mediaslot")) {
+                (function(d) {
+                  var s = d.createElement("script");
+                  s.async = true;
+                  s.src = (d.location.protocol == "https:" ? "https:" : "http:") +
+                    "//static.zanox.com/scripts/zanox.js";
+                  var a = d.getElementsByTagName("script")[0];
+                  a.parentNode.insertBefore(s, a);
+                }(document));
+              } else {
+                setTimeout(waitForZanoxDiv, 100);
+              }
+            };
+            waitForZanoxDiv();
+        </script>
+    </body>
+</html>

@@ -1,0 +1,69 @@
+<!doctype html>
+<html class="no-js" lang="" xmlns="http://www.w3.org/1999/html">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>Test</title>
+    </head>
+    <body>
+        <div id="gutscheinconnection-container"></div>
+        <script type="text/javascript">
+
+            var ZanoxPageID = 123;
+            var Programid = 234;
+            var Mode = "Mode";
+            var UserID = 436;
+            var OrderID = [342, 323, 65];
+            var Currency = "Currency";
+            var Subtotal = 23435;
+
+
+            (function() {
+                var DSLDiv  = document.createElement("div");
+                DSLDiv.setAttribute("class", "zx_" + ZanoxPageID + " zx_mediaslot");
+                document.body.appendChild(DSLDiv);
+            })();
+
+            // Fire the confirmation tag
+            var url = "//ad.zanox.com/pps/?" + Programid;
+            url += "&mode=[[" + Mode + "]]";
+            url += "&CustomerID=[[" + UserID + "]]";
+            url += "&OrderID=[[" + OrderID + "]]";
+            url += "&CurrencySymbol=[[" + Currency + "]]";
+            url += "&TotalPrice=[[" + Subtotal + "]]";
+            var script = document.createElement('script');
+            script.src = url;
+            script.type = "text/javascript";
+            document.body.appendChild(script);
+
+            // Set globals for usage by the master tag
+            window.zx_products = [];
+            window.zx_transaction = "" + OrderID;
+            window.zx_total_amount = "" + Subtotal;
+            window.zx_total_currency = "" + Currency;
+
+            // The standard mastertag
+            window._zx = window._zx || [];
+            window._zx.push({
+              "id": "" + ZanoxPageID
+            });
+            var _this = this;
+            window.waitForZanoxDiv = function() {
+              if (document.querySelector(".zx_" + ZanoxPageID +
+                ".zx_mediaslot")) {
+                (function(d) {
+                  var s = d.createElement("script");
+                  s.async = true;
+                  s.src = (d.location.protocol == "https:" ? "https:" : "http:") +
+                    "//static.zanox.com/scripts/zanox.js";
+                  var a = d.getElementsByTagName("script")[0];
+                  a.parentNode.insertBefore(s, a);
+                }(document));
+              } else {
+                setTimeout(waitForZanoxDiv, 100);
+              }
+            };
+            waitForZanoxDiv();
+        </script>
+    </body>
+</html>

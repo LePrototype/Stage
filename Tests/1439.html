@@ -1,0 +1,42 @@
+<!doctype html>
+<html class="no-js" lang="" xmlns="http://www.w3.org/1999/html">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>Test</title>
+    </head>
+    <body>
+        <div id="gutscheinconnection-container"></div>
+        <script type="text/javascript">
+
+            var PCTServer = "PCTServer";
+            var EmailvisionClientID = 123;
+            var OrderTotal = 23435;
+            var OrderID = [342, 323, 65];
+            var OrderCurrency = "OrderCurrency";
+            var EmailvisionConversionFlag = "EmailvisionConversionFlag";
+            var EmailvisionPageName = "EmailvisionPageName";
+
+
+            var src = "http://" + PCTServer +
+              ".emv2.com/P?emv_client_id=" + EmailvisionClientID +
+              "&emv_value=";
+            src += OrderTotal;
+            src += "&emv_transid=" + OrderID;
+            src += "&emv_currency=" + OrderCurrency;
+            src += "&emv_conversionflag=" + EmailvisionConversionFlag;
+            src += "&emv_pagename=" + EmailvisionPageName;
+            var date = new Date();
+            src += "&emv_date=" + date.getDate() + "-" + (date.getMonth() + 1) + "-" +
+              date.getFullYear();
+            src += "&emv_random=" + Math.floor(Math.random() * 900 + 100);
+            var pixel = document.createElement("img");
+            pixel.setAttribute("src", src);
+            pixel.setAttribute("border", "0");
+            pixel.setAttribute("alt", "");
+            pixel.setAttribute("width", "1");
+            pixel.setAttribute("height", "1");
+            document.body.appendChild(pixel);
+        </script>
+    </body>
+</html>

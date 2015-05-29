@@ -1,0 +1,48 @@
+<!doctype html>
+<html class="no-js" lang="" xmlns="http://www.w3.org/1999/html">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>Test</title>
+    </head>
+    <body>
+        <div id="gutscheinconnection-container"></div>
+        <script type="text/javascript">
+
+            var ChannelAdvisorClientID = 436;
+            var OrderSKUList = [4, 6, 23];
+            var OrderProductPriceList = [34, 2, 45];
+            var OrderQuantityList = [1, 2, 3];
+            var OrderId = [342, 323, 65];
+            var OrderSubtotal = 23435;
+            var OrderCurrency = "OrderCurrency";
+
+
+
+            (function() {
+                var DSLScript  = document.createElement("script");
+                DSLScript.src  = "http://t.channeladvisor.com/v2/" + ChannelAdvisorClientID + ".js";
+                DSLScript.type = "text/javascript";
+                document.body.appendChild(DSLScript);
+            })();
+
+            window._caq = window._caq || [];
+            var products = [];
+
+            for (var i = 0; i < OrderSKUList.length; i++) {
+              products.push({
+                ProductID: OrderSKUList[i],
+                UnitPrice: OrderProductPriceList[i],
+                Quantity: OrderQuantityList[i]
+              });
+            }
+
+            _caq.push(["Order", {
+              OrderId: "" + OrderId,
+              oVal: "" + OrderSubtotal,
+              CurrencyCode: "" + OrderCurrency,
+              Products: products
+            }]);
+        </script>
+    </body>
+</html>

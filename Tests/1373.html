@@ -1,0 +1,51 @@
+<!doctype html>
+<html class="no-js" lang="" xmlns="http://www.w3.org/1999/html">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>Test</title>
+    </head>
+    <body>
+        <div id="gutscheinconnection-container"></div>
+        <script type="text/javascript">
+
+            var ShoppingcomClientID = 123;
+            var ShoppingcomOrderID = [342, 323, 65];
+            var ShoppingcomOrderSubtotal = 23435;
+            var ShippingcomOrderDescription = "ShippingcomOrderDescription";
+            var ShoppingcomProductSKUList = [1324, 623, 23];
+            var ShoppingcomProductNameList = ["Shoppingcom", "Product", "NameList"];
+            var ShoppingcomProductCategoryList = ["Shoppingcom", "Product", "CategoryList"];
+            var ShippingcomUnitSalePrices = [34, 2, 45];
+            var ShippingcomItemQuantities = [1, 2, 3];
+
+
+            window._roi = window._roi || [];
+
+            _roi.push(['_setMerchantId', ShoppingcomClientID]);
+            _roi.push(['_setOrderId', ShoppingcomOrderID]);
+            _roi.push(['_setOrderAmount', ShoppingcomOrderSubtotal]);
+            _roi.push(['_setOrderNotes', ShippingcomOrderDescription]);
+
+            for (var i = 0, ii = ShoppingcomProductSKUList.length; i < ii; i++) {
+              _roi.push(['_addItem',
+                ShoppingcomProductSKUList[i],
+                ShoppingcomProductNameList[i],
+                '',
+                ShoppingcomProductCategoryList[i],
+                ShippingcomUnitSalePrices[i],
+                ShippingcomItemQuantities[i]
+              ]);
+            }
+
+            _roi.push(['_trackTrans']);
+
+            (function() {
+                var DSLScript  = document.createElement("script");
+                DSLScript.src  = "http://stat.dealtime.com/ROI/ROI2.js";
+                DSLScript.type = "text/javascript";
+                document.body.appendChild(DSLScript);
+            })();
+        </script>
+    </body>
+</html>

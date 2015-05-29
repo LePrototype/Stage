@@ -1,0 +1,58 @@
+<!doctype html>
+<html class="no-js" lang="" xmlns="http://www.w3.org/1999/html">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>Test</title>
+    </head>
+    <body>
+        <div id="gutscheinconnection-container"></div>
+        <script type="text/javascript">
+
+            var PassinX = 123;
+            var PassinY = 234;
+            var Orderid = [342, 323, 65];
+            var Total = 23435;
+            var Zipcode = 345;
+            var ProductSKUs = [4, 6, 23];
+            var ProductURLs = ["Prod", "uct", "URLs"];
+            var ProductPrices =  [934, 721, 567];
+            var Merchantid = 345;
+
+
+            // Offset. Input blank to default to center.
+            window.passX = "" + PassinX;
+            window.passY = "" + PassinY;
+
+            //Don't define passin_x and passin_y if blank value provided
+            if (passX !== "" && passY !== "") {
+              window.passin_x = Number(passX);
+              window.passin_y = Number(passY);
+            }
+
+            window.orderId = "" + Orderid;
+            window.cartTotal = Total;
+            window.billingZipCode = "" + Zipcode;
+
+            window.productsPurchasedArr = [];
+
+            for (var i = 0; i < Math.min(5, ProductSKUs.length); i++) {
+              var item = "";
+              item += "URL= " + ProductURLs[i];
+              item += "^SKU= " + ProductSKUs[i];
+              // item += "^GTIN= " + ${ids}[i]; // Global Trade Item Number - ignore this
+              item += "^PRICE= " + ProductPrices[i];
+              productsPurchasedArr.push(item);
+            };
+
+            window.productsPurchased = productsPurchasedArr.join("|");
+
+            (function() {
+                var DSLScript  = document.createElement("script");
+                DSLScript.src  = "http://eval.bizrate.com/js/pos_" + Merchantid + ".js";
+                DSLScript.type = "text/javascript";
+                document.body.appendChild(DSLScript);
+            })();
+        </script>
+    </body>
+</html>

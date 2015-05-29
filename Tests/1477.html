@@ -1,0 +1,63 @@
+<!doctype html>
+<html class="no-js" lang="" xmlns="http://www.w3.org/1999/html">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>Test</title>
+    </head>
+    <body>
+        <div id="gutscheinconnection-container"></div>
+        <script type="text/javascript">
+
+            var UniqueConversionPageID = 132;
+            var ConversionPageName = "ConversionPageName";
+            var ConversionDisplayOrder = 234;
+            var ConversionValue = 345;
+            var MeasurementUnit = 456;
+            var Accumulate = true;
+
+
+            function getCookie(cookiename) {
+              if (document.cookie.length > 0) {
+                startC = document.cookie.indexOf(cookiename + "=");
+                if (startC != -1) {
+                  startC += cookiename.length + 1;
+                  endC = document.cookie.indexOf(";", startC);
+                  if (endC == -1) endC = document.cookie.length;
+                  return unescape(document.cookie.substring(startC, endC));
+                }
+              }
+              return null;
+            }
+
+            var imgSrc = document.location.protocol +
+              "//click.exacttarget.com/conversion.aspx?xml=";
+            imgSrc += "<system>";
+            imgSrc += "<system_name>tracking</system_name>";
+            imgSrc += "<action>conversion</action>";
+            imgSrc += "<member_id>" + getCookie("MemberID") + "</member_id>";
+            imgSrc += "<job_id>" + getCookie("JobID") + "</job_id>";
+            imgSrc += "<email>" + getCookie("EmailAddr") + "</email>";
+            imgSrc += "<list>" + getCookie("ListID") + "</list>";
+            imgSrc += "<BatchID>" + getCookie("BatchID") + "</BatchID>";
+            imgSrc += "<original_link_id>" + getCookie("UrlID") +
+              "</original_link_id>";
+            imgSrc += "<conversion_link_id>" +
+              UniqueConversionPageID + "</conversion_link_id>";
+            imgSrc += "<link_alias>" +
+              ConversionPageName +
+              "</link_alias>";
+            imgSrc += "<display_order>" +
+              ConversionDisplayOrder + "</display_order>";
+            imgSrc += "<data_set><data amt=" +
+              ConversionValue +
+              " unit=" +
+              MeasurementUnit +
+              " accumulate=" +
+              Accumulate + "/></data_set>";
+            imgSrc += "</system>";
+
+            new Image().src = imgSrc;
+        </script>
+    </body>
+</html>

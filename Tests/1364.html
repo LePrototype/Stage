@@ -1,0 +1,34 @@
+<!doctype html>
+<html class="no-js" lang="" xmlns="http://www.w3.org/1999/html">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>Test</title>
+    </head>
+    <body>
+        <div id="gutscheinconnection-container"></div>
+        <script type="text/javascript">
+
+            var PriceGrabberPopupX = 123;
+            var PriceGrabberPopupY = 234;
+            var OrderID = [342, 323, 65];
+            var PriceGrabberPopupEmail = "alessandro.bonnafous@gmail.com";
+            var PriceGrabberAccountNumber = 123;
+
+
+
+            window.popup_pos_x = Number("" + PriceGrabberPopupX);
+            window.popup_pos_y = Number("" + PriceGrabberPopupY);
+
+            window.popup_order_number = "" + OrderID;
+            window.popup_email = "" + PriceGrabberPopupEmail;
+
+            (function() {
+                var DSLScript  = document.createElement("script");
+                DSLScript.src  = "https://www.pricegrabber.com/rating_merchrevpopjs.php?retid=" + PriceGrabberAccountNumber;
+                DSLScript.type = "text/javascript";
+                document.body.appendChild(DSLScript);
+            })();
+        </script>
+    </body>
+</html>
