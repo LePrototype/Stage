@@ -1,0 +1,43 @@
+<!doctype html>
+<html class="no-js" lang="" xmlns="http://www.w3.org/1999/html">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>Test</title>
+    </head>
+    <body>
+        <script type="text/javascript">
+
+            var SojernPartnerKey = 123;
+            var ClosestAirporttoCarPickUpLocation = "ClosestAirporttoCarPickUpLocation";
+            var CarPickUpCity = "ClosestAirporttoHotel";
+            var CarPickUpDate = "2015-05-21";
+            var ClosestAirporttoCarDropOffLocation = "ClosestAirporttoCarDropOffLocation";
+            var CarDropOffCity = "CarDropOffCity";
+            var CarDropOffDate = "2015-06-01";
+            var ClassofCar = "ClassofCar";
+            var NumberofTravellers = 375;
+            var HashofCustomerLoyaltyProgramNumber = 5897;
+            var CarPurchasePrice = 2321;
+            var Gender = "F";
+            var CustomerFirstname = "CustomerFirstname";
+
+
+            var src = document.location.protocol + "//pixel.sojern.com/partner/" +
+              SojernPartnerKey + "/rc?";
+            src += "ra1=" + ClosestAirporttoCarPickUpLocation + "&";
+            src += "rc1=" + CarPickUpCity + "&";
+            src += "rd1=" + CarPickUpDate + "&";
+            src += "ra2=" + ClosestAirporttoCarDropOffLocation + "&";
+            src += "rc2=" + CarDropOffCity + "&";
+            src += "rd2=" + CarDropOffDate + "&";
+            src += "rc=" + ClassofCar + "&";
+            src += "t=" + NumberofTravellers + "&";
+            src += "rl=" + HashofCustomerLoyaltyProgramNumber + "&";
+            src += "rp=" + CarPurchasePrice + "&";
+            src += "g=" + Gender + "&";
+            src += "n=" + CustomerFirstname;
+            (new Image()).src = src;
+        </script>
+    </body>
+</html>

@@ -1,0 +1,21 @@
+<!doctype html>
+<html class="no-js" lang="" xmlns="http://www.w3.org/1999/html">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>Test</title>
+    </head>
+    <body>
+        <script type="text/javascript">
+
+            var FandistClientID = 123;
+
+
+            var uv = window.universal_variable || {};
+            var src = "//a.fandi.st/pixel.gif?acc=" + FandistClientID +
+              "&camp=1&d=" + window.encodeURIComponent(JSON.stringify(uv));
+            var fandImage = new Image();
+            fandImage.src = src;
+        </script>
+    </body>
+</html>

@@ -1,0 +1,49 @@
+<!doctype html>
+<html class="no-js" lang="" xmlns="http://www.w3.org/1999/html">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>Test</title>
+    </head>
+    <body>
+        <script type="text/javascript">
+
+            var SojernPartnerKey = 123;
+            var NumberofTravellers = 375;
+            var NumberofRooms = 765;
+            var CheckInDate = "2015-05-21";
+            var CheckOutDate = "2015-05-22";
+            var City = "City";
+            var State = "State";
+            var Country = "Country";
+            var ClosestAirporttohotel = "ClosestAirporttohotel";
+            var HotelPostcode = 1334;
+            var PurchasePrice = 654;
+            var Gender = "F";
+            var FirstName = "FirstName";
+            var HashofCustomerLoyaltyProgramNumber = 7623;
+            var RoomType = "RoomType";
+            
+
+
+            var src = document.location.protocol + "//pixel.sojern.com/partner/" +
+              SojernPartnerKey + "/hc?";
+
+            src += "t=" + NumberofTravellers + "&";
+            src += "hr=" + NumberofRooms + "&";
+            src += "hd1=" + CheckInDate + "&";
+            src += "hd2=" + CheckOutDate + "&";
+            src += "hc1=" + City + "&";
+            src += "hs1=" + State + "&";
+            src += "hn1=" + Country + "&";
+            src += "ha1=" + ClosestAirporttohotel + "&";
+            src += "hz1=" + HotelPostcode + "&";
+            src += "hp=" + PurchasePrice + "&";
+            src += "g=" + Gender + "&";
+            src += "n=" + FirstName + "&";
+            src += "hl=" + HashofCustomerLoyaltyProgramNumber + "&";
+            src += "hc=" + RoomType;
+            (new Image()).src = src;
+        </script>
+    </body>
+</html>

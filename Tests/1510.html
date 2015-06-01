@@ -1,0 +1,45 @@
+<!doctype html>
+<html class="no-js" lang="" xmlns="http://www.w3.org/1999/html">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>Test</title>
+    </head>
+    <body>
+        <script type="text/javascript">
+
+            var ClientRIID = 123;
+            var ClientEIID = 234;
+            var OrderID = [342, 323, 65];
+            var OrderTotal = 23435;
+            var CustomerID = 436;
+            var ConversionType = "ConversionType";
+            var ArrayofPurchasedItems = ["Array", "ofPurchased", "Items"];
+            var Domain = "Domain";
+
+
+            var customerID = "" + CustomerID;
+            var numberOfItems = ArrayofPurchasedItems.length;
+
+            var imageSource = document.location.protocol + "//" +
+              Domain + "/pub/cct?_ri_=" +
+              ClientRIID + "&_ei_=" +
+              ClientEIID + "&action=once&OrderID=" +
+              OrderID + "&OrderTotal=" +
+              OrderTotal + "&numItems=" + numberOfItems;
+
+            if (customerID !== "0") {
+              imageSource += "&customerID=" + customerID;
+            }
+
+            imageSource += "&Type=" + ConversionType;
+
+            var image = document.createElement('img');
+            image.src = imageSource;
+            image.width = 1;
+            image.height = 1;
+
+            document.head.appendChild(image);
+        </script>
+    </body>
+</html>

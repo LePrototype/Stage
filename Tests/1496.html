@@ -1,0 +1,34 @@
+<!doctype html>
+<html class="no-js" lang="" xmlns="http://www.w3.org/1999/html">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>Test</title>
+    </head>
+    <body>
+        <script type="text/javascript">
+
+            var AccountNumber = 123;
+            var Labels = "Labels";
+            var OrderID = [342, 323, 65];
+            var OrderRevenue = [987, 876, 765];
+
+
+            window._qevents = window._qevents || [];
+
+            var elem = document.createElement('script');
+            elem.src = (document.location.protocol == "https:" ? "https://secure" :
+              "http://edge") + ".quantserve.com/quant.js";
+            elem.async = true;
+            elem.type = "text/javascript";
+            document.getElementsByTagName('head')[0].appendChild(elem);
+
+            _qevents.push({
+              qacct: "" + AccountNumber,
+              labels: "" + Labels,
+              orderid: "" + OrderID,
+              revenue: "" + OrderRevenue
+            });
+        </script>
+    </body>
+</html>

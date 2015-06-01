@@ -1,0 +1,51 @@
+<!doctype html>
+<html class="no-js" lang="" xmlns="http://www.w3.org/1999/html">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>Test</title>
+    </head>
+    <body>
+        <script type="text/javascript">
+
+            var ListofProductSKUs = [414, 126, 23];
+            var ListofProductIDs = [224, 616, 23];
+            var ListofProductNames = ["Listof", "Product", "Names"];
+            var ListorProductPrices =  [934, 721, 567];
+            var ListofProductQuantities = [1, 2, 3];
+            var S2Tech_SendBasket = function() {};
+
+
+            var _this = this;
+            var waitFor_S2Tech_SendBasket = setInterval(function() {
+              if (typeof S2Tech_SendBasket === 'function') {
+                clearInterval(waitFor_S2Tech_SendBasket);
+
+                var basketData = "<Store>";
+
+                for (var i = 0; i < ListofProductSKUs.length; i++) {
+                  basketData += "<Product>";
+                  basketData += "<SKU>" + ListofProductSKUs[i] + "</SKU>";
+                  basketData += "<Product_ID>" + ListofProductIDs[i] +
+                    "</Product_ID>";
+                  basketData += "<Product_Name>" + ListofProductNames[i] +
+                    "</Product_Name>";
+                  basketData += "<Unit_Price>" + ListorProductPrices[i] +
+                    "</Unit_Price>";
+                  basketData += "<Quantity>" + ListofProductQuantities[i] +
+                    "</Quantity>";
+                  basketData += "</Product>";
+                }
+
+                basketData += "</Store>";
+
+                S2Tech_SendBasket(basketData);
+              }
+            }, 100);
+
+            setTimeout(function() {
+              clearInterval(waitFor_S2Tech_SendBasket);
+            }, 5000);
+        </script>
+    </body>
+</html>

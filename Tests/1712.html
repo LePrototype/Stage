@@ -1,0 +1,34 @@
+<!doctype html>
+<html class="no-js" lang="" xmlns="http://www.w3.org/1999/html">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>Test</title>
+    </head>
+    <body>
+        <script type="text/javascript">
+
+            var SojernPartnerKey = 1346;
+            var NameofCruiseLine = "NameofCruiseLine";
+            var DepartureDate = "2015-05-22";
+            var NumberofCruiseNights = 89423;
+            var Destination = "Destination";
+            var CustomerResidence = "CustomerResidence";
+            var NumberofTravellers = 876;
+            var NumberofRooms = 765;
+
+
+
+            var src = document.location.protocol + "//pixel.sojern.com/partner/" +
+              SojernPartnerKey + "/cs?";
+            src += "cco=" + NameofCruiseLine + "&";
+            src += "cd1=" + DepartureDate + "&";
+            src += "cd=" + NumberofCruiseNights + "&";
+            src += "cf1=" + Destination + "&";
+            src += "s=" + CustomerResidence + "&";
+            src += "t=" + NumberofTravellers + "&";
+            src += "cr=" + NumberofRooms;
+            (new Image()).src = src;
+        </script>
+    </body>
+</html>

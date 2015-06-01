@@ -1,0 +1,49 @@
+<!doctype html>
+<html class="no-js" lang="" xmlns="http://www.w3.org/1999/html">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>Test</title>
+    </head>
+    <body>
+        <script type="text/javascript">
+
+            var EventType = "EventType";
+            var OriginAirportCode = 123;
+            var DestinationAirportCode = 234;
+            var DepartureDate = "2015-05-22";
+            var ReturnDate = "2015-05-24";
+            var NumberofTravellers = 876;
+            var ServiceClass = "ServiceClass";
+            var PurchasePrice = 654;
+            var Gender = "F";
+            var CustomersFirstName = "CustomersFirstName";
+            var CustomerPostCode = 345;
+            var HashofFrequentFlyerNumber = 456;
+            var FrequentFlyerLevel = 567;
+            var FareCode = 678;
+            var ConfirmationNumber = 543;
+            var AirlineName = "AirlineName";
+
+
+            var src = "https://beacon.sojern.com/p/3?";
+            src += "et=" + EventType + "&";
+            src += "fa1=" + OriginAirportCode + "&";
+            src += "fa2=" + DestinationAirportCode + "&";
+            src += "fd1=" + DepartureDate + "&";
+            src += "fd2=" + ReturnDate + "&";
+            src += "t=" + NumberofTravellers + "&";
+            src += "fc=" + ServiceClass + "&";
+            src += "fp=" + PurchasePrice + "&";
+            src += "g=" + Gender + "&";
+            src += "n=" + CustomersFirstName + "&";
+            src += "fz1=" + CustomerPostCode + "&";
+            src += "fl=" + HashofFrequentFlyerNumber + "&";
+            src += "ffl=" + FrequentFlyerLevel + "&";
+            src += "ffc=" + FareCode + "&";
+            src += "fconfno=" + ConfirmationNumber + "&";
+            src += "fan=" + AirlineName;
+            (new Image()).src = src;
+        </script>
+    </body>
+</html>

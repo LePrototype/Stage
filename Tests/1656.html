@@ -1,0 +1,60 @@
+<!doctype html>
+<html class="no-js" lang="" xmlns="http://www.w3.org/1999/html">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>Test</title>
+    </head>
+    <body>
+        <script type="text/javascript">
+
+            var EventType = "EventType";
+            var NearestAirporttoPickupLocation = "NearestAirporttoPickUpLocation";
+            var PickUpCity = "PickUpCity";
+            var PickUpDate = "2015-05-21";
+            var NearestAirporttoDropoffLocation = "NearestAirporttoDropOffLocation";
+            var DropOffCity = "DropOffCity";
+            var DropOffDate = "2015-05-22";
+            var ClassofCar = "ClassofCar";
+            var NumberofTravellers = 375;
+            var EncryptedLoyaltyNumber = 822;
+            var Language = "fr";
+            var CountryorResidence = "CountryorResidence";
+            var AgeRange = "AgeRange";
+            var DiscountCDPClubCode = 2571;
+            var PromotionCoupon = 2472;
+            var RateCode = 923;
+            var ConventionNumber = 9831;
+            var VoucherNumber = 352;
+            var ACRISSCarCode = 242;
+            var BaseRate = "BaseRate";
+            var PaymentMethod = "PaymentMethod";
+
+
+
+            var src = "https://beacon.sojern.com/p/6?";
+            src += "et=" + EventType + "&";
+            src += "ra1=" + NearestAirporttoPickupLocation + "&";
+            src += "rc1=" + PickUpCity + "&";
+            src += "rd1=" + PickUpDate + "&";
+            src += "ra2=" + NearestAirporttoDropoffLocation + "&";
+            src += "rc2=" + DropOffCity + "&";
+            src += "rd2=" + DropOffDate + "&";
+            src += "rc=" + ClassofCar + "&";
+            src += "t=" + NumberofTravellers + "&";
+            src += "rl=" + EncryptedLoyaltyNumber + "&";
+            src += "l=" + Language + "&";
+            src += "c=" + CountryorResidence + "&";
+            src += "a=" + AgeRange + "&";
+            src += "rdc=" + DiscountCDPClubCode + "&";
+            src += "rpc=" + PromotionCoupon + "&";
+            src += "rrq=" + RateCode + "&";
+            src += "rcv=" + ConventionNumber + "&";
+            src += "rit=" + VoucherNumber + "&";
+            src += "racris=" + ACRISSCarCode + "&";
+            src += "rrate=" + BaseRate + "&";
+            src += "rpnow=" + PaymentMethod;
+            (new Image()).src = src;
+        </script>
+    </body>
+</html>

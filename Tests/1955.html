@@ -1,0 +1,37 @@
+<!doctype html>
+<html class="no-js" lang="" xmlns="http://www.w3.org/1999/html">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>Test</title>
+    </head>
+    <body>
+        <script type="text/javascript">
+
+            var SojernPartnerKey = 1232;
+            var OriginAirportCode = 123;
+            var DestinationAirportCode = 234;
+            var DepartureDate = "2015-05-22";
+            var ReturnDate = "2015-05-24";
+            var NumberofTravellers = 375;
+            var ServiceClass = "ServiceClass";
+            var PurchasePrice = 654;
+            var Gender = "F";
+            var CustomerFirstName = "CustomerFirstName";
+
+
+            var src = document.location.protocol + "//pixel.sojern.com/partner/" +
+              SojernPartnerKey + "/vc?";
+            src += "va1=" + OriginAirportCode + "&";
+            src += "va2=" + DestinationAirportCode + "&";
+            src += "vd1=" + DepartureDate + "&";
+            src += "vd2=" + ReturnDate + "&";
+            src += "t=" + NumberofTravellers + "&";
+            src += "vc=" + ServiceClass + "&";
+            src += "vp=" + PurchasePrice + "&";
+            src += "g=" + Gender + "&";
+            src += "n=" + CustomerFirstName;
+            (new Image()).src = src;
+        </script>
+    </body>
+</html>

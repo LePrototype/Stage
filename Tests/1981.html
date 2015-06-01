@@ -1,0 +1,71 @@
+<!doctype html>
+<html class="no-js" lang="" xmlns="http://www.w3.org/1999/html">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>Test</title>
+    </head>
+    <body>
+        <script type="text/javascript">
+
+            var OrderID = [342, 323, 65];
+            var OrderTotalexcludingShippingCost = [987, 6754, 321];
+            var ShippingCost = 324;
+            var County = "County";
+            var ListofProductIDs = [4, 6, 23];
+            var ListofProductNames = ["Listof", "Product", "Names"];
+            var ListofProductPrices =  [934, 721, 567];
+            var Title = "Title";
+            var LastName = "LastName";
+            var Address1 = "Address1";
+            var Address2 = "Address2";
+            var Address3 = "Address3";
+            var Address4 = "Address4";
+            var Email = "alessandro.bonnafous@gmail.com";
+            var Mobile = "Mobile";
+            var Affiliation = 3464;
+            var tax = 654;
+            var city = "city";
+            var country = "country";
+            var ListofProductSKUs = [4, 6, 23];
+            var ListofProductCategories = ["Listof", "Product", "Categories"];
+            var ListofProductQuantities = [1, 2, 3];
+            var Forename = "Forename";
+            var Postcode = 987;
+            var OptIns = "OptIns";
+            var Landline = "Landline";
+
+            var S2Tech_addOrder = function() {};
+            var S2Tech_addItem = function() {};
+            var S2Tech_MatchData_NA = function() {};
+
+
+            var _this = this;
+            var ii = 0;
+            var waitForConfirmationScripts = function() {
+              if ((typeof S2Tech_addOrder === 'function') && (typeof S2Tech_addItem ===
+                'function') && (typeof S2Tech_MatchData_NA === 'function')) {
+                S2Tech_addOrder("" + OrderID, "" + Affiliation,
+                 "" + OrderTotalexcludingShippingCost, "" + tax,
+                  "" + ShippingCost, "" + city,
+                   "" + County, "" + country);
+
+                for (var i = 0; i < ListofProductIDs.length; i++) {
+                  S2Tech_addItem("" + OrderID, ListofProductSKUs[i], ListofProductNames[i], ListofProductCategories[i], ListofProductPrices[i], ListofProductQuantities[i]);
+                }
+
+                S2Tech_MatchData_NA("" + Title, "" + Forename,
+                 "" + LastName, "" + Address1,
+                 "" + Address2, "" + Address3,
+                 "" + Address4, "" + Postcode,
+                 "" + Email, "" + Landline,
+                 "" + Mobile,  "" + OptIns);
+              } else if (ii < 50) {
+                ii++;
+                setTimeout(waitForConfirmationScripts, 100);
+              }
+            };
+            waitForConfirmationScripts();
+        </script>
+    </body>
+</html>

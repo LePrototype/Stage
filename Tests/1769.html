@@ -1,0 +1,67 @@
+<!doctype html>
+<html class="no-js" lang="" xmlns="http://www.w3.org/1999/html">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>Test</title>
+    </head>
+    <body>
+        <script type="text/javascript">
+
+            var SojernPartnerKey = 1346;
+            var OriginAirportCode = 123;
+            var DestinationAirportCode = 234;
+            var DepartureDate = "2015-05-22";
+            var ReturnDate = "2015-05-24";
+            var NumberofTravellers = 876;
+            var ServiceClass = "ServiceClass";
+            var FlightPurchasePrice = 9231;
+            var Gender = "F";
+            var FirstName = "FirstName";
+            var HashofFrequentFlyerNumber = 9238;
+            var FrequentFlyerLevel = 723;
+            var FareCode = 9218;
+            var NumberofRooms = 765;
+            var CheckInDate = "2015-05-21";
+            var CheckOutDate = "2015-05-22";
+            var City = "City";
+            var State = "State";
+            var Country = "Country";
+            var ClosestAirporttoHotel = "ClosestAirporttoHotel";
+            var HotelPostcode = 1334;
+            var HotelPurchasePrice = 9218;
+            var HashofCustomerLoyaltyProgramNumber = 5897;
+            var RoomType = "RoomType";
+
+
+
+
+            var src = document.location.protocol + "//pixel.sojern.com/partner/" +
+              SojernPartnerKey + "/fc?";
+            src += "fa1=" + OriginAirportCode + "&";
+            src += "fa2=" + DestinationAirportCode + "&";
+            src += "fd1=" + DepartureDate + "&";
+            src += "fd2=" + ReturnDate + "&";
+            src += "t=" + NumberofTravellers + "&";
+            src += "fc=" + ServiceClass + "&";
+            src += "fp=" + FlightPurchasePrice + "&";
+            src += "g=" + Gender + "&";
+            src += "n=" + FirstName + "&";
+            src += "fl=" + HashofFrequentFlyerNumber + "&";
+            src += "ffl=" + FrequentFlyerLevel + "&";
+            src += "ffc=" + FareCode + "&";
+            src += "hr=" + NumberofRooms + "&";
+            src += "hd1=" + CheckInDate + "&";
+            src += "hd2=" + CheckOutDate + "&";
+            src += "hc1=" + City + "&";
+            src += "hs1=" + State + "&";
+            src += "hn1=" + Country + "&";
+            src += "ha1=" + ClosestAirporttoHotel + "&";
+            src += "hz1=" + HotelPostcode + "&";
+            src += "hp=" + HotelPurchasePrice + "&";
+            src += "hl=" + HashofCustomerLoyaltyProgramNumber + "&";
+            src += "hc=" + RoomType;
+            (new Image()).src = src;
+        </script>
+    </body>
+</html>

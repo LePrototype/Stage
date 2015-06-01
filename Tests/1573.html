@@ -1,0 +1,31 @@
+<!doctype html>
+<html class="no-js" lang="" xmlns="http://www.w3.org/1999/html">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>Test</title>
+    </head>
+    <body>
+        <script type="text/javascript">
+
+            var PageTypeIdentifier = 238;
+            var EncryptedFlightLoyaltynumber = 783;
+            var EncryptedHotelLoyaltyNumber = 922;
+            var EncryptedRentalCarLoyaltyNumber = 139;
+            var CruiseLoyaltyNumber = 352;
+            var Language = "fr";
+            var CountryofResidence = "CountryofResidence";
+
+
+            var src = "https://beacon.sojern.com/p/1?";
+            src += "n=" + PageTypeIdentifier + "&";
+            src += "fl=" + EncryptedFlightLoyaltynumber + "&";
+            src += "hl=" + EncryptedHotelLoyaltyNumber + "&";
+            src += "rl=" + EncryptedRentalCarLoyaltyNumber + "&";
+            src += "cl=" + CruiseLoyaltyNumber + "&";
+            src += "l=" + Language + "&";
+            src += "c=" + CountryofResidence;
+            (new Image()).src = src;
+        </script>
+    </body>
+</html>

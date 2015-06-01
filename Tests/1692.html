@@ -1,0 +1,32 @@
+<!doctype html>
+<html class="no-js" lang="" xmlns="http://www.w3.org/1999/html">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>Test</title>
+    </head>
+    <body>
+        <script type="text/javascript">
+
+            var EventType = "EventType";
+            var OriginAirportCode = 123;
+            var DestinationAirportCode = 234;
+            var DepartureDate = "2015-05-22";
+            var ReturnDate = "2015-05-24";
+            var NumberofTravellers = 876;
+            var ServiceClass = "ServiceClass";
+
+
+
+            var src = "https://beacon.sojern.com/p/8?";
+            src += "et=" + EventType + "&";
+            src += "va1=" + OriginAirportCode + "&";
+            src += "va2=" + DestinationAirportCode + "&";
+            src += "vd1=" + DepartureDate + "&";
+            src += "vd2=" + ReturnDate + "&";
+            src += "t=" + NumberofTravellers + "&";
+            src += "vc=" + ServiceClass;
+            (new Image()).src = src;
+        </script>
+    </body>
+</html>

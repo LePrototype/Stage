@@ -1,0 +1,41 @@
+<!doctype html>
+<html class="no-js" lang="" xmlns="http://www.w3.org/1999/html">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>Test</title>
+    </head>
+    <body>
+        <script type="text/javascript">
+
+            var EventType = "EventType";
+            var NameofCruiseLine = "NameofCruiseLine";
+            var DepartureDate = "2015-05-22";
+            var LengthofCruiseinNights = "LengthofCruiseinNights";
+            var DestinationofCruise = "DestinationofCruise";
+            var CustomersPostcode = 987;
+            var NumberofTravellers = 876;
+            var NumberofRooms = 765;
+            var PurchasePrice = 654;
+            var Gender = "F";
+            var CustomersFirstName = "CustomersFirstName";
+            var ConfirmationNumber = 543;
+
+
+            var src = "https://beacon.sojern.com/p/11?";
+            src += "et=" + EventType + "&";
+            src += "cco=" + NameofCruiseLine + "&";
+            src += "cd1=" + DepartureDate + "&";
+            src += "cd=" + LengthofCruiseinNights + "&";
+            src += "cf1=" + DestinationofCruise + "&";
+            src += "s=" + CustomersPostcode + "&";
+            src += "t=" + NumberofTravellers + "&";
+            src += "cr=" + NumberofRooms + "&";
+            src += "cp=" + PurchasePrice + "&";
+            src += "g=" + Gender + "&";
+            src += "n=" + CustomersFirstName + "&";
+            src += "cconfno=" + ConfirmationNumber;
+            (new Image()).src = src;
+        </script>
+    </body>
+</html>
