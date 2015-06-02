@@ -1,0 +1,46 @@
+<!doctype html>
+<html class="no-js" lang="" xmlns="http://www.w3.org/1999/html">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>Test</title>
+    </head>
+    <body>
+        <script type="text/javascript">
+
+            var ClientCode = 123;
+            var DisplayCode = 234;
+            var TransactionOrderID = 2341;
+            var TransactionOrderTotal = 23435;
+            var UserEmail = "alessandro.bonnafous@gmail.com";
+            var ProductSKUList = [1324, 623, 23];
+            var ProductQuantityList = [1, 2, 3];
+            var ProductPriceList = [123, 3, 234];
+
+
+            (function() {
+                var DSLScript  = document.createElement("script");
+                DSLScript.src  = "http://" + ClientCode + ".ugc.bazaarvoice.com/static/" + DisplayCode + "/bvapi.js";
+                DSLScript.type = "text/javascript";
+                document.body.appendChild(DSLScript);
+            })();
+
+            var data = {
+              "orderId": "" + TransactionOrderID,
+              "total": TransactionOrderTotal,
+              "email": "" + UserEmail,
+              "items": []
+            };
+
+            for (var i = 0; i < ProductSKUList.length; i++) {
+              data.items.push({
+                "sku": ProductSKUList[i],
+                "quantity": ProductQuantityList[i],
+                "price": ProductPriceList[i]
+              });
+            }
+
+            window.$BV.SI.trackTransactionPageView(data);
+        </script>
+    </body>
+</html>

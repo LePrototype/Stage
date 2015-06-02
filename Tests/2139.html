@@ -1,0 +1,65 @@
+<!doctype html>
+<html class="no-js" lang="" xmlns="http://www.w3.org/1999/html">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>Test</title>
+    </head>
+    <body>
+        <script type="text/javascript">
+
+            var BazaarvoiceItemIDlist = [4, 6, 23];
+            var BazaarvoiceItemQuantityList = [1, 2, 3];
+            var BazaarvoiceItemSalePricelist = [34, 2, 45];
+            var BazaarvoiceMerchantGroupID = 345;
+            var BazaarvoiceMerchantID = 345;
+            var BazaarvoiceUserID = 436;
+            var BazaarvoiceOrderID = [342, 323, 65];
+            var BazaarvoiceOrderSubtotal = 23435;
+
+
+            (function() {
+                var DSLScript  = document.createElement("script");
+                DSLScript.src  = "http://static.powerreviews.com/t/v1/tracker.js";
+                DSLScript.type = "text/javascript";
+                document.body.appendChild(DSLScript);
+            })();
+
+            var _this = this;
+            try {
+              var item_count = 0;
+              var _this = this;
+              var items = (function() {
+                var tmp = [];
+                for (var i = 0; i < BazaarvoiceItemIDlist.length; i++) {
+                  tmp.push([
+                    BazaarvoiceItemIDlist[i],
+                    "",
+                    "",
+                    BazaarvoiceItemQuantityList[i],
+                    BazaarvoiceItemSalePricelist[i]
+                  ]);
+                  item_count += BazaarvoiceItemQuantityList[i];
+                }
+                return tmp;
+              })();
+              window.items = items;
+
+              var tracker = POWERREVIEWS.tracker.createTracker({
+                merchantGroupId: "" + BazaarvoiceMerchantGroupID
+              });
+              tracker.trackPageview("c", {
+                merchantId: "" + BazaarvoiceMerchantID,
+                locale: "en_US",
+                merchantUserId: "" + BazaarvoiceUserID,
+                orderId: "" + BazaarvoiceOrderID,
+                orderSubtotal: "" + BazaarvoiceOrderSubtotal,
+                orderNumberOfItems: String(item_count),
+                orderItems: items
+              });
+            } catch (e) {
+              window.console && window.console.log(e)
+            }
+        </script>
+    </body>
+</html>

@@ -1,0 +1,32 @@
+<!doctype html>
+<html class="no-js" lang="" xmlns="http://www.w3.org/1999/html">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>Test</title>
+    </head>
+    <body>
+        <script type="text/javascript">
+
+            var URLID = 123;
+            var Dedupe = 1;
+            var DomainId = 234;
+            var Type = "Type";
+            var Revenue = 345;
+            var ActionId = 456;
+
+
+
+            (function() {
+                var DSLIframe  = document.createElement("iframe");
+                DSLIframe.src  = "http:////flex.atdmt.com/mstag/tag/" + URLID + "/analytics.html?dedup=" + Dedupe + "&domainId=" + DomainId + "&type=" + Type + "&revenue=" + Revenue + "&actionid=" + ActionId;
+                DSLIframe.scrolling = "no";
+                DSLIframe.width = "1";
+                DSLIframe.height = "1";
+                DSLIframe.setAttribute("frameborder", "0");
+                DSLIframe.setAttribute("style", "visibility:hidden;display:none");
+                document.body.appendChild(DSLIframe);
+            })();
+        </script>
+    </body>
+</html>

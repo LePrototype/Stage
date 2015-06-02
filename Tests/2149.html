@@ -1,0 +1,29 @@
+<!doctype html>
+<html class="no-js" lang="" xmlns="http://www.w3.org/1999/html">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>Test</title>
+    </head>
+    <body>
+        <script type="text/javascript">
+
+            var ReviewCount = 987;
+            var Showreviewrating = "Showreviewrating";
+
+
+            (function() {
+                var DSLScript1 = document.createElement("script");
+                DSLScript1.type = "text/javascript";
+                var Child1 = document.createTextNode("var qypetoolConfig = {reviewCount: " + ReviewCount + ", showStars: " + Showreviewrating + "};");
+                DSLScript1.appendChild(Child1);
+                document.body.appendChild(DSLScript1);
+
+                var DSLScript2  = document.createElement("script");
+                DSLScript2.src  = "http://www.qype.co.uk/qypetool/city_widget/world.en.js";
+                DSLScript2.type = "text/javascript";
+                document.body.appendChild(DSLScript2);
+            })();
+        </script>
+    </body>
+</html>

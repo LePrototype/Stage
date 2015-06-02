@@ -1,0 +1,44 @@
+<!doctype html>
+<html class="no-js" lang="" xmlns="http://www.w3.org/1999/html">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>Test</title>
+    </head>
+    <body>
+        <script type="text/javascript">
+
+            var Title = "Title";
+            var LastName = "LastName";
+            var Address = "Address";
+            var Email = "alessandro.bonnafous@gmail.com";
+            var Mobile = "Mobile";
+            var Postcode = 987;
+            var OptIns = "OptIns";
+            var Landline = "Landline";
+            var FirstName = "FirstName";
+
+            var S2Tech_addOrder = function() {};
+            var S2Tech_addItem = function() {};
+            var S2Tech_MatchData_NA = function() {};
+
+
+            var _this = this;
+            var waitFor_S2Tech_MatchData_NA = setInterval(function() {
+              if (typeof S2Tech_MatchData_NA === 'function') {
+                clearInterval(waitFor_S2Tech_MatchData_NA);
+
+                S2Tech_MatchData_NA("" + Title, "" + FirstName,
+                                    "" + LastName, "" + Address, 
+                                    "" + Postcode + "", "" + Email, 
+                                    "" + Landline, "" + Mobile,
+                                    "" + OptIns);
+              }
+            }, 100);
+
+            setTimeout(function() {
+              clearInterval(waitFor_S2Tech_MatchData_NA);
+            }, 5000);
+        </script>
+    </body>
+</html>

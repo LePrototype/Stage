@@ -1,0 +1,47 @@
+<!doctype html>
+<html class="no-js" lang="" xmlns="http://www.w3.org/1999/html">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>Test</title>
+    </head>
+    <body>
+        <script type="text/javascript">
+
+            var XaxisClientID = 123;
+            var XaxisTagName = "XaxisTagName";
+            var XaxisDataSource = "XaxisDataSource";
+            var XaxisCustomParameter1 = "XaxisCustomParameter1";
+            var XaxisCustomParameter2 = "XaxisCustomParameter2";
+            var XaxisCustomParameter3 = "XaxisCustomParameter3";
+            var XaxisCustomParameter4 = "XaxisCustomParameter4";
+            var XaxisCustomParameter5 = "XaxisCustomParameter5";
+            var XaxisTransactionID = 345;
+            var XaxisTransactionCurrency = "TransactionCurrency";
+            var XaxisOrderValue = null;
+
+            var S2Tech_StoreRegistrationData = function() {};
+
+
+            var img = new Image(0, 0),
+              arr = [],
+              obj = {
+                migClientId: XaxisClientID,
+                migAction: XaxisTagName,
+                migSource: XaxisDataSource,
+                migParam1: XaxisCustomParameter1,
+                migParam2: XaxisCustomParameter2,
+                migParam3: XaxisCustomParameter3,
+                migParam4: XaxisCustomParameter4,
+                migParam5: XaxisCustomParameter5,
+                migValue: XaxisOrderValue,
+                migXId: XaxisTransactionID,
+                migCurrency: XaxisTransactionCurrency
+              };
+            for (var key in obj) {
+              arr.push(key + "=" + obj[key]);
+            }
+            img.src = "//t.mookie1.com/t/v1/event?" + arr.join("&");
+        </script>
+    </body>
+</html>

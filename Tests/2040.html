@@ -1,0 +1,41 @@
+<!doctype html>
+<html class="no-js" lang="" xmlns="http://www.w3.org/1999/html">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>Test</title>
+    </head>
+    <body>
+        <script type="text/javascript">
+
+            var DoubleClickID = 123;
+            var DoubleClickTagType = "DoubleClickTagType";
+            var DoubleClickTagCategory = "DoubleClickTagCategory";
+            var OrderTotal = 23435;
+            var CustomParameters = "CustomParameters";
+            var OrderID = [342, 323, 65];
+
+
+            var fl_if = document.createElement("iframe");
+            fl_if.src = '//' + DoubleClickID +
+              '.fls.doubleclick.net/activityi;src=' +
+              DoubleClickID +
+              ';type=' +
+              DoubleClickTagType +
+              ';cat=' +
+              DoubleClickTagCategory +
+              ';qty=1;cost=' +
+              OrderTotal +
+              ';' +
+              CustomParameters +
+              ';ord=' +
+              OrderID +
+              '?';
+            fl_if.width = "1";
+            fl_if.height = "1";
+            fl_if.frameborder = "0";
+            fl_if.style.display = "none";
+            document.body.appendChild(fl_if);
+        </script>
+    </body>
+</html>

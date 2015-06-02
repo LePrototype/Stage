@@ -1,0 +1,29 @@
+<!doctype html>
+<html class="no-js" lang="" xmlns="http://www.w3.org/1999/html">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>Test</title>
+    </head>
+    <body>
+        <script type="text/javascript">
+
+            var Domain = "Domain";
+            var AppNexusID = 123;
+            var Segment = "Segment";
+            var OrderID = [342, 323, 65];
+            var OrderSubtotal = 23435;
+            var Tvalue = 234;
+
+
+            (function() {
+                var DSLImg  = document.createElement("img");
+                DSLImg.src  = "https://" + Domain + "/px?id=" + AppNexusID + "&seg=" + Segment + "&order_id=" + OrderID + "&value=" + OrderSubtotal + "&t=" + Tvalue;
+                DSLImg.width = "1";
+                DSLImg.height = "1";
+                DSLImg.alt = "stylefruits.de";
+                document.body.appendChild(DSLImg);
+            })();
+        </script>
+    </body>
+</html>

@@ -1,0 +1,25 @@
+<!doctype html>
+<html class="no-js" lang="" xmlns="http://www.w3.org/1999/html">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>Test</title>
+    </head>
+    <body>
+        <script type="text/javascript">
+
+            var UniqueId = 123;
+
+
+            window.uvOptions = {};
+            var ID = UniqueId;
+            var uv = document.createElement('script');
+            uv.type = 'text/javascript';
+            uv.async = true;
+            uv.src = ('https:' == document.location.protocol ? 'https://' : 'http://') +
+              "widget.uservoice.com/" + ID + ".js";
+            var s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(uv, s);
+        </script>
+    </body>
+</html>

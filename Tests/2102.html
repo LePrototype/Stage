@@ -1,0 +1,27 @@
+<!doctype html>
+<html class="no-js" lang="" xmlns="http://www.w3.org/1999/html">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>Test</title>
+    </head>
+    <body>
+        <script type="text/javascript">
+
+            var AppNexusSegment = "AppNexusSegment";
+            var AppNexusID = 123;
+
+
+            (function() {
+                var DSLImg  = document.createElement("img");
+                DSLImg.src  = "http://ib.adnxs.com/px?id=" + AppNexusID + "&seg=" + AppNexusSegment + "&t=1";
+                DSLImg.width = "1";
+                DSLImg.height = "1";
+                DSLImg.alt = "";
+                DSLImg.border = "0";
+                DSLImg.setAttribute("style", "display:none;");
+                document.body.appendChild(DSLImg);
+            })();
+        </script>
+    </body>
+</html>

@@ -1,0 +1,32 @@
+<!doctype html>
+<html class="no-js" lang="" xmlns="http://www.w3.org/1999/html">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>Test</title>
+    </head>
+    <body>
+        <script type="text/javascript">
+
+            var MarinTrackingID = 123;
+
+
+
+            window._mTrack = window._mTrack || [];
+
+            _mTrack.push(['activateAnonymizeIp']);
+            _mTrack.push(['trackPage']);
+
+            var mClientId = "" + MarinTrackingID;
+            var mProto = ('https:' == document.location.protocol ? 'https://' :
+              'http://');
+            var mHost = 'tracker.marinsm.com';
+            var mt = document.createElement('script');
+            mt.type = 'text/javascript';
+            mt.async = true;
+            mt.src = mProto + mHost + '/tracker/async/' + mClientId + '.js';
+            var fscr = document.getElementsByTagName('script')[0];
+            fscr.parentNode.insertBefore(mt, fscr);
+        </script>
+    </body>
+</html>

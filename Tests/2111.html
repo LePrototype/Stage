@@ -1,0 +1,25 @@
+<!doctype html>
+<html class="no-js" lang="" xmlns="http://www.w3.org/1999/html">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>Test</title>
+    </head>
+    <body>
+        <script type="text/javascript">
+
+            var OrderTotal = 23435;
+            var ClickTracksID = 123;
+
+
+            window.CT_C_OrderTotal = OrderTotal;
+
+            (function() {
+                var DSLScript  = document.createElement("script");
+                DSLScript.src  = "http://stats2.clicktracks.com/cgi-bin/ctasp-server.cgi?i=" + ClickTracksID;
+                DSLScript.type = "text/javascript";
+                document.body.appendChild(DSLScript);
+            })();
+        </script>
+    </body>
+</html>
