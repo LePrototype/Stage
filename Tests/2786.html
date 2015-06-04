@@ -1,0 +1,47 @@
+<!doctype html>
+<html class="no-js" lang="" xmlns="http://www.w3.org/1999/html">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>Test</title>
+    </head>
+    <body>
+        <script type="text/javascript">
+
+            var ArrayofProductSKUs = [4, 6, 23];
+            var divIDorClass = "divIDorClass";
+            var Title = "Title";
+
+
+            window._advisorq = window._advisorq || [];
+            var skus = [];
+            for (var i = 0; i < ArrayofProductSKUs.length; i++) {
+              skus.push("" + ArrayofProductSKUs[i]);
+            }
+
+            window._advisorq.push({
+              _setConfig: {
+                sku: 'CAT:CART',
+                exclusionSkus: skus.join(",")
+              }
+            });
+
+            window._advisorq.push({
+              _suggest: {
+                code: "cart",
+                layout: {
+                  selector: "" + divIDorClass,
+                  title: "" + Title
+                }
+              }
+            });
+
+            (function() {
+                var DSLScript  = document.createElement("script");
+                DSLScript.src  = "http://js.advisor.smartfocus.com/advisor.min.js";
+                DSLScript.type = "text/javascript";
+                document.body.appendChild(DSLScript);
+            })();
+        </script>
+    </body>
+</html>

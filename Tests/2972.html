@@ -1,0 +1,43 @@
+<!doctype html>
+<html class="no-js" lang="" xmlns="http://www.w3.org/1999/html">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>Test</title>
+    </head>
+    <body>
+        <script type="text/javascript">
+
+            var GuaranteeSealHash = "9cb0cbcda88377b1e1d66e8d7f01cbae";
+            var Thetransactionsordernumber = 234;
+            var Thetransactionsorderamount = 987654;
+            var Thebuyersemailaddress = "alessandro.bonnafous@gmail.com";
+
+
+
+            if (window._GUARANTEE && _GUARANTEE.Loaded) {
+              // Check to see if a guarantee span is already present.  If not, create one.
+              var id = '_GUARANTEE_GuaranteeSpan';
+              var span = document.getElementById(id);
+              if (!span) {
+                span = document.createElement('span');
+                span.id = id;
+                document.body.insertBefore(span, document.body.firstChild);
+              }
+              // Make the Guarantee call
+              _GUARANTEE.Hash = GuaranteeSealHash;
+              _GUARANTEE.Guarantee.order = Thetransactionsordernumber;
+              _GUARANTEE.Guarantee.subtotal = Thetransactionsorderamount;
+              _GUARANTEE.Guarantee.email = Thebuyersemailaddress;
+              _GUARANTEE.WriteGuarantee('JavaScript', id);
+            }
+
+            (function() {
+                var DSLScript  = document.createElement("script");
+                DSLScript.src  = "http://nsg.symantec.com/private/rollover/rollover.js";
+                DSLScript.type = "text/javascript";
+                document.body.appendChild(DSLScript);
+            })();
+        </script>
+    </body>
+</html>

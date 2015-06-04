@@ -1,0 +1,97 @@
+<!doctype html>
+<html class="no-js" lang="" xmlns="http://www.w3.org/1999/html">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>Test</title>
+    </head>
+    <body>
+        <script type="text/javascript">
+
+            var ProductIds = [4, 6, 23];
+            var ClientID = 123;
+            var Datacollectionmethod = "Datacollectionmethod";
+            var Datacollectiondomain = "Datacollectiondomain";
+            var CookieDomain = "CookieDomain";
+            var PageID = 16;
+            var CategoryID = 234;
+            var ProductNames = ["Product", "Na", "mes"];
+            var ProductQuantities = [1, 2, 3];
+            var ProductUnitSalePrices = [34, 2, 45];
+            var RegistrationID = 987;
+            var OrderID = [342, 323, 65];
+            var OrderSubtotal = 23435;
+            var ProductCategoryIDList = ["Product", "Category", "IDList"];
+            var Shippingcost = 324;
+            var City = "City";
+            var State = "State";
+            var Postcode = 137;
+            var UserEmail = "alessandro.bonnafous@gmail.com";
+            var Country = "Country";
+
+
+
+            (function() {
+                var DSLScript  = document.createElement("script");
+                DSLScript.src  = "http://libs.coremetrics.com/eluminate.js";
+                DSLScript.type = "text/javascript";
+                document.body.appendChild(DSLScript);
+            })();
+
+            var i = 0,
+              ii = ProductIds.length;
+
+            // Client Setup
+            window.cmSetClientID(
+              "" + ClientID,
+              Datacollectionmethod,
+              "" + Datacollectiondomain,
+              "" + CookieDomain
+            );
+
+            // Pageview
+            window.cmCreatePageviewTag(
+              "" + PageID,
+              "" + CategoryID
+            );
+
+            // Track each product purchased
+            for (; i < ii; i++) {
+              window.cmCreateShopAction9Tag(
+                ProductIds[i],
+                ProductNames[i],
+                ProductQuantities[i],
+                ProductUnitSalePrices[i],
+                "" + RegistrationID,
+                "" + OrderID,
+                "" + OrderSubtotal,
+                ProductCategoryIDList[i]
+              );
+            };
+
+            // Needs to be called after the createShopAction5Tag is fully called
+            window.cmDisplayShops();
+
+            // Track the transaction
+            window.cmCreateOrderTag(
+              "" + OrderID,
+              "" + OrderSubtotal,
+              "" + Shippingcost,
+              "" + RegistrationID,
+              "" + City,
+              "" + State,
+              "" + Postcode
+            );
+
+            // Connect the user who's just purchased with the session cookie
+            window.cmCreateRegistrationTag(
+              "" + RegistrationID,
+              "" + UserEmail,
+              "" + City,
+              "" + State,
+              "" + Postcode,
+              "" + Country
+            );
+        </script>
+    </body>
+</html>

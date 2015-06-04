@@ -1,0 +1,29 @@
+<!doctype html>
+<html class="no-js" lang="" xmlns="http://www.w3.org/1999/html">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>Test</title>
+    </head>
+    <body>
+        <script type="text/javascript">
+
+            var HubspotID = 123;
+
+
+
+            var _this = this;
+            (function(d, s, i, r) {
+              if (d.getElementById(i)) {
+                return;
+              }
+              var n = d.createElement(s),
+                e = d.getElementsByTagName(s)[0];
+              n.id = i;
+              n.src = '//js.hubspot.com/analytics/' + (Math.ceil(new Date() / r) * r) +
+                '/' + HubspotID + '.js';
+              e.parentNode.insertBefore(n, e);
+            })(document, "script", "hs-analytics", 300000);
+        </script>
+    </body>
+</html>

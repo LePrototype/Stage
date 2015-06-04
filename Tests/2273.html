@@ -1,0 +1,43 @@
+<!doctype html>
+<html class="no-js" lang="" xmlns="http://www.w3.org/1999/html">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>Test</title>
+    </head>
+    <body>
+        <script type="text/javascript">
+
+            var MentionMeScriptDomain = "MentionMeScriptDomain";
+            var MentionMePartnerCode = 123;
+            var MentionMeSituation = "MentionMeSituation";
+            var UserEmail = "alessandro.bonnafous@gmail.com";
+            var FullName = "FullName";
+            var Implementation = 234;
+
+
+
+            var baseUrl = "https://" + MentionMeScriptDomain +
+              "/api/v2/refereefind/" + MentionMePartnerCode + "?";
+            var mmScript = document.createElement("script");
+            var paramArr = [];
+            var paramObj = {
+              situation: "" + MentionMeSituation
+            }
+            if (("" + UserEmail).length)
+              paramObj["email"] = "" + UserEmail;
+            if (("" + FullName).length)
+              paramObj["fullname"] = "" + FullName;
+            if (("" + Implementation).length)
+              paramObj["implementation"] = "" + Implementation;
+
+            for (var param in paramObj) {
+              var value = paramObj[param];
+              paramArr.push(param + "=" + escape(value));
+            }
+
+            mmScript.src = baseUrl + paramArr.join("&");
+            document.body.appendChild(mmScript);
+        </script>
+    </body>
+</html>

@@ -1,0 +1,63 @@
+<!doctype html>
+<html class="no-js" lang="" xmlns="http://www.w3.org/1999/html">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>Test</title>
+    </head>
+    <body>
+        <script type="text/javascript">
+
+            var ProductIds = [4, 6, 23];
+            var ClientID = 123;
+            var Datacollectionmethod = "Datacollectionmethod";
+            var Datacollectiondomain = "Datacollectiondomain";
+            var CookieDomain = "CookieDomain";
+            var PageID = 16;
+            var CategoryID = 234;
+            var ProductNames = ["Product", "Na", "mes"];
+            var ProductQuantities = [1, 2, 3];
+            var ProductUnitSalePrices = [34, 2, 45];
+            var ProductCategoryIDs = [123, 234, 345];
+
+
+
+            (function() {
+                var DSLScript  = document.createElement("script");
+                DSLScript.src  = "http://libs.coremetrics.com/eluminate.js";
+                DSLScript.type = "text/javascript";
+                document.body.appendChild(DSLScript);
+            })();
+
+            var i = 0,
+              ii = ProductIds.length;
+
+            // Client Setup
+            window.cmSetClientID(
+              "" + ClientID,
+              Datacollectionmethod,
+              "" + Datacollectiondomain,
+              "" + CookieDomain
+            );
+
+            // Page View
+            window.cmCreatePageviewTag(
+              "" + PageID,
+              "" + CategoryID
+            );
+
+            // Products
+            for (; i < ii; i++) {
+              window.cmCreateShopAction5Tag(
+                ProductIds[i],
+                ProductNames[i],
+                ProductQuantities[i],
+                ProductUnitSalePrices[i],
+                ProductCategoryIDs[i]
+              );
+            };
+
+            window.cmDisplayShops();
+        </script>
+    </body>
+</html>

@@ -1,0 +1,75 @@
+<!doctype html>
+<html class="no-js" lang="" xmlns="http://www.w3.org/1999/html">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>Test</title>
+    </head>
+    <body>
+        <script type="text/javascript">
+
+            var WebPropertyID = 123;
+            var SiteURL = "SiteURL";
+            var OrderID = [342, 323, 65];
+            var StoreName = "StoreName";
+            var Revenue = 987;
+            var ShippingCost = 324;
+            var TaxValue = 23;
+            var Currency = "Currency";
+            var ItemNameList = ["Item", "Na", "mes"];
+            var ItemSKUList = [4, 6, 23];
+            var ItemCategoryList = ["Item", "Category", "List"];
+            var ItemPriceList = [987, 654, 321];
+            var ItemQuantitiesList = [1, 2, 3];
+
+
+
+            var _this = this;
+            (function(i, s, o, g, r, a, m) {
+              i['GoogleAnalyticsObject'] = r;
+              i[r] = i[r] || function() {
+                (i[r].q = i[r].q || []).push(arguments)
+              }, i[r].l = 1 * new Date();
+              a = s.createElement(o),
+              m = s.getElementsByTagName(o)[0];
+              a.async = 1;
+              a.src = g;
+              m.parentNode.insertBefore(a, m)
+            })(window, document, 'script', '//www.google-analytics.com/analytics.js',
+              'ga');
+
+            ga('create',
+              "" + WebPropertyID,
+              "" + SiteURL, {
+                'allowLinker': true
+              });
+
+            ga('require', 'displayfeatures');
+            ga('send', 'pageview');
+            ga('require', 'ecommerce', 'ecommerce.js');
+
+            ga('ecommerce:addTransaction', {
+              'id': "" + OrderID, //Required
+              'affiliation': "" + StoreName,
+              'revenue': "" + Revenue,
+              'shipping': "" + ShippingCost,
+              'tax': "" + TaxValue,
+              'currencyCode': "" + Currency
+            });
+
+            //Loop through transaction items. Don't pollute the globe!
+            for (var i = 0; i < ItemNameList.length; i++) {
+              ga('ecommerce:addItem', {
+                'id': "" + OrderID, //Required
+                'name': String(ItemNameList[i]), //Required
+                'sku': String(ItemSKUList[i]),
+                'category': String(ItemCategoryList[i]),
+                'price': String(ItemPriceList[i]),
+                'quantity': String(ItemQuantitiesList[i])
+              });
+            }
+
+            ga('ecommerce:send');
+        </script>
+    </body>
+</html>

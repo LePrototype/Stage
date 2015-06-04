@@ -1,0 +1,42 @@
+<!doctype html>
+<html class="no-js" lang="" xmlns="http://www.w3.org/1999/html">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>Test</title>
+    </head>
+    <body>
+        <script type="text/javascript">
+
+            var APIKey = 123;
+
+
+
+            var _this = this;
+            window._kmq = window._kmq || [];
+            (function(w, d) {
+              function _kms(u) {
+                setTimeout(function() {
+                  var s = d.createElement('script');
+                  var f = d.getElementsByTagName('script')[0];
+                  s.type = 'text/javascript';
+                  s.async = true;
+                  s.src = u;
+                  f.parentNode.insertBefore(s, f);
+                }, 1);
+              }
+
+              function kmg() {
+                _kms('//i.kissmetrics.com/i.js');
+                _kms('//doug1izaerwt3.cloudfront.net/' + APIKey +
+                  '.1.js');
+              }
+              if (w.addEventListener) {
+                w.addEventListener("load", kmg, false);
+              } else if (w.attachEvent) {
+                w.attachEvent("onload", kmg);
+              }
+            }(window, document))
+        </script>
+    </body>
+</html>

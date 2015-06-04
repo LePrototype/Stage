@@ -1,0 +1,68 @@
+<!doctype html>
+<html class="no-js" lang="" xmlns="http://www.w3.org/1999/html">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>Test</title>
+    </head>
+    <body>
+        <script type="text/javascript">
+
+            var SmartSourceSiteID = 123;
+            var DataCollectionServerURI = "DataCollectionServerURI";
+            var Timezone = 234;
+            var CookieName = "CookieName";
+            var Firstpartycookiedomain = "Firstpartycookiedomain";
+            var CookieTypes = "CookieTypes";
+            var Disable3rdpartycookies = true;
+            var Preserveconfig = true;
+            var Metatagfields = "Metatagfields";
+            var TrackingDelay = 345;
+            var Trackingenabled = true;
+            var Internationalization = true;
+            var UserID = 436;
+
+
+
+            var _this = this;
+            window.webtrendsAsyncInit = function() {
+              var options = {
+                // Top level settings
+                dcsid: "" + SmartSourceSiteID,
+                domain: "" + DataCollectionServerURI,
+                timezone: Timezone, // int
+
+                // Cookie settings
+                fpc: "" + CookieName,
+                fpcdom: "" + Firstpartycookiedomain,
+                cookieTypes: "" + CookieTypes,
+                disablecookie: Disable3rdpartycookies, // bool 
+
+                // Tracking functionality
+                preserve: Preserveconfig, // bool 
+                metanames: "" + Metatagfields,
+                dcsdelay: TrackingDelay, // int
+
+                // Misc
+                enabled: Trackingenabled, // bool
+                i18n: Internationalization, // bool
+              };
+
+              // User id
+              var userId = "" + UserID;
+              if (userId) options.vtid = userId;
+
+              var dcs = new Webtrends.dcs(options);
+              dcs.init(options);
+              dcs.track();
+            };
+
+            (function() {
+                var DSLScript  = document.createElement("script");
+                DSLScript.src  = "http://d22rutvoghj3db.cloudfront.net/opentag-cdn/webtrends.min.js";
+                DSLScript.type = "text/javascript";
+                document.body.appendChild(DSLScript);
+            })();
+        </script>
+    </body>
+</html>

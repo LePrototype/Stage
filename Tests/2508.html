@@ -1,0 +1,34 @@
+<!doctype html>
+<html class="no-js" lang="" xmlns="http://www.w3.org/1999/html">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>Test</title>
+    </head>
+    <body>
+        <script type="text/javascript">
+
+            var DecibelInsightAccountID = 123;
+
+
+
+            window._da_ = window._da_ || [];
+            var _da_oldErr = window.onerror;
+
+            _da_.err = [];
+            window.onerror = function(e) {
+              _da_.err.push(e);
+              _da_oldErr && _da_oldErr(e);
+            };
+            var _this = this;
+            (function(d) {
+              var da = d.createElement('script');
+              da.type = 'text/javascript';
+              da.async = 'async';
+              da.src = location.protocol + '//decibelinsight.net/i/' +
+                DecibelInsightAccountID + '/di.js';
+              d.getElementsByTagName('head')[0].appendChild(da);
+            })(document);
+        </script>
+    </body>
+</html>x

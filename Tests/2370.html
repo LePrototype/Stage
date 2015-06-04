@@ -1,0 +1,49 @@
+<!doctype html>
+<html class="no-js" lang="" xmlns="http://www.w3.org/1999/html">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>Test</title>
+    </head>
+    <body>
+        <script type="text/javascript">
+
+            var ClickTaleId = 123;
+            var RecordingRatio = "RecordingRatio";
+            var PartitionId = 234;
+
+
+
+            var _this = this;
+            window.WRInitTime = (new Date()).getTime();
+
+            var ctd = document.createElement("div");
+            ctd.id = "ClickTaleDiv";
+            ctd.style.display = "none";
+            document.body.appendChild(ctd);
+
+            var ct = document.createElement("script");
+            ct.src = (document.location.protocol === 'https:' ?
+              'https://clicktalecdn.sslcs.cdngc.net/www/' :
+              'http://cdn.clicktale.net/www/') + 'WRe0.js';
+
+            var done = function() {
+              window.ClickTaleSSL = 1;
+              if (typeof ClickTale == 'function') {
+                ClickTale(ClickTaleId,
+                  RecordingRatio,
+                  "" + PartitionId);
+              }
+            };
+
+            ct.onload = done;
+            ct.onreadystatechange = function() {
+              if ((this.readyState === "complete") || (this.readyState === "loading")) {
+                setTimeout(done, 1);
+              }
+            }
+
+            document.body.appendChild(ct);
+        </script>
+    </body>
+</html>

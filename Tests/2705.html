@@ -1,0 +1,40 @@
+<!doctype html>
+<html class="no-js" lang="" xmlns="http://www.w3.org/1999/html">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>Test</title>
+    </head>
+    <body>
+        <script type="text/javascript">
+
+            var WebPropertyID = 123;
+            var FieldObjectArray = ["Field", "Object", "Array"];
+
+
+
+            window.uv_listener.push(["on", "event",
+              function(event) {
+
+                var data = {
+                  hitType: "event",
+                  eventCategory: event.category,
+                  eventAction: event.action
+                };
+
+                // Add label and value
+                if (event.label !== undefined) {
+                  data.eventLabel = event.label;
+                }
+                if (event.value !== undefined) {
+                  data.eventValue = event.value;
+                }
+
+                // Send the event
+                ga("send", data);
+
+              }
+            ]);
+        </script>
+    </body>
+</html>

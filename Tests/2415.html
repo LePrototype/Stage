@@ -1,0 +1,59 @@
+<!doctype html>
+<html class="no-js" lang="" xmlns="http://www.w3.org/1999/html">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>Test</title>
+    </head>
+    <body>
+        <script type="text/javascript">
+
+            var ClientID = 123;
+            var Datacollectionmethod = "Datacollectionmethod";
+            var Datacollectiondomain = "Datacollectiondomain";
+            var CookieDomain = "CookieDomain";
+            var PageID = 16;
+            var CategoryID = 776;
+            var EventID = 234;
+            var ActionType = 987;
+            var EventCategoryID = 876;
+            var Points = 765;
+
+
+
+            (function() {
+                var DSLScript  = document.createElement("script");
+                DSLScript.src  = "http://libs.coremetrics.com/eluminate.js";
+                DSLScript.type = "text/javascript";
+                document.body.appendChild(DSLScript);
+            })();
+
+            // Top level settings   
+            cmSetClientID(
+              "" + ClientID,
+              Datacollectionmethod,
+              "" + Datacollectiondomain,
+              "" + CookieDomain
+            );
+
+            // Extra custom attributes
+            var attributeString, extraFieldString;
+
+            // Track pageviews with whatever data we have
+            cmCreatePageviewTag(
+              "" + PageID,
+              "" + CategoryID
+            );
+
+            // Create the custom event
+            cmCreateConversionEventTag(
+              "" + EventID,
+              "" + ActionType,
+              "" + EventCategoryID,
+              "" + Points,
+              attributeString,
+              extraFieldString
+            );
+        </script>
+    </body>
+</html>

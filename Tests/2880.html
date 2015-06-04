@@ -1,0 +1,36 @@
+<!doctype html>
+<html class="no-js" lang="" xmlns="http://www.w3.org/1999/html">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>Test</title>
+    </head>
+    <body>
+        <script type="text/javascript">
+
+            var jQueryname = "jQuery";
+            var jQueryselector = "jQueryselector";
+            var Pagetitle = "Pagetitle";
+            var URLpath = "URLpath";
+            var Type = "Type";
+
+
+
+            var _this = this;
+            var $ = window["" + jQueryname];
+
+            $(document).ready(function() {
+              $("" + jQueryselector).click(function() {
+                Webtrends.multiTrack({
+                  element: this,
+                  argsa: [
+                    "WT.ti", "" + Pagetitle,
+                    "DCS.dcsuri", "" + URLpath,
+                    'WT.dl', "" + Type
+                  ]
+                });
+              });
+            });
+        </script>
+    </body>
+</html>

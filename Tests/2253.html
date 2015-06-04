@@ -1,0 +1,46 @@
+<!doctype html>
+<html class="no-js" lang="" xmlns="http://www.w3.org/1999/html">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>Test</title>
+    </head>
+    <body>
+        <script type="text/javascript">
+
+            var MentionMeScriptDomain = "MentionMeScriptDomain";
+            var MentionMePartnerCode = 123;
+            var MentionMeSituation = "MentionMeSituation";
+            var UserEmail = "alessandro.bonnafous@gmail.com";
+            var UserFullName = "UserFullName";
+            var MentionMeSegment = "MentionMeSegment";
+            var UserLocale = "UserLocale";
+
+
+
+            var baseUrl = "https://" + MentionMeScriptDomain +
+              ".mention-me.com/api/v2/banner/" + MentionMePartnerCode + "?";
+            var mmScript = document.createElement("script");
+            var paramArr = [];
+            var paramObj = {
+              situation: "" + MentionMeSituation
+            }
+            if (("" + UserEmail).length)
+              paramObj["email"] = "" + UserEmail;
+            if (("" + UserFullName).length)
+              paramObj["fullname"] = "" + UserFullName;
+            if (("" + MentionMeSegment).length)
+              paramObj["segment"] = "" + MentionMeSegment;
+            if (("" + UserLocale).length)
+              paramObj["locale"] = "" + UserLocale;
+
+            for (var param in paramObj) {
+              var value = paramObj[param];
+              paramArr.push(param + "=" + escape(value));
+            }
+
+            mmScript.src = baseUrl + paramArr.join("&");
+            document.body.appendChild(mmScript);
+        </script>
+    </body>
+</html>

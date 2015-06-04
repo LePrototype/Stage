@@ -1,0 +1,27 @@
+<!doctype html>
+<html class="no-js" lang="" xmlns="http://www.w3.org/1999/html">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>Test</title>
+    </head>
+    <body>
+        <script type="text/javascript">
+
+            var GatewayPrefix = "GatewayPrefix";
+            var CustomerCode = 123;
+            var ProductID = 234;
+            var Price = 345;
+            var Category = "Category";
+
+
+
+            (function() {
+                var DSLScript  = document.createElement("img");
+                DSLScript.src  = "https://" + GatewayPrefix + ".cpr.prismastar.com/v2_0/recorder/?type=productPage&customerCode=" + CustomerCode + "&order=" + ProductID + "|1|" + Price + "|" + Category;
+                DSLScript.style = "display:none;";
+                document.body.appendChild(DSLScript);
+            })();
+        </script>
+    </body>
+</html>

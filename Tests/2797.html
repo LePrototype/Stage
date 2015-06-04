@@ -1,0 +1,40 @@
+<!doctype html>
+<html class="no-js" lang="" xmlns="http://www.w3.org/1999/html">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>Test</title>
+    </head>
+    <body>
+        <script type="text/javascript">
+
+            var divIDorClass = "divIDorClass";
+            var Title = "Title";
+
+
+            window._advisorq = window._advisorq || [];
+            window._advisorq.push({
+              _setConfig: {
+                sku: "CAT:HOME"
+              }
+            });
+
+            window._advisorq.push({
+              _suggest: {
+                code: "home",
+                layout: {
+                  selector: "" + divIDorClass,
+                  title: "" + Title
+                }
+              }
+            });
+
+            (function() {
+                var DSLScript  = document.createElement("script");
+                DSLScript.src  = "http://js.advisor.smartfocus.com/advisor.min.js";
+                DSLScript.type = "text/javascript";
+                document.body.appendChild(DSLScript);
+            })();
+        </script>
+    </body>
+</html>

@@ -1,0 +1,65 @@
+<!doctype html>
+<html class="no-js" lang="" xmlns="http://www.w3.org/1999/html">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>Test</title>
+    </head>
+    <body>
+        <script type="text/javascript">
+
+            var Quantity = 234;
+            var SKUList = [1324, 623, 23];
+            var ConversionID = 436;
+            var OrderID = [342, 323, 65];
+            var Cost = 345;
+            var CustomerID = 2436;
+            var PageType = "PageType";
+            var PaymentType = "PaymentType";
+            var ConversionType = "ConversionType";
+
+
+
+            var _this = this;
+            var totalQuantity = (function() {
+              var total = 0;
+              for (var i = 0; i < Quantity.length; i++) {
+                total += Quantity[i];
+              }
+              return total;
+            })();
+            window.totalQuantity = totalQuantity;
+            var skuList = (function() {
+              var str = "";
+              for (var i = 0; i < SkuList.length; i++) {
+                str += SkuList[i];
+                if ((i + 1) < SkuList.length) {
+                  str += ","
+                }
+              }
+              return str;
+            })();
+            window.skuList = skuList;
+            window.__chconv__ = {
+              "conversion_id": ConversionID,
+              "quantity": totalQuantity,
+              "order_id": "" + OrderID,
+              "cost": "" + Cost,
+              "u1": "" + CustomerID,
+              "u2": skuList,
+              "u3": "" + PageType,
+              "u4": "" + PaymentType,
+              "u5": "" + ConversionType
+            };
+
+            if (typeof(__chconv__) == "undefined") return;
+            var e = encodeURIComponent;
+            var p = [];
+            for (var i in __chconv__) {
+              p.push(e(i) + "=" + e(__chconv__[i]))
+            }
+            (new Image()).src = document.location.protocol + '//as.chango.com/conv/i;' +
+              (new Date()).getTime() + '?' + p.join("&");
+        </script>
+    </body>
+</html>

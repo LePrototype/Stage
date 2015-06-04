@@ -1,0 +1,40 @@
+<!doctype html>
+<html class="no-js" lang="" xmlns="http://www.w3.org/1999/html">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>Test</title>
+    </head>
+    <body>
+        <script type="text/javascript">
+
+            var ProductIDList = [4, 6, 23];
+            var PerfectStormClientName = "PerfectStormClientName";
+            var OrderTotal = 23435;
+            var OrderID = [342, 323, 65];
+
+
+
+            var img = document.createElement("img");
+            img.height = 1;
+            img.width = 1;
+            img.style.display = "none";
+
+            var i = 0;
+            ii = ProductIDList.length, product_ids = "";
+
+            for (; i < ii; i++) {
+              product_ids += ProductIDList[i] + "|";
+            }
+            product_ids = encodeURIComponent(encodeURI(product_ids.slice(0, -1)));
+
+            img.src = encodeURI(
+              "https://secure.perfectstormmedia.com/tracking/convert.php?c=" + PerfectStormClientName
+               + "&v=" + OrderTotal +
+              "&fn=&ln=&e=&ref=" + OrderID + "&d=<?=") +
+              product_ids;
+
+            document.body.appendChild(img);
+        </script>
+    </body>
+</html>

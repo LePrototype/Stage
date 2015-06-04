@@ -1,0 +1,27 @@
+<!doctype html>
+<html class="no-js" lang="" xmlns="http://www.w3.org/1999/html">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>Test</title>
+    </head>
+    <body>
+        <script type="text/javascript">
+
+            var EvidonPageID = 123;
+            var EvidonCompanyID = 234;
+
+
+
+            var hn = document.createElement('script');
+            hn.type = 'text/javascript';
+            hn.async = true;
+            hn.setAttribute('data-ev-hover-pid', EvidonPageID);
+            hn.setAttribute('data-ev-hover-ocid', EvidonCompanyID);
+            hn.src = ('https:' == document.location.protocol ? 'https://' : 'http://') +
+              'c.betrad.com/geo/h1.js';
+            var s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(hn, s);
+        </script>
+    </body>
+</html>

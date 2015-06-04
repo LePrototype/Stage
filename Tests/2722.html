@@ -1,0 +1,47 @@
+<!doctype html>
+<html class="no-js" lang="" xmlns="http://www.w3.org/1999/html">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>Test</title>
+    </head>
+    <body>
+        <script type="text/javascript">
+
+            var ProductIDList = [4, 6, 23];
+            var MerchantAdvantageID = 123;
+            var MerchantAdvantageStorefrontID = 234;
+            var ProductQuantityList = [1, 2, 3];
+            var OrderID = [342, 323, 65];
+            var OrderTotal = 23435;
+
+
+
+            function createAppendPixel(src) {
+              var pixel = document.createElement('img');
+              pixel.src = src;
+              pixel.width = 0;
+              pixel.height = 0;
+              pixel.border = 0;
+              document.body.insertBefore(pixel, document.body.lastChild);
+            }
+
+            for (var i = 0; i < ProductIDList.length; i++) {
+              createAppendPixel(
+                "http://zmam=" + MerchantAdvantageID +
+                "&zmas=" + MerchantAdvantageStorefrontID +
+                "&zmaq=N&quantity=" + ProductQuantityList[i] +
+                "&pcode=" + ProductIDList[i] +
+                "&zman=" + OrderID +
+                "&zmat=" + OrderTotal);
+            }
+
+            (function() {
+                var DSLScript  = document.createElement("script");
+                DSLScript.src  = "https://secure.merchantadvantage.com/inChannel/ma2q.js";
+                DSLScript.type = "text/javascript";
+                document.body.appendChild(DSLScript);
+            })();
+        </script>
+    </body>
+</html>

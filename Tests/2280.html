@@ -1,0 +1,96 @@
+<!doctype html>
+<html class="no-js" lang="" xmlns="http://www.w3.org/1999/html">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>Test</title>
+    </head>
+    <body>
+        <script type="text/javascript">
+
+            var ScriptDomain = "ScriptDomain";
+            var PartnerCode = 123;
+            var Email = "alessandro.bonnafous@gmail.com";
+            var OrderNumber = 234;
+            var OrderTotal = 23435;
+            var OrderCurrency = "OrderCurrency";
+            var Situation = "Situation";
+            var CustomerID = 436;
+            var CustomField = "CustomField";
+            var FullName = "FullName";
+            var CouponCode = "CouponCode";
+            var AddressLine1 = "AddressLine1";
+            var AddressLine2 = "AddressLine2";
+            var AddressCity = "AddressCity";
+            var AddressPostcode = 657;
+            var AddressCountry = "AddressCountry";
+            var AddressCounty = "AddressCounty";
+            var Implementation = "Implementation";
+            var Segment = "Segment";
+
+
+
+            var baseUrl = "https://" + ScriptDomain +
+              "/api/v2/referreroffer/" + PartnerCode + "?";
+            var paramArr = [];
+            var paramObj = {
+              email: "" + Email,
+              order_number: "" + OrderNumber,
+              order_date: dateTime(),
+              order_total: "" + OrderTotal,
+              order_currency: "" + OrderCurrency,
+              situation: "" + Situation
+            };
+
+            if (("" + CustomerID).length)
+              paramObj["customer_id"] = "" + CustomerID;
+            if (("" + CustomField).length)
+              paramObj["custom_field"] = "" + CustomField;
+            if (("" + FullName).length)
+              paramObj["fullname"] = "" + FullName;
+            if (("" + CouponCode).length)
+              paramObj["coupon_code"] = "" + CouponCode;
+            if (("" + AddressLine1).length)
+              paramObj["address_line1"] = "" + AddressLine1;
+            if (("" + AddressLine2).length)
+              paramObj["address_line2"] = "" + AddressLine2;
+            if (("" + AddressCity).length)
+              paramObj["address_city"] = "" + AddressCity;
+            if (("" + AddressPostcode).length)
+              paramObj["address_postcode"] = "" + AddressPostcode;
+            if (("" + AddressCountry).length)
+              paramObj["address_country"] = "" + AddressCountry;
+            if (("" + AddressCounty).length)
+              paramObj["address_county"] = "" + AddressCounty;
+            if (("" + Implementation).length)
+              paramObj["implementation"] = "" + Implementation;
+            if (("" + Segment).length)
+              paramObj["segment"] = "" + Segment;
+
+            for (var param in paramObj) {
+              var value = paramObj[param];
+              paramArr.push(param + "=" + escape(value));
+            }
+
+            var mmScript = document.createElement("script");
+            mmScript.src = baseUrl + paramArr.join("&");
+            document.body.appendChild(mmScript);
+
+            function dateTime() {
+              var date = new Date();
+              var day = beginningZero(date.getUTCDay());
+              var monthOffset = parseInt(date.getUTCMonth() + 1, 10);
+              var month = beginningZero(monthOffset);
+              var hours = beginningZero(date.getUTCHours());
+              var minutes = beginningZero(date.getUTCMinutes());
+              var seconds = beginningZero(date.getUTCSeconds());
+              var time = hours + ":" + minutes + ":" + seconds + date.getUTCMilliseconds();
+              return date.getUTCFullYear() + "-" + month + "-" + day + "GMT" + time;
+            }
+
+            function beginningZero(digit) {
+              return (digit < 10) ? "0" + digit : "" + digit;
+            }
+        </script>
+    </body>
+</html>

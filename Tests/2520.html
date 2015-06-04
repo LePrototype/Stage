@@ -1,0 +1,46 @@
+<!doctype html>
+<html class="no-js" lang="" xmlns="http://www.w3.org/1999/html">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>Test</title>
+    </head>
+    <body>
+        <script type="text/javascript">
+
+            var ArrayofProductSKUcodes = [4, 6, 23];
+            var ArrayofProductUnitSalePrices = [34, 2, 45];
+            var ArrayofProductQuantities = [1, 2, 3];
+            var UniqueCheckoutID = 123;
+            var ArrayofProductEANvalues = [987, 654, 321];
+
+
+
+            (function() {
+                var DSLScript  = document.createElement("script");
+                DSLScript.src  = "http://media.flixcar.com/delivery/static/js/sio_ty.js";
+                DSLScript.type = "text/javascript";
+                document.body.appendChild(DSLScript);
+            })();
+
+            var products = [];
+
+            for (var i = 0; i < ArrayofProductSKUcodes.length; i++) {
+              products.push({
+                "mpn": "" + ArrayofProductSKUcodes[i],
+                "price": ArrayofProductUnitSalePrices[i],
+                "quantity": ArrayofProductQuantities[i],
+                "ean": "" + ArrayofProductEANvalues[i]
+              });
+            }
+
+            FLIXSio.sioTy({
+              "distributor_id": "",
+              "language": "",
+              "event": "end",
+              "basket_id": "" + UniqueCheckoutID,
+              "basket": products
+            });
+        </script>
+    </body>
+</html>

@@ -1,0 +1,53 @@
+<!doctype html>
+<html class="no-js" lang="" xmlns="http://www.w3.org/1999/html">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>Test</title>
+    </head>
+    <body>
+        <script type="text/javascript">
+
+            var CoreMetricsClientID = 123;
+            var CoreMetricsDataCollectionMethod = "CoreMetricsDataCollectionMethod";
+            var CoreMetricsDataCollectionDomain = "CoreMetricsDataCollectionDomain";
+            var CoreMetricsCookieDomain = "CoreMetricsCookieDomain";
+            var CoreMetricsProductPageID = 67654;
+            var CoreMetricsProductCategoryID = 12345;
+            var ProductID = 7654;
+            var ProductName = "ProductName";
+            var CustomAttribute = "CustomAttribute";
+
+
+
+            (function() {
+                var DSLScript  = document.createElement("script");
+                DSLScript.src  = "http://libs.coremetrics.com/eluminate.js";
+                DSLScript.type = "text/javascript";
+                document.body.appendChild(DSLScript);
+            })();
+
+            // Client Setup
+            window.cmSetClientID(
+              "" + CoreMetricsClientID,
+              CoreMetricsDataCollectionMethod,
+              "" + CoreMetricsDataCollectionDomain,
+              "" + CoreMetricsCookieDomain
+            );
+
+            // Page View
+            window.cmCreatePageviewTag(
+              "" + CoreMetricsProductPageID,
+              "" + CoreMetricsProductCategoryID
+            );
+
+            // Product View
+            window.cmCreateProductviewTag(
+              "" + ProductID,
+              "" + ProductName,
+              "" + CoreMetricsProductCategoryID,
+              "" + CustomAttribute
+            );
+        </script>
+    </body>
+</html>x

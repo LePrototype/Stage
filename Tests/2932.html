@@ -1,0 +1,64 @@
+<!doctype html>
+<html class="no-js" lang="" xmlns="http://www.w3.org/1999/html">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>Test</title>
+    </head>
+    <body>
+        <script type="text/javascript">
+
+            var TransactionProductNames = ["Transaction", "Product", "Names"];
+            var TransactionProductSKUs = [4, 6, 23];
+            var PTValue = 1231;
+            var NAValue = 1232;
+            var OPValue = 1233;
+            var SPValue = 1234;
+            var SKUValue = 1235;
+            var PCValue = 1236;
+            var ID = 234;
+            var PUID = 345;
+
+
+
+            var _this = this;
+            //compile cart data
+            var cart = (function() {
+              if (window.universal_variable && window.universal_variable.line_items) {
+                var arr = [];
+                for (var i = 0; i < TransactionProductNames.length; i++) {
+                  arr.push({
+                    na: TransactionProductNames[i],
+                    sku: TransactionProductSKUs[i]
+                  });
+                }
+                return arr;
+              } else {
+                return "";
+              }
+            })();
+            window.cart = cart;
+
+            window.__cho__ = {
+              "data": {
+                "pt": "" + PTValue,
+                "crt": cart,
+                "na": "" + NAValue,
+                "op": "" + OPValue,
+                "sp": "" + SPValue,
+                "sku": "" + SKUValue,
+                "pc": "" + PCValue
+              },
+              "pid": ID,
+              "puid2": "" + PUID
+            };
+
+            var c = document.createElement('script');
+            c.type = 'text/javascript';
+            c.async = true;
+            c.src = document.location.protocol + '//cc.chango.com/static/o.js';
+            var s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(c, s);
+        </script>
+    </body>
+</html>

@@ -1,0 +1,88 @@
+<!doctype html>
+<html class="no-js" lang="" xmlns="http://www.w3.org/1999/html">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>Test</title>
+    </head>
+    <body>
+        <script type="text/javascript">
+
+            var OmnitureSCodeURL = "http://abc.com/script/123.js";
+            var PageName = "PageName";
+            var OmnitureServerAddress = "OmnitureServerAddress";
+            var OmnitureChannel = 234;
+            var PageType = "PageType";
+            var Prop1 = "Prop1";
+            var Prop2 = "Prop2";
+            var Prop3 = "Prop3";
+            var Prop4 = "Prop4";
+            var Prop5 = "Prop5";
+            var ProductIDList = [4, 6, 23];
+            var ProductNameList = ["Product", "Name", "List"];
+            var ProductQuantities = [1, 2, 3];
+            var ProductCategoryList = ["Product", "Category", "List"];
+            var CampaignName = "CampaignName";
+            var AddressState = "AddressState";
+            var AddressZipCode = 345;
+            var OmnitureEvents = "OmnitureEvents";
+            var OrderID = [342, 323, 65];
+            var eVar1 = "eVar1";
+            var eVar2 = "eVar2";
+            var eVar3 = "eVar3";
+            var eVar4 = "eVar4";
+            var eVar5 = "eVar5";
+
+
+
+            (function() {
+                var DSLScript  = document.createElement("script");
+                DSLScript.src  = OmnitureSCodeURL;
+                DSLScript.type = "text/javascript";
+                document.body.appendChild(DSLScript);
+            })();
+
+            var s = window.s;
+
+            s.pageName = "" + PageName;
+            s.server = "" + OmnitureServerAddress;
+            s.channel = "" + OmnitureChannel;
+            s.pageType = "" + PageType;
+            s.prop1 = "" + Prop1;
+            s.prop2 = "" + Prop2;
+            s.prop3 = "" + Prop3;
+            s.prop4 = "" + Prop4;
+            s.prop5 = "" + Prop5;
+
+            var i = 0,
+              ii = ProductIDList.length,
+              productList = [];
+
+            for (; i < ii; i++) {
+              var product = [];
+              product.push(ProductNameList[i],
+                ProductIDList[i]);
+              product.push(ProductQuantities[i],
+                ProductCategoryList[i]);
+              productList.push(product.join(";"));
+            }
+
+            s.products = productList.join(",");
+
+
+            /* Conversion Variables */
+            s.campaign = "" + CampaignName;
+            s.state = "" + AddressState;
+            s.zip = "" + AddressZipCode;
+            s.events = "" + OmnitureEvents;
+            s.purchaseID = "" + OrderID;
+            s.eVar1 = "" + eVar1;
+            s.eVar2 = "" + eVar2;
+            s.eVar3 = "" + eVar3;
+            s.eVar4 = "" + eVar4;
+            s.eVar5 = "" + eVar5;
+
+            window.s_code = s.t();
+        </script>
+    </body>
+</html>

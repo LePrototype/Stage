@@ -1,0 +1,78 @@
+<!doctype html>
+<html class="no-js" lang="" xmlns="http://www.w3.org/1999/html">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>Test</title>
+    </head>
+    <body>
+        <script type="text/javascript">
+
+            var ProductIDs = [4, 6, 23];
+            var ProductSKUs = [4, 6, 23];
+            var ProductCategories = ["Product", "Cate", "gories"];
+            var ProductManufacturers = ["Product", "Manufa", "cturers"];
+            var LineItemQuantities = [1, 2, 3];
+            var ProductUnitSalePrices = [34, 2, 45];
+            var OrderID = [342, 323, 65];
+
+
+
+            var now = new Date();
+            var day = now.getUTCDate() + "";
+            if (day.length === 1) day = "0" + day;
+            var month = (now.getUTCMonth() + 1) + "";
+            if (month.length === 1) month = "0" + month;
+            var year = now.getUTCFullYear();
+            var date = month + "/" + day + "/" + year;
+            var time = now.toUTCString().match(/..:..:../)[0];
+
+            var ids = [];
+            var skus = [];
+            var categories = [];
+            var manufacturers = [];
+            var quantities = [];
+            var unit_sale_prices = [];
+
+            for (var i = ProductIDs.length - 1; i >= 0; i--) {
+              ids.push(ProductIDs[i]);
+              skus.push(ProductSKUs[i]);
+              categories.push(ProductCategories[i]);
+              manufacturers.push(ProductManufacturers[i]);
+              quantities.push(LineItemQuantities[i]);
+              unit_sale_prices.push(ProductUnitSalePrices[i]);
+            };
+
+            // Calculate subtotals
+            var subtotals = [];
+            for (var i = 0; i < unit_sale_prices.length; i++) {
+              subtotals.push(unit_sale_prices[i] * quantities[i]);
+            }
+
+
+            dcsMultiTrack({
+              // Identify this event as a purchase
+              "WT.tx_e": "p",
+
+              // Transaction parameters
+              "WT.tx_u": quantities.join(';'),
+              "WT.tx_s": subtotals.join(';'),
+              "WT.tx_i": "" + OrderID,
+
+              // Product parameters
+              "WT.pn_sku": skus.join(';'),
+              "WT.pn_id": ids.join(';'),
+
+              "WT.pn_fa": categories.join(';'),
+              "WT.pn_ma": manufacturers.join(";"),
+
+              // conversion timestamp
+              "WT.tx_id": date,
+              "WT.tx_it": time,
+
+              "WT.dl": 1
+
+            });
+        </script>
+    </body>
+</html>

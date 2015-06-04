@@ -1,0 +1,41 @@
+<!doctype html>
+<html class="no-js" lang="" xmlns="http://www.w3.org/1999/html">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>Test</title>
+    </head>
+    <body>
+        <script type="text/javascript">
+
+            var GatewayPrefix = "GatewayPrefix";
+            var CustomerCode = 123;
+            var OrderID = [342, 323, 65];
+            var ProductIDList = [4, 6, 23];
+            var ProductQuantities = [1, 2, 3];
+            var ProductPrices =  [934, 721, 567];
+            var ProductCategories = ["Product", "Cate", "gories"];
+
+
+
+            var pixel = new Image();
+            var source = "https://" +
+              GatewayPrefix +
+              ".cpr.prismastar.com/v2_0/recorder/?type=order&customerCode=" +
+              CustomerCode + "&customerOrderId=" +
+              OrderID + "&order=";
+
+            for (var i = 0, ii = ProductIDList.length; i < ii; i++) {
+              var productArray = [
+                ProductIDList[i],
+                ProductQuantities[i],
+                ProductPrices[i],
+                ProductCategories[i]
+              ];
+              source += productArray.join("|") + ";";
+            }
+
+            pixel.src = source;
+        </script>
+    </body>
+</html>

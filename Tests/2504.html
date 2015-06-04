@@ -1,0 +1,28 @@
+<!doctype html>
+<html class="no-js" lang="" xmlns="http://www.w3.org/1999/html">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>Test</title>
+    </head>
+    <body>
+        <script type="text/javascript">
+
+            var StormIQID = 123;
+            var StormIQChannel = "StormIQChannel";
+
+
+
+            window.__stormJs = 'http://t1.stormiq.com/dcv4/jslib/' +
+              StormIQID + '.js';
+            window.__ch = StormIQChannel;
+
+            (function() {
+                var DSLScript  = document.createElement("script");
+                DSLScript.src  = "http://t1.stormiq.com/dcv4/jslib/" + StormIQID + ".js";
+                DSLScript.type = "text/javascript";
+                document.body.appendChild(DSLScript);
+            })();
+        </script>
+    </body>
+</html>x

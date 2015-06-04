@@ -1,0 +1,45 @@
+<!doctype html>
+<html class="no-js" lang="" xmlns="http://www.w3.org/1999/html">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>Test</title>
+    </head>
+    <body>
+        <script type="text/javascript">
+
+
+
+            window.sp_t = window.universal_variable.transaction;
+
+            if (sp_t) {
+              // First fire the 'addTrans' event for the new transaction
+              _snaq.push(['addTrans',
+                sp_t.order_id || '', // transactionId
+                '', // transactionAffiliation
+                quote(sp_t.total), // transactionTotal
+                quote(sp_t.tax), // transactionTax
+                quote(sp_t.shipping_cost), // transactionShipping
+                sp_t.delivery.city || '', // city
+                sp_t.delivery.state || '', // state
+                sp_t.delivery.country || '' //country
+              ]);
+
+              // Second fire the 'addItem' event for each item included in the transaction
+              for (i = 0; i < sp_t.line_items.length; i++) {
+                _snaq.push(['addItem',
+                  sp_t.order_id || '', // transaction Id
+                  sp_t.line_items[i].product.id || '', // product sku
+                  sp_t.line_items[i].product.name || '', // product name
+                  sp_t.line_items[i].product.category || '', // product category
+                  quote(sp_t.line_items[i].product.unit_sale_price), // product price
+                  quote(sp_t.line_items[i].quantity) // product quantity
+                ]);
+              }
+
+              // Finally fire the 'trackTrans' event to commit the transaction
+              _snaq.push(['trackTrans']);
+            }
+        </script>
+    </body>
+</html>

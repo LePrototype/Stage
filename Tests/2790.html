@@ -1,0 +1,57 @@
+<!doctype html>
+<html class="no-js" lang="" xmlns="http://www.w3.org/1999/html">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>Test</title>
+    </head>
+    <body>
+        <script type="text/javascript">
+
+            var ArrayofSKUScodes = [4, 6, 23];
+            var ArrayofProductQuantities = [1, 2, 3];
+            var ArrayofProductUnitSalePrices = [34, 2, 45];
+            var OrderCurrency = "OrderCurrency";
+            var OrderTotal = 23435;
+            var OrderSubTotal = 23435;
+
+
+            window._advisorq = window._advisorq || [];
+
+            var skus = [];
+            for (var i = 0; i < ArrayofSKUScodes.length; i++) {
+              skus.push("" + ArrayofSKUScodes[i]);
+            }
+
+            window._advisorq.push({
+              _setConfig: {
+                sku: skus.join(",")
+              }
+            });
+
+            var items = [];
+            for (var i = 0; i < ArrayofSKUScodes.length; i++) {
+              items.push({
+                sku: ArrayofSKUScodes[i],
+                quantity: ArrayofProductQuantities[i],
+                price: ArrayofProductUnitSalePrices[i]
+              });
+            }
+
+            window._advisorq.push({
+              _buy: {
+                currency: "" + OrderCurrency,
+                items: items,
+                charges: OrderTotal - OrderSubTotal
+              }
+            });
+
+            (function() {
+                var DSLScript  = document.createElement("script");
+                DSLScript.src  = "http://js.advisor.smartfocus.com/advisor.min.js";
+                DSLScript.type = "text/javascript";
+                document.body.appendChild(DSLScript);
+            })();
+        </script>
+    </body>
+</html>
