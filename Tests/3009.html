@@ -1,0 +1,38 @@
+<!doctype html>
+<html class="no-js" lang="" xmlns="http://www.w3.org/1999/html">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>Test</title>
+    </head>
+    <body>
+        <script type="text/javascript">
+            // Create UV events array if doesn't exist
+            window.universal_variable = window.universal_variable || {};
+            var uv = window.universal_variable;
+            uv.events = uv.events || [];
+            uv.events._cb = uv.events._cb || {};
+
+            // Create the on function for listening
+            uv.events.on = function(eventName, cb) {
+              uv.events._cb = uv.events._cb || {};
+              var cbs = uv.events._cb;
+              cbs[eventName] = cbs[eventName] || [];
+              cbs[eventName].push(cb);
+            };
+
+            // Override push
+            uv.events.push = function(event) {
+              uv.events[uv.events.length] = event;
+              event.time = event.time || (new Date()).getTime();
+              if (window.universal_variable.events._cb.add) {
+                var i = 0,
+                  ii = uv.events._cb.add.length;
+                for (; i < ii; i += 1) {
+                  uv.events._cb.add[i](event);
+                }
+              }
+            };
+        </script>
+    </body>
+</html>

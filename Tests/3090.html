@@ -1,0 +1,27 @@
+<!doctype html>
+<html class="no-js" lang="" xmlns="http://www.w3.org/1999/html">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>Test</title>
+    </head>
+    <body>
+        <script type="text/javascript">
+
+            var AccountId = 123;
+
+
+            window.adiInit = "" + AccountId;
+            window.adiRVO = true;
+            window.adiFunc = null;
+            var adiSrc = document.createElement("script");
+            adiSrc.type = "text/javascript";
+            adiSrc.async = true;
+            adiSrc.src = ("https:" == document.location.protocol ?
+              "https://static-ssl" : "http://static-cdn") +
+              ".responsetap.com/static/scripts/rTapTrack.min.js";
+            var s = document.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(adiSrc, s);
+        </script>
+    </body>
+</html>

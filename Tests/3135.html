@@ -1,0 +1,63 @@
+<!doctype html>
+<html class="no-js" lang="" xmlns="http://www.w3.org/1999/html">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>Test</title>
+    </head>
+    <body>
+        <script type="text/javascript">
+
+        var UserID = 123;
+        var ActionName = "ActionName";
+        var Revenue = 234;
+        var Product = "Product";
+        var ActionID = 345;
+        var PromotionCode = 9876;
+        var TVSquaredClientID = 456;
+        var TVSquaredBrandID = 567;
+
+
+
+        var _paq = _paq || [];
+        var that = this;
+        (function() {
+          var session = {
+            'user': UserID
+          };
+          var actionname = ActionName;
+          var action = {
+            'rev': Revenue,
+            'prod': Product,
+            'id': ActionID,
+            'promo': PromotionCode
+          };
+          var clientID = TVSquaredClientID;
+          var u = (("https:" == document.location.protocol) ? "https://collector-" + clientID + ".tvsquared.com/piwik/" : "http://collector-" + clientID + ".tvsquared.com/piwik/");
+          _paq.push(['setSiteId', TVSquaredBrandID]);
+          _paq.push(['setTrackerUrl', u + 'piwik.php']);
+          _paq.push([
+            function() {
+              this.setCustomVariable(5, 'session', JSON2.stringify(session), 'visit')
+            }
+          ]);
+          _paq.push([
+            function() {
+              this.setCustomVariable(5, actionname, JSON2.stringify(action), 'page')
+            }
+          ]);
+          _paq.push(['trackPageView']);
+          _paq.push(['enableLinkTracking']);
+          var d = document,
+            g = d.createElement('script'),
+            s = d.getElementsByTagName('script')[0];
+          g.type = 'text/javascript';
+          g.defer = true;
+          g.async = true;
+          g.src = u + 'piwik.js';
+          s.parentNode.insertBefore(g, s);
+        })();
+        /*SCRIPT*/
+        </script>
+    </body>
+</html>

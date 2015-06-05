@@ -1,0 +1,24 @@
+<!doctype html>
+<html class="no-js" lang="" xmlns="http://www.w3.org/1999/html">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>Test</title>
+    </head>
+    <body>
+        <script type="text/javascript">
+            // Wait for UV and then resend data to QTracker
+            var wait = function() {
+              if (window.universal_variable) {
+                window._qtd = window._qtd || [];
+                window._qtd.push({
+                  resendUniversalVariables: 1
+                });
+              } else {
+                setTimeout(wait, 200);
+              }
+            };
+            wait();
+        </script>
+    </body>
+</html>
